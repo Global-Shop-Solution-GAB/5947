@@ -1,0 +1,2001 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.FrmQuote..Create
+Gui.FrmQuote..Caption("Open Quote Review")
+Gui.FrmQuote..Size(15360,10515)
+Gui.FrmQuote..MinX(15360)
+Gui.FrmQuote..MinY(10515)
+Gui.FrmQuote..Position(0,0)
+Gui.FrmQuote..BackColor(-2147483633)
+Gui.FrmQuote..MousePointer(0)
+Gui.FrmQuote..Event(UnLoad,FrmQuote_UnLoad)
+Gui.FrmQuote.tabQuote.Create(Tab)
+Gui.FrmQuote.tabQuote.Size(15120,8880)
+Gui.FrmQuote.tabQuote.Position(60,1065)
+Gui.FrmQuote.tabQuote.Tabs(2)
+Gui.FrmQuote.tabQuote.SetTab(0)
+Gui.FrmQuote.tabQuote.Caption("Cust RFQs")
+Gui.FrmQuote.tabQuote.SetTab(1)
+Gui.FrmQuote.tabQuote.Caption("Quotes")
+Gui.FrmQuote.GsGCQuote.Create(GsGridControl)
+Gui.FrmQuote.GsGCQuote.Size(15000,8745)
+Gui.FrmQuote.GsGCQuote.Position(0,0)
+Gui.FrmQuote.GsGCQuote.Parent("tabQuote",1)
+Gui.FrmQuote.GsGCQuote.Anchor(15)
+Gui.FrmQuote.GsGCRFQ.Create(GsGridControl)
+Gui.FrmQuote.GsGCRFQ.Size(15000,5340)
+Gui.FrmQuote.GsGCRFQ.Position(0,0)
+Gui.FrmQuote.GsGCRFQ.Parent("tabQuote",0)
+Gui.FrmQuote.GsGCRFQ.Event(RowCellClick,GsGCAll_RowCellClick)
+Gui.FrmQuote.GsGCRFQ.Event(CellValueChanged,GsGCAll_CellValueChanged)
+Gui.FrmQuote.GsGCRFQ.Anchor(15)
+Gui.FrmQuote.tabDetails.Create(Tab)
+Gui.FrmQuote.tabDetails.Size(15120,3120)
+Gui.FrmQuote.tabDetails.Position(0,5370)
+Gui.FrmQuote.tabDetails.Parent("tabQuote",0)
+Gui.FrmQuote.tabDetails.Tabs(2)
+Gui.FrmQuote.tabDetails.SetTab(0)
+Gui.FrmQuote.tabDetails.Caption("Router")
+Gui.FrmQuote.tabDetails.SetTab(1)
+Gui.FrmQuote.tabDetails.Caption("Vendor Quotes")
+Gui.FrmQuote.GsGCRouter.Create(GsGridControl)
+Gui.FrmQuote.GsGCRouter.Size(15000,8745)
+Gui.FrmQuote.GsGCRouter.Position(0,0)
+Gui.FrmQuote.GsGCRouter.Parent("tabDetails",0)
+Gui.FrmQuote.GsGCRouter.Anchor(14)
+Gui.FrmQuote.GsGCVQuote.Create(GsGridControl)
+Gui.FrmQuote.GsGCVQuote.Size(15000,8745)
+Gui.FrmQuote.GsGCVQuote.Position(0,0)
+Gui.FrmQuote.GsGCVQuote.Parent("tabDetails",1)
+Gui.FrmQuote.GsGCVQuote.Event(RowCellClick,GsGCVQuote_RowCellClick)
+Gui.FrmQuote.picGSSLogo.Create(PictureBox)
+Gui.FrmQuote.picGSSLogo.Size(4125,960)
+Gui.FrmQuote.picGSSLogo.Position(5550,45)
+Gui.FrmQuote.picGSSLogo.ToolTip("Double-Click for additional functions")
+Gui.FrmQuote.picGSSLogo.Anchor(1)
+Gui.FrmQuote.framePermissions.Create(Frame)
+Gui.FrmQuote.framePermissions.Size(2760,600)
+Gui.FrmQuote.framePermissions.Position(12315,15)
+Gui.FrmQuote.framePermissions.Anchor(9)
+Gui.FrmQuote.optView.Create(Option)
+Gui.FrmQuote.optView.Size(780,390)
+Gui.FrmQuote.optView.Position(225,120)
+Gui.FrmQuote.optView.Caption("View")
+Gui.FrmQuote.optView.Parent("framePermissions")
+Gui.FrmQuote.optEdit.Create(Option)
+Gui.FrmQuote.optEdit.Size(645,375)
+Gui.FrmQuote.optEdit.Position(1035,120)
+Gui.FrmQuote.optEdit.Caption("Edit")
+Gui.FrmQuote.optEdit.Enabled(False)
+Gui.FrmQuote.optEdit.Parent("framePermissions")
+Gui.FrmQuote.optWLC.Create(Option)
+Gui.FrmQuote.optWLC.Enabled(False)
+Gui.FrmQuote.optWLC.Size(825,390)
+Gui.FrmQuote.optWLC.Position(1815,120)
+Gui.FrmQuote.optWLC.Parent("framePermissions")
+Gui.FrmQuote.optWLC.Caption("W/L/C")
+Gui.FrmQuote.pbStatus.Create(ProgressBar)
+Gui.FrmQuote.pbStatus.Visible(False)
+Gui.FrmQuote.pbStatus.Size(1845,255)
+Gui.FrmQuote.pbStatus.Position(75,375)
+Gui.FrmQuote.lblStatus.Create(Label,"Loading Quotes....",False,1860,255,0,75,135,True,0,"Arial",8,-986896,0)
+Gui.FrmQuote.frameCutoff.Create(Frame)
+Gui.FrmQuote.frameCutoff.Size(1365,600)
+Gui.FrmQuote.frameCutoff.Position(10890,15)
+Gui.FrmQuote.frameCutoff.Caption("Cutoff Days")
+Gui.FrmQuote.frameCutoff.Anchor(9)
+Gui.FrmQuote.txtDays.Create(TextBox,"30",True,540,300,0,570,210,True,1,"Arial",8,-2147483643,1)
+Gui.FrmQuote.txtDays.NumericOnly(True)
+Gui.FrmQuote.txtDays.Parent("frameCutoff")
+Gui.FrmQuote.txtDays.MaxLength(3)
+Gui.FrmQuote.txtDays.Event(GotFocus,txtDays_GotFocus)
+Gui.FrmQuote.chkDays.Create(CheckBox)
+Gui.FrmQuote.chkDays.Size(285,285)
+Gui.FrmQuote.chkDays.Position(225,225)
+Gui.FrmQuote.chkDays.Parent("frameCutoff")
+Gui.Notes_Form..Create
+Gui.Notes_Form..Size(6570,5130)
+Gui.Notes_Form..MinX(0)
+Gui.Notes_Form..MinY(0)
+Gui.Notes_Form..Position(0,0)
+Gui.Notes_Form..BackColor(-2147483633)
+Gui.Notes_Form..MousePointer(0)
+Gui.Notes_Form..Caption("RFQ Notes")
+Gui.Notes_Form..Event(UnLoad,Unload_Notes)
+Gui.Notes_Form.txt_Notes.Create(TextboxM)
+Gui.Notes_Form.txt_Notes.Size(6195,4095)
+Gui.Notes_Form.txt_Notes.Position(75,45)
+Gui.Notes_Form.txt_Notes.MaxLength(5000)
+Gui.Notes_Form.txt_Notes.Anchor(15)
+Gui.Notes_Form.cmd_NotesSave.Create(Button)
+Gui.Notes_Form.cmd_NotesSave.Size(855,375)
+Gui.Notes_Form.cmd_NotesSave.Position(2880,4185)
+Gui.Notes_Form.cmd_NotesSave.Caption("Save")
+Gui.Notes_Form.cmd_NotesSave.Event(Click,cmdSaveNotes)
+Gui.Notes_Form.cmd_NotesSave.Anchor(2)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+	V.Global.sDays.Declare
+	V.Global.bLoadData.Declare
+	V.Global.sRouter.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	F.Intrinsic.UI.InvokeWaitDialog("Loading...","Please Wait...")
+	F.Intrinsic.Debug.TimerStart("Timer")
+	
+	v.Local.sIcon.Declare
+	V.Local.sGssLogo.Declare
+	V.Local.bGroup.Declare
+	v.Local.bEditQuotePermission.Declare
+	v.Local.bWonLossPermission.Declare
+	V.Local.iTimer.Declare(Long)
+	V.Local.sTitle.Declare(String,"Quoting Interface")
+
+	F.Intrinsic.String.Build("{0}\ART\gss2.ico",V.Caller.GlobalDir,v.Local.sIcon)		
+	F.Intrinsic.String.Build("{0}\ART\GAB_GSS_Logo_Green_Dash.png",V.Caller.GlobalDir,V.Local.sGssLogo)
+	Gui.FrmQuote.picGSSLogo.Picture(v.Local.sGssLogo)
+	Gui.FrmQuote..Icon(V.Local.sIcon)
+	Gui.Notes_Form..Icon(V.Local.sIcon)
+			
+	Function.Global.Security.CheckUserAccessIPM(484,1,v.Local.bEditQuotePermission)
+	F.Intrinsic.Control.If(V.Local.bEditQuotePermission,=,True)
+		Gui.FrmQuote.optEdit.Enabled(True)		
+	F.Intrinsic.Control.EndIf
+	
+	Function.Global.Security.CheckUserAccessIPM(485,0,v.Local.bWonLossPermission)
+	F.Intrinsic.Control.If(V.Local.bWonLossPermission,=,True)		
+		Gui.FrmQuote.optWLC.Enabled(True)
+	F.Intrinsic.Control.EndIf
+	
+	Gui.FrmQuote.optView.Value(True)
+	Gui.FrmQuote.tabQuote.SetTab(0)
+	Gui.FrmQuote.tabDetails.SetTab(0)
+	
+	'F.Intrinsic.UI.Msgbox("?")
+
+	F.Intrinsic.Control.CallSub("SetAnchors")
+
+	'F.ODBC.Connection!con.OpenConnection(v.Ambient.PDSN,v.Ambient.PUser,v.Ambient.PPass)
+	'F.Intrinsic.Control.CallSub("Open_Connection")
+	
+	F.Intrinsic.Control.CallSub("SetContextMenus")
+	'F.Intrinsic.Control.CallSub(SetTabAnchors)
+'	F.Intrinsic.Control.CallSub(SetNoteAnchors)
+	F.Intrinsic.Control.BlockEvents
+	F.Intrinsic.Control.CallSub("loadDTRFQ")
+	
+	Gui.FrmQuote.pbStatus.Value(75)
+	F.Intrinsic.Control.CallSub("loadDTQuote")
+	
+	'F.Intrinsic.Control.CallSub("Close_Connection")
+		
+	F.Intrinsic.Control.UnBlockEvents
+	F.Intrinsic.Control.CallSub("Deserialize")
+	
+	Gui.FrmQuote.pbStatus.Value(100)
+	Gui.FrmQuote.lblStatus.Visible(False)
+	Gui.FrmQuote.pbStatus.Visible(False)
+	
+	F.Intrinsic.Debug.TimerElapsed("Timer",V.Local.iTimer)
+	F.Intrinsic.String.Build("Quoting Interface - {0} seconds",V.Local.iTimer,V.Local.sTitle)
+	Gui.FrmQuote..Caption(v.Local.sTitle)
+	
+	Gui.FrmQuote..Show
+	F.Intrinsic.UI.CloseWaitDialog
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.SetAnchors.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	'0 - None
+	'1 - Top
+	'2 - Bottom
+	'4 - Left
+	'8 - Right
+
+	Gui.FrmQuote.picGSSLogo.Anchor(1)
+	Gui.FrmQuote.lblStatus.Anchor(5)
+	Gui.FrmQuote.pbStatus.Anchor(5)
+	'Gui.FrmQuote.frameButtons.Anchor(9)
+	Gui.FrmQuote.frameCutoff.Anchor(9)
+	Gui.FrmQuote.framePermissions.Anchor(9)
+	Gui.FrmQuote.tabQuote.Anchor(15)
+	Gui.FrmQuote.tabDetails.Anchor(14)
+
+	Gui.Notes_Form.txt_Notes.Anchor(15)
+	Gui.Notes_Form.cmd_NotesSave.Anchor(2)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.SetAnchors.End
+
+Program.Sub.SetTabAnchors.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	'0 - None
+	'1 - Top
+	'2 - Bottom
+	'4 - Left
+	'8 - Right
+
+	gui.FrmQuote.GsGCRFQ.Anchor(15)
+	gui.FrmQuote.GsGCQuote.Anchor(15)
+	Gui.FrmQuote.GsGCRouter.Anchor(15)
+	Gui.FrmQuote.GsGCVQuote.Anchor(15)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.SetTabAnchors.End
+
+Program.Sub.SetNoteAnchors.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	'Set tab to first tab
+	Gui.FrmQuote.tab_RFQ.SetTab(0)
+	Gui.FrmQuote.tab_Details.SetTab(0)
+	Gui.FrmQuote.chk_Quoted.Value(0)
+
+	'Set min form size for notes window	
+	Gui.Notes_Form..MinX(6570)
+	Gui.Notes_Form..MinY(5145)
+		'0 - None
+		'1 - Top
+		'2 - Bottom
+		'4 - Left
+		'8 - Right
+	Gui.Notes_Form.txt_Notes.Anchor(13)
+	Gui.Notes_Form.cmd_NotesSave.Anchor(2)
+		
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry		
+Program.Sub.SetNoteAnchors.End
+
+Program.Sub.txtDays_Change.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.If(v.Screen.FrmQuote!chkDays.Value,=,1)
+		F.Intrinsic.Control.AndIf(V.Global.sDays,<>,V.Screen.FrmQuote!txtDays.Text)
+		F.Intrinsic.Control.CallSub(cmdrefresh_click)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.txtDays_Change.End
+
+Program.Sub.loadDTRFQ.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	v.Local.dMin.Declare(date)
+	v.Local.sMin.Declare
+	v.Local.dRange.Declare(date)
+	v.Local.sRange.Declare
+	v.Local.iNegRange.Declare
+	
+	Gui.FrmQuote.lblStatus.Visible(True)
+	Gui.FrmQuote.pbStatus.Visible(True)
+	Gui.FrmQuote.pbStatus.Min(0)
+	Gui.FrmQuote.pbStatus.Max(100)
+	Gui.FrmQuote.pbStatus.Value(15)
+
+	'If using cutoff days
+	F.Intrinsic.Control.If(v.Screen.FrmQuote!chkDays.Value,=,1)
+		F.Intrinsic.Math.Mult(v.Screen.FrmQuote!txtDays.Text,-1,v.Local.iNegRange)
+		'F.Intrinsic.Date.DateAdd(D,v.Screen.FrmQuote!txtDays.Text,v.Ambient.Now,v.Local.dRange)
+		V.Local.dRange.Set(V.Ambient.Now)
+		F.Intrinsic.Date.DateAdd(D,v.Local.iNegRange,v.Ambient.Now,v.Local.dMin)
+		F.Intrinsic.String.Format(v.Local.dRange,"YYYYMMDD",v.Local.sRange)
+		F.Intrinsic.String.Format(v.Local.dMin,"YYYYMMDD",v.Local.sMin)
+		F.Intrinsic.String.Build("SELECT DISTINCT ' ' as X, T1.RFQ, T1.NAME, T1.CUSTOMER, T1.DESCRIPTION, T1.SORT_CODE, (Left(Right(T1.DATE_RFQ, 4),2) + '/' + Right(T1.DATE_RFQ, 2) + '/' + Left(T1.DATE_RFQ,4)) as DATE_RFQ, CASE When T1.QUOTE = '0' Then NULL Else T1.QUOTE End as QUOTE FROM CUST_RFQ_HEADER T1 WHERE T1.RFQ_SEQUENCE = '000' AND RTrim(DATE_RFQ) BETWEEN '{0}' AND '{1}';",v.Local.sMin,v.Local.sRange,v.Local.sSQL)
+	F.Intrinsic.Control.Else
+		V.Local.sSQL.Declare(String,"SELECT DISTINCT ' ' as X, T1.RFQ, T1.NAME, T1.CUSTOMER, T1.DESCRIPTION, T1.SORT_CODE, (Left(Right(T1.DATE_RFQ, 4),2) + '/' + Right(T1.DATE_RFQ, 2) + '/' + Left(T1.DATE_RFQ,4)) as DATE_RFQ, CASE When T1.QUOTE = '0' Then NULL Else T1.QUOTE End as QUOTE FROM CUST_RFQ_HEADER T1 WHERE T1.RFQ_SEQUENCE = '000';")
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(v.DataTable.dtRFQ.Exists)
+		F.Data.Datatable.close("dtRFQ")
+'		F.Data.Dictionary.close("dicSP")
+'		F.Data.Dictionary.close("dicDue")
+'		F.Data.Dictionary.close("dicStatus")
+'		F.Data.Dictionary.close("dicNotes")
+	F.Intrinsic.Control.EndIf
+	
+'	F.Intrinsic.Control.If(V.Dictionary.dicSP.Exists)
+'		F.Data.Dictionary.close("dicSP")
+'	F.Intrinsic.Control.EndIf
+'	
+'	F.Intrinsic.Control.If(V.Dictionary.dicDue.Exists)
+'		F.Data.Dictionary.close("dicDue")
+'	F.Intrinsic.Control.EndIf
+
+'	F.Intrinsic.Control.If(V.Dictionary.dicStatus.Exists)
+'		F.Data.Dictionary.close("dicStatus")
+'	F.Intrinsic.Control.EndIf
+
+'	F.Intrinsic.Control.If(V.Dictionary.dicNotes.Exists)
+'		F.Data.Dictionary.close("dicNotes")
+'	F.Intrinsic.Control.EndIf
+	
+	V.Global.bLoadData.Set(True)
+	
+	F.Intrinsic.Control.CallSub("Open_Connection")
+	
+	F.Data.DataTable.CreateFromSQL("dtRFQ","con",v.Local.sSQL,True)
+
+	'Add Salesperson to RFQ header records
+'	F.Data.Dictionary.Create("dicSP")
+	F.Data.DataTable.AddColumn("dtRFQ","SALESPERSON","String")
+	F.Data.Dictionary.CreateFromSQL("dicSP","con","Select RFQ, SALESPERSON From GAB_5947_CUSTRFQ Where LINE_RFQ = '000';")
+	F.Data.Dictionary.SetDefaultReturn("dicSP","")
+	F.Data.DataTable.FillFromDictionary("dtRFQ","dicSP","RFQ","SALESPERSON")
+	F.Data.Dictionary.Close("dicSP")
+		
+	'Add RFQ Due Date to RFQ header records
+'	F.Data.Dictionary.Create("dicDue")
+	F.Data.DataTable.AddColumn("dtRFQ","RFQ_DUE_DATE","String")
+	F.Data.Dictionary.CreateFromSQL("dicDue","con","Select RFQ, RFQ_DUE_DATE From GAB_5947_CUSTRFQ Where LINE_RFQ = '000';")
+	F.Data.Dictionary.SetDefaultReturn("dicDue","")
+	F.Data.DataTable.FillFromDictionary("dtRFQ","dicDue","RFQ","RFQ_DUE_DATE")
+	F.Data.Dictionary.Close("dicDue")
+	
+	'Add Status to RFQ header records
+'	F.Data.Dictionary.Create("dicStatus")
+	F.Data.DataTable.AddColumn("dtRFQ","STATUS","String")
+	F.Data.Dictionary.CreateFromSQL("dicStatus","con","Select RFQ, STATUS From GAB_5947_CUSTRFQ Where LINE_RFQ = '000';")
+	F.Data.Dictionary.SetDefaultReturn("dicStatus","")
+	F.Data.DataTable.FillFromDictionary("dtRFQ","dicStatus","RFQ","STATUS")
+	F.Data.Dictionary.Close("dicStatus")
+	
+'	Function.Intrinsic.Debug.InvokeDebugger
+'	Function.Intrinsic.Debug.Stop
+	
+	'Add Notes to RFQ header records
+'	F.Data.Dictionary.Create("dicNotes")
+	F.Data.DataTable.AddColumn("dtRFQ","NOTES","String")
+	F.Data.Dictionary.CreateFromSQL("dicNotes","con","Select RFQ, NOTES From GAB_5947_CUSTRFQ Where LINE_RFQ = '000';")
+	F.Data.Dictionary.SetDefaultReturn("dicNotes","")
+	F.Data.DataTable.FillFromDictionary("dtRFQ","dicNotes","RFQ","NOTES")
+	F.Data.Dictionary.Close("dicNotes")
+
+		'**** Child DataTable 1 ****
+		'If using cutoff days
+		F.Intrinsic.Control.If(v.Screen.FrmQuote!chkDays.Value,=,1)
+'			F.Intrinsic.Math.Mult(v.Screen.FrmQuote!txtDays.Text,-1,v.Local.iNegRange)
+'			F.Intrinsic.Date.DateAdd(D,v.Screen.FrmQuote!txtDays.Text,v.Ambient.Now,v.Local.dRange)
+'			F.Intrinsic.Date.DateAdd(D,v.Local.iNegRange,v.Ambient.Now,v.Local.dMin)
+'			F.Intrinsic.String.Format(v.Local.dRange,"YYYYMMDD",v.Local.sRange)
+'			F.Intrinsic.String.Format(v.Local.dMin,"YYYYMMDD",v.Local.sMin)
+			F.Intrinsic.String.Build("Select T2.RFQ, T2.RFQ_SEQUENCE, (LEFT (T2.ROUTER ,17 ) + T2.REV) as ROUTER, T2.DESCRIPTION, T2.QUANTITY, T2.FLAG_ROUTER_BUILT From CUST_RFQ_HEADER T1 LEFT JOIN CUST_RFQ_LINES T2 ON T1.RFQ = T2.RFQ Where RTrim(T1.DATE_RFQ) BETWEEN '{0}' AND '{1}' AND T1.RFQ_SEQUENCE = '000' AND T1.RFQ_SEQUENCE > '000' Order by T2.RFQ, T2.RFQ_SEQUENCE;",v.Local.sMin,v.Local.sRange,v.Local.sSQL)
+		F.Intrinsic.Control.Else
+			V.Local.sSQL.Set("Select T2.RFQ, T2.RFQ_SEQUENCE, (LEFT (T2.ROUTER ,17 ) + T2.REV) as ROUTER, T2.DESCRIPTION, T2.QUANTITY, T2.FLAG_ROUTER_BUILT From V_CUST_RFQ_LINES T2 Order by T2.RFQ, T2.RFQ_SEQUENCE;")
+		F.Intrinsic.Control.EndIf
+		
+		'Create DataTable from SQL to store data
+		F.Data.DataTable.CreateFromSQL("dtRFQ$DT_RFQlines", "con", V.Local.sSQL, True)
+
+		'**** Add relationship between tables ****
+		F.Data.DataTable.AddRelation("dtRFQ","RFQ","dtRFQ$DT_RFQlines","RFQ","RFQ Lines")
+'		F.Data.DataTable.AddRelation("dtAll","RFQ","DT_RFQlines","RFQ","dtAll$DT_RFQlines")
+
+F.Data.DataView.Create("dtRFQ","dvRFQ")
+F.Data.DataView.Create("dtRFQ$DT_RFQlines","DV_RFQlines")
+
+gui.FrmQuote.GsGCRFQ.AddGridviewFromDataview("gvRFQ","dtRFQ","dvRFQ")
+gui.FrmQuote.GsGCRFQ.AddGridviewFromDataview("gvLines","dtRFQ","DV_RFQlines")
+	
+	Gui.FrmQuote.pbStatus.Value(30)
+	F.Intrinsic.Control.CallSub(loadGCRFQ)
+	Gui.FrmQuote.pbStatus.Value(45)
+	
+	F.Intrinsic.Control.CallSub("Close_Connection")
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry	
+Program.Sub.loadDTRFQ.End
+
+Program.Sub.loadGCRFQ.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.iColumn.Declare(Long)
+	V.Local.iCnt.Declare(Long)
+	
+'	gui.FrmQuote.GsGCRFQ.AddGridViewFromDataTable("gvAll","dtAll")
+	gui.FrmQuote.GsGCRFQ.MainView("gvRFQ")
+	gui.FrmQuote.GsGCRFQ.SuspendLayout()
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvRFQ","MultiSelect",True)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvRFQ","OptionBehaviorEditable",True)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvRFQ","AllowSort",True)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvRFQ","AllowFilter",True)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvRFQ","OptionsDetailShowDetailTabs",False)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvRFQ","OptionsViewShowGroupPanel",True)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvRFQ","EnableAppearanceOddRow",True)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvRFQ","OptionsViewColumnAutoWidth",False)
+	Gui.FrmQuote.GsGCRFQ.BestFitColumns("gvRFQ")
+	
+	'X - +
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","X","Caption"," ")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","X","MinWidth","1")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","X","FixedWidth","1")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","X","AllowEdit",False)
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvAll","X","HeaderFontBold",TRUE)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","X","CellHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","X","AllowSort",False)
+	
+	'RFQ
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ","Caption","RFQ")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ","minWidth","45")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ","ReadOnly",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ","HeaderFontBold",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ","CellForeColor","blue")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ","ToolTip","Open CustRFQ Number")
+	
+	'NAME - Customer Name
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","NAME","Caption","Customer Name")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","NAME","minWidth","200")	
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","NAME","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","NAME","HeaderFontBold",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","NAME","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","NAME","ToolTip","Customer Name")
+	
+	'CUSTOMER - Cust No
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","CUSTOMER","Caption","Cust No")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","CUSTOMER","MinWidth","50")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","CUSTOMER","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","CUSTOMER","HeaderFontBold",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","CUSTOMER","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","CUSTOMER","CellHAlignment","Center")
+	
+	'DESCRIPTION
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","DESCRIPTION","Caption","Description")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","DESCRIPTION","minWidth","120")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","DESCRIPTION","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","DESCRIPTION","HeaderFontBold",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","DESCRIPTION","HeaderHAlignment","Center")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvAll","DESCRIPTION","CellHAlignment","Center")
+
+	'SALESPERSON
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","SALESPERSON","Caption","S/P")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","SALESPERSON","minWidth","35")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","SALESPERSON","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","SALESPERSON","HeaderFontBold",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","SALESPERSON","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","SALESPERSON","CellHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","SALESPERSON","ToolTip","Salesperson")
+	
+	'SORT_CODE
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","SORT_CODE","Caption","Sort Code")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","SORT_CODE","minWidth","65")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","SORT_CODE","AllowEdit",True)
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvAll","SORT_CODE","CellBackColor","LightYellow")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvAll","CODE_SORT","HeaderFontBold",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","SORT_CODE","HeaderFontBold",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","SORT_CODE","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.ColumnEdit("gvRFQ","SORT_CODE","Dropdownlist", "*!*Engr 1*!*Engr 2*!*Engr 3*!*Engr 4")
+
+	'DATE_RFQ - Entered Date
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","DATE_RFQ","Caption","Entered")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","DATE_RFQ","minWidth","100")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","DATE_RFQ","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","DATE_RFQ","HeaderFontBold",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","DATE_RFQ","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","DATE_RFQ","CellHAlignment","Far")
+	
+	'Date_Quote
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvAll","Date_Quote","Caption","Quote Date")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvAll","Date_Quote","minWidth","70")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvAll","Date_Quote","HeaderFontBold",True)
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvAll","Date_Quote","CellHAlignment","Center")
+
+	'RFQ_DUE_DATE - Due Date
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ_DUE_DATE","Caption","Due Date")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ_DUE_DATE","minWidth","85")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ_DUE_DATE","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ_DUE_DATE","ReadOnly",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ_DUE_DATE","HeaderFontBold",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ_DUE_DATE","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ_DUE_DATE","CellHAlignment","Center")
+	
+	'STATUS
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","STATUS","Caption","Status")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","STATUS","MinWidth","50")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","STATUS","AllowEdit",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","STATUS","ReadOnly",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","STATUS","HeaderFontBold",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","STATUS","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","STATUS","CellHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","STATUS","CellBackColor","LightYellow")
+	gui.FrmQuote.GsGCRFQ.GetColumnIndexByName("gvRFQ","STATUS",V.Local.iColumn)
+	gui.FrmQuote.GsGCRFQ.ColumnEdit("gvRFQ","STATUS","Dropdownlist", "*!*Engr Queue*!*Engr In Process*!*Engr Check*!*Purch Queue*!*Purch In Process*!*Sales Queue*!*Sales Review")
+
+	'Status column coloring	
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtRFQ.RowCount--,1)
+		F.Intrinsic.Control.SelectCase(V.DataTable.dtRFQ(V.Local.iCnt).STATUS!FieldValTrim)
+			F.Intrinsic.Control.Case("Engr Queue")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","Orange")
+				
+			F.Intrinsic.Control.Case("Engr In Process")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","Orange")
+				
+			F.Intrinsic.Control.Case("Engr Check")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","Orange")
+	
+			F.Intrinsic.Control.Case("Purch Queue")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","Pink")
+				
+			F.Intrinsic.Control.Case("Purch In Process")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","Pink")
+				
+			F.Intrinsic.Control.Case("Sales Queue")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","LightGreen")
+				
+			F.Intrinsic.Control.Case("Sales Review")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","LightGreen")
+				
+		F.Intrinsic.Control.EndSelect
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	
+	'NOTES
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","NOTES","Caption","Notes")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","NOTES","minWidth","50")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","NOTES","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","NOTES","ReadOnly",True)	
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","NOTES","HeaderFontBold",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","NOTES","CellBackColor","LightYellow")
+	
+	'QUOTE
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","QUOTE","Caption","Quote")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","QUOTE","minWidth","15")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","QUOTE","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","QUOTE","ReadOnly",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","QUOTE","HeaderFontBold",True)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","QUOTE","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","QUOTE","CellHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","QUOTE","CellForeColor","blue")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","QUOTE","ToolTip","Open Quote")
+	
+	'DATE_RFQ
+	gui.FrmQuote.GsGCRFQ.SetColumnProperty("gvRFQ", "DATE_RFQ", "EditMaskType", "datetime")
+	gui.FrmQuote.GsGCRFQ.SetColumnProperty("gvRFQ", "DATE_RFQ", "EditMask", "M/d/yyyy")
+ 	gui.FrmQuote.GsGCRFQ.SetColumnProperty("gvRFQ", "DATE_RFQ", "EditMaskAsDisplayFormat", "True")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvAll","DATE_RFQ","DisplayCustomDatetime","d")
+
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvRFQ","RFQ_DUE_DATE","DisplayCustomDatetime","d")
+	
+	F.Intrinsic.Control.CallSub(loadGCLines)
+	
+	gui.FrmQuote.GsGCRFQ.ResumeLayout()
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.loadGCRFQ.End
+
+Program.Sub.loadGCLines.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+'	Function.Intrinsic.Debug.InvokeDebugger
+'	Function.Intrinsic.Debug.Stop
+	
+'RFQ, RFQ_SEQUENCE, ROUTER, REV, DESCRIPTION, QUANTITY, FLAG_ROUTER_BUILT
+	
+'	gui.FrmQuote.GsGCRFQ.AddGridViewFromDataTable("gvLines","DT_RFQlines")
+'	gui.FrmQuote.GsGCRFQ.MainView("gvLines")
+	
+'	gui.FrmQuote.GsGCRFQ.SuspendLayout()
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvLines","MultiSelect",True)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvLines","OptionBehaviorEditable",True)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvLines","AllowSort",True)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvLines","AllowFilter",True)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvLines","OptionsDetailShowDetailTabs",False)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvLines","OptionsViewShowGroupPanel",False)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvLines","EnableAppearanceOddRow",True)
+	gui.FrmQuote.GsGCRFQ.SetGridViewProperty("gvLines","OptionsViewColumnAutoWidth",False)
+	
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ","Caption","RFQ")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ_SEQUENCE","Caption","Line")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","ROUTER","Caption","Router")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","DESCRIPTION","Caption","Description")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","QUANTITY","Caption","Qty")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","FLAG_ROUTER_BUILT","Caption","Flag")
+
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ","MinWidth","20")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ_SEQUENCE","MinWidth","20")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","ROUTER","MinWidth","50")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","DESCRIPTION","MinWidth","120")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","QUANTITY","MinWidth","50")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","FLAG_ROUTER_BUILT","MinWidth","20")
+		
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ_SEQUENCE","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","ROUTER","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","DESCRIPTION","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","QUANTITY","AllowEdit",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","FLAG_ROUTER_BUILT","AllowEdit",False)
+	
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ","ReadOnly",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ_SEQUENCE","ReadOnly",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","ROUTER","ReadOnly",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","DESCRIPTION","ReadOnly",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","QUANTITY","ReadOnly",False)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","FLAG_ROUTER_BUILT","ReadOnly",True)
+
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ","HeaderFontBold",TRUE)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ_SEQUENCE","HeaderFontBold",TRUE)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","ROUTER","HeaderFontBold",TRUE)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","DESCRIPTION","HeaderFontBold",TRUE)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","QUANTITY","HeaderFontBold",TRUE)
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","FLAG_ROUTER_BUILT","HeaderFontBold",TRUE)
+	
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ_SEQUENCE","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","ROUTER","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","DESCRIPTION","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","QUANTITY","HeaderHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","FLAG_ROUTER_BUILT","HeaderHAlignment","Center")
+	
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ","CellHAlignment","Center")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ_SEQUENCE","CellHAlignment","Center")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","ROUTER","CellHAlignment","Center")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","DESCRIPTION","CellHAlignment","Center")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","QUANTITY","CellHAlignment","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","FLAG_ROUTER_BUILT","CellHAlignment","Center")
+		
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ","CellForeColor","blue")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ_SEQUENCE","CellForeColor","blue")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","ROUTER","CellForeColor","blue")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","DESCRIPTION","CellForeColor","blue")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","QUANTITY","CellForeColor","blue")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","FLAG_ROUTER_BUILT","CellForeColor","blue")
+
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ","ToolTip","RFQ")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","RFQ_SEQUENCE","ToolTip","RFQ Line")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","ROUTER","ToolTip","Router")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","DESCRIPTION","ToolTip","Center")
+'	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","QUANTITY","ToolTip","Center")
+	gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","FLAG_ROUTER_BUILT","ToolTip","Y = Router Started, Q = Quoted")
+	
+	Gui.FrmQuote.GsGCRFQ.setColumnProperty("gvLines","QUANTITY","DisplayCustomNumeric","#,###,##0.0000")
+	
+'	gui.FrmQuote.GsGCRFQ.ResumeLayout()
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.loadGCLines.End
+
+Program.Sub.loadDTQuote.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	v.Local.dMin.Declare(date)
+	v.Local.sMin.Declare
+	v.Local.dRange.Declare(date)
+	v.Local.sRange.Declare
+	v.Local.iNegRange.Declare
+
+	Gui.FrmQuote.lblStatus.Visible(True)
+	Gui.FrmQuote.pbStatus.Visible(True)
+	Gui.FrmQuote.pbStatus.Min(0)
+	Gui.FrmQuote.pbStatus.Max(100)
+	Gui.FrmQuote.pbStatus.Value(15)
+	
+	F.Intrinsic.Control.CallSub("Open_Connection")
+
+	V.Local.sSQL.Declare(String,"SELECT DISTINCT A.CUSTOMER, B.NAME, A.CUSTOMER_PO, A.QUOTE_NO, A.QUOTE_TYPE, A.DATE_QUOTE, A.DATE_DUE, (SELECT SUM(EXTENSION) FROM V_QUOTE_LINES WHERE A.QUOTE_NO = V_QUOTE_LINES.QUOTE_NO) AS EXTENSION, C.NAME AS SALESPERSON, A.CODE_SORT, A.QUOTE_SORT_2, A.USER_5 FROM V_QUOTE_HEADER A LEFT JOIN CUST_PROSP_LIST B ON A.CUSTOMER = B.PROSPECT LEFT JOIN V_SALESPERSONS C ON A.SALESPERSON = C.ID ORDER BY DATE_DUE DESC;")
+
+	f.Intrinsic.Control.If(v.Screen.FrmQuote!chkDays.Value,=,1)
+		f.Intrinsic.Math.Mult(v.Screen.FrmQuote!txtDays.Text,-1,v.Local.iNegRange)
+		f.Intrinsic.Date.DateAdd(D,v.Screen.FrmQuote!txtDays.Text,v.Ambient.Now,v.Local.dRange)
+		f.Intrinsic.Date.DateAdd(D,v.Local.iNegRange,v.Ambient.Now,v.Local.dMin)
+		f.Intrinsic.String.Format(v.Local.dRange,"YYYY-MM-DD",v.Local.sRange)
+		f.Intrinsic.String.Format(v.Local.dMin,"YYYY-MM-DD",v.Local.sMin)
+		f.Intrinsic.String.Build("SELECT DISTINCT A.CUSTOMER,B.NAME, A.CUSTOMER_PO, A.QUOTE_NO, A.QUOTE_TYPE, A.DATE_QUOTE, A.DATE_DUE,(SELECT SUM(EXTENSION) FROM V_QUOTE_LINES WHERE A.QUOTE_NO = V_QUOTE_LINES.QUOTE_NO) AS EXTENSION, C.NAME AS SALESPERSON, A.CODE_SORT, A.QUOTE_SORT_2, A.USER_5 FROM V_QUOTE_HEADER A LEFT JOIN CUST_PROSP_LIST B ON A.CUSTOMER = B.PROSPECT LEFT JOIN V_SALESPERSONS C ON A.SALESPERSON = C.ID WHERE A.DATE_DUE BETWEEN '{0}' AND '{1}' ORDER BY DATE_DUE DESC;",v.Local.sMin,v.Local.sRange,v.Local.sSQL)
+	f.Intrinsic.Control.EndIf
+
+	f.Intrinsic.Control.If(v.DataTable.dtQuote.Exists)
+		F.data.datatable.close("dtQuote")
+		F.Data.Dictionary.close("dictType")
+	f.Intrinsic.Control.EndIf
+	
+	V.Global.bLoadData.Set(True)
+
+	F.Data.Dictionary.Create("dictType")
+	f.Data.Dictionary.AddItem("dictType","A","Approved")
+	F.Data.Dictionary.AddItem("dictType","S","Submitted")
+	F.Data.Dictionary.addItem("dictType","P","Sent")
+	F.data.Dictionary.AddItem("dictType","O","In Process")
+
+	F.Data.DataTable.CreateFromSQL("dtQuote","con",v.Local.sSQL,True)
+	F.Data.DataTable.FillFromDictionary("dtQuote","dictType","Quote_Type")
+
+	Gui.FrmQuote.pbStatus.Value(30)
+	f.Intrinsic.Control.CallSub("loadGCQuote")
+	Gui.FrmQuote.pbStatus.Value(45)
+	
+	F.Intrinsic.Control.CallSub("Close_Connection")
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.loadDTQuote.End
+
+Program.Sub.loadGCQuote.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.FrmQuote.GsGCQuote.AddGridViewFromDataTable("gvQuote","dtQuote")
+	Gui.FrmQuote.GsGCQuote.MainView("gvQuote")
+	Gui.FrmQuote.GsGCQuote.SuspendLayout()
+	Gui.frmQuote.GsGCQuote.SetGridViewProperty("gvQuote","MultiSelect",True)
+	Gui.frmQuote.GsGCQuote.SetGridViewProperty("gvQuote","OptionBehaviorEditable",True)
+	Gui.frmQuote.GsGCQuote.SetGridViewProperty("gvQuote","AllowSort",True)
+	Gui.frmQuote.GsGCQuote.SetGridViewProperty("gvQuote","AllowFilter",True)
+	Gui.frmQuote.GsGCQuote.SetGridViewProperty("gvQuote","OptionsDetailShowDetailTabs",False)
+	Gui.frmQuote.GsGCQuote.SetGridViewProperty("gvQuote","OptionsViewShowGroupPanel",True)
+	Gui.frmQuote.GsGCQuote.SetGridViewProperty("gvQuote","EnableAppearanceOddRow",True)
+	Gui.frmQuote.GsGCQuote.SetGridViewProperty("gvQuote","OptionsViewColumnAutoWidth",False)
+
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Customer","Caption","Cust No")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","NAME","Caption","Customer Name")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Customer_PO","Caption","Cust PO")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_NO","Caption","Quote No")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_Type","Caption","Status")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Quote","Caption","Quote Date")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Due","Caption","Due Date")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","EXTENSION","Caption","Qte Ext Amt")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","SalesPerson","Caption","S/P")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","USER_5","Caption","Ready/User_5")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","CODE_SORT","Caption","Sort 1")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","QUOTE_SORT_2","Caption","Sort 2")
+
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Customer","MinWidth","50")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","NAME","minWidth","200")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Customer_PO","minWidth","120")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_NO","minWidth","65")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_Type","minWidth","100")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Quote","minWidth","70")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Due","minWidth","85")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","EXTENSION","MinWidth","80")	
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","SalesPerson","minWidth","35")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","USER_5","minWidth","150")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","CODE_SORT","minWidth","150")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","QUOTE_SORT_2","minWidth","150")
+
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Customer","AllowEdit",False)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","NAME","AllowEdit",False)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Customer_PO","AllowEdit",False)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_NO","AllowEdit",False)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_Type","AllowEdit",False)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Quote","AllowEdit",False)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Due","AllowEdit",False)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","EXTENSION","AllowEdit",False)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","SalesPerson","AllowEdit",False)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","USER_5","ReadOnly",False)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","CODE_SORT","ReadOnly",False)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","QUOTE_SORT_2","ReadOnly",False)
+	
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Customer","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","NAME","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Customer_PO","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_NO","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_Type","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Quote","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Due","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","EXTENSION","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","SalesPerson","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","USER_5","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","CODE_SORT","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","QUOTE_SORT_2","HeaderFontBold",True)
+
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Customer","HeaderHAlignment","Center")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_NO","HeaderHAlignment","Center")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_Type","HeaderHAlignment","Center")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Quote","HeaderHAlignment","Center")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Due","HeaderHAlignment","Center")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","EXTENSION","HeaderHAlignment","Far")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","SalesPerson","HeaderHAlignment","Center")
+
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Customer","CellHAlignment","Center")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_NO","CellHAlignment","Center")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_Type","CellHAlignment","Center")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Quote","CellHAlignment","Center")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Due","CellHAlignment","Center")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","EXTENSION","CellHAlignment","Far")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","SalesPerson","CellHAlignment","Center")
+
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Quote_No","CellForeColor","blue")
+
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","USER_5","CellBackColor","LightYellow")
+
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","EXTENSION","DisplayCustomNumeric","$ #,###,##0.00")
+
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Quote","DisplayCustomDatetime","d")
+	Gui.FrmQuote.GsGCQuote.setColumnProperty("gvQuote","Date_Due","DisplayCustomDatetime","d")
+
+	Gui.FrmQuote.GsGCQuote.ResumeLayout()
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.loadGCQuote.End
+
+Program.Sub.Load_Router.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+'	Function.Intrinsic.Debug.InvokeDebugger
+'	Function.Intrinsic.Debug.Stop
+	
+	'**** Parent DataTable ****
+	V.Local.sSQL.Declare(String)
+	
+	F.Intrinsic.String.Build("SELECT T1.LINE_ROUTER, T1.LMO, T1.OPERATION, T1 .PART_WC_OUTSIDE, T1.DESC_RT_LINE, T1.SET_UP, T1.RUN_TIME_D6, T1.RUN_TIME, T1.UM_INVENTORY, T1.RATE, T1.LEAD_TIME From V_ROUTER_LINE T1 WHERE T1.ROUTER = '{0}' ORDER BY T1.ROUTER, T1.LINE_ROUTER;",V.Global.sRouter,V.Local.sSQL)
+	
+		'Is DataTable DT_Router open?
+	F.Intrinsic.Control.If(V.DataTable.DT_ROUTER.Exists,=,True)
+		'Close data connection
+		F.Data.DataTable.Close("DT_ROUTER")
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.CallSub(Open_Connection)
+	
+	'Create DataTable from SQL to store data
+	F.Data.DataTable.CreateFromSQL("DT_Router","con",V.Local.sSQL, True)
+	
+	F.Intrinsic.Control.CallSub(Close_Connection)
+	
+	'Create DataView from DataTable
+	F.Data.DataView.Create("DT_Router","DV_Router")
+	
+	'GridView Formatting
+	F.Intrinsic.Control.CallSub(Router_Grid_Format)
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Load_Router.End
+
+Program.Sub.Router_Grid_Format.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	'Create GridView to view stored data
+	Gui.FrmQuote.GsGCRouter.AddGridViewFromDataTable("GV_Router","DT_Router")
+	Gui.FrmQuote.GsGCRouter.AddGridViewFromDataView("GV_Router","DT_Router","DV_Router")
+	Gui.FrmQuote.GsGCRouter.MainView("GV_Router")
+	Gui.FrmQuote.GsGCRouter.SuspendLayout()
+	
+	'Format Grid before columns
+	Gui.FrmQuote.GsGCRouter.SetGridviewProperty("GV_Router","EnableAppearanceOddRow",True)
+	Gui.FrmQuote.GsGCRouter.SetGridviewProperty("GV_Router","MultiSelectMode","0")
+	Gui.FrmQuote.GsGCRouter.SetGridviewProperty("GV_Router","OptionsDetailShowDetailTabs",True)
+	Gui.FrmQuote.GsGCRouter.SetGridviewProperty("GV_Router","OptionsViewColumnAutoWidth",True)
+	Gui.frmQuote.GsGCRouter.SetGridViewProperty("GV_Router","OptionsViewShowGroupPanel",False)
+	Gui.frmQuote.GsGCRouter.SetGridViewProperty("GV_Router","AllowSort",False)
+	Gui.frmQuote.GsGCRouter.SetGridViewProperty("GV_Router","AllowFilter",True)
+	Gui.frmQuote.GsGCRouter.SetGridViewProperty("GV_Router","OptionBehaviorEditable",True)
+	Gui.frmQuote.GsGCRouter.SetGridViewProperty("GV_Router","MultiSelect",False)
+	Gui.FrmQuote.GsGCRouter.BestFitColumns("GV_Router")
+	
+	Gui.FrmQuote.GsGCRouter.AllowMouseWheel(True)
+
+	'LINE_ROUTER column
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LINE_ROUTER","Caption","Sequence")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LINE_ROUTER","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LINE_ROUTER","ReadOnly",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LINE_ROUTER","AllowEdit",False)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LINE_ROUTER","ToolTip","Router Sequence")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LINE_ROUTER","AllowSort",True)
+	
+	'LMO column
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LMO","Caption","LMO")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LMO","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LMO","ReadOnly",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LMO","AllowEdit",False)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LMO","ToolTip","Labor, Material, Outside Sequence")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LMO","AllowSort",True)
+	
+	'OPERATION column
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","OPERATION","Caption","Operation")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","OPERATION","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","OPERATION","ReadOnly",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","OPERATION","AllowEdit",False)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","OPERATION","ToolTip","Operation")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","OPERATION","AllowSort",True)
+	
+	'PART_WC_OUTSIDE column
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","PART_WC_OUTSIDE","Caption","Part / WC / Outside")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","PART_WC_OUTSIDE","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","PART_WC_OUTSIDE","ReadOnly",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","PART_WC_OUTSIDE","AllowEdit",False)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","PART_WC_OUTSIDE","ToolTip","Part, WorkCenter, Outside")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","PART_WC_OUTSIDE","AllowSort",True)
+	
+	'DESC_RT_LINE column
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","DESC_RT_LINE","Caption","Description")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","DESC_RT_LINE","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","DESC_RT_LINE","ReadOnly",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","DESC_RT_LINE","AllowEdit",False)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","DESC_RT_LINE","ToolTip","Description")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","DESC_RT_LINE","AllowSort",True)
+	
+	'SET_UP column
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","SET_UP","Caption","Set up")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","SET_UP","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","SET_UP","HeaderHAlignment","far")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","SET_UP","ReadOnly",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","SET_UP","AllowEdit",False)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","SET_UP","ToolTip","Set up")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","SET_UP","AllowSort","True")
+		Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","SET_UP","EditMaskType","numeric")
+		Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","SET_UP","EditMask","#,###,###,##0.00")
+		Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","SET_UP","EditMaskAsDisplayFormat",True)
+	
+	'RUN_TIME_D6 column
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RUN_TIME_D6","Caption","Runtime")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RUN_TIME_D6","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RUN_TIME_D6","HeaderHAlignment","far")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RUN_TIME_D6","ReadOnly",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RUN_TIME_D6","AllowEdit",False)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RUN_TIME_D6","ToolTip","Runtime")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RUN_TIME_D6","AllowSort",True)
+		Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RUN_TIME_D6","EditMaskType","numeric")
+		Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RUN_TIME_D6","EditMask","#,###,###,##0.####")
+		Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RUN_TIME_D6","EditMaskAsDisplayFormat",True)
+	
+	'RUN_TIME column
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RUN_TIME","VISIBLE",False)
+	
+	'UM_INVENTORY column
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","UM_INVENTORY","Caption","UM")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","UM_INVENTORY","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","UM_INVENTORY","ReadOnly",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","UM_INVENTORY","AllowEdit",False)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","UM_INVENTORY","ToolTip","Unit of Measure, Inventory")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","UM_INVENTORY","AllowSort",True)
+	
+	'RATE column
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RATE","Caption","Rate")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RATE","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RATE","HeaderHAlignment","far")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RATE","ReadOnly",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RATE","AllowEdit",False)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RATE","ToolTip","Rate")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RATE","AllowSort",True)
+		Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RATE","EditMaskType","numeric")
+		Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RATE","EditMask","$ #,###,###,##0.00")
+		Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","RATE","EditMaskAsDisplayFormat",True)
+	
+	'LEAD_TIME column
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LEAD_TIME","Caption","Lead Time")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LEAD_TIME","HeaderFontBold",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LEAD_TIME","HeaderHAlignment","far")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LEAD_TIME","ReadOnly",True)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LEAD_TIME","AllowEdit",False)
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LEAD_TIME","ToolTip","Lead Time in Hours")
+	Gui.FrmQuote.GsGCRouter.SetColumnProperty("GV_Router","LEAD_TIME","AllowSort",True)
+	
+	Gui.FrmQuote.GsGCRouter.ResumeLayout()
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Router_Grid_Format.End
+
+Program.Sub.Load_VQuote.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sSQL.Declare(String)
+'	Function.Intrinsic.Debug.InvokeDebugger
+'	Function.Intrinsic.Debug.Stop
+	
+	F.Intrinsic.Control.CallSub(Open_Connection)
+	
+	F.Intrinsic.String.Build("SELECT T1 .ROUTER ,T1 .LINE_ROUTER ,T1 .LMO ,T1 .PART_WC_OUTSIDE ,T1 .Desc_RT_Line ,T3 .RECEIVED ,T3 .NUM ,T4 .LINE ,T3 .VENDOR , T3 .VENDOR_NAME, T3 .UNIT ,T4 .QUANTITY ,IF (SUBSTRING (T3 .DATE_SENT ,1 ,4 )>= '1900' AND SUBSTRING (T3 .DATE_SENT ,1 ,4 )<= '2999' AND SUBSTRING (T3 .DATE_SENT ,5 ,2 )<= '12' AND SUBSTRING (T3 .DATE_SENT ,5 ,2 )>= '01' AND SUBSTRING (T3 .DATE_SENT ,7 ,2 )<= '31' AND SUBSTRING (T3 .DATE_SENT ,7 ,2 )>= '01' ,CONVERT (SUBSTRING (T3 .DATE_SENT ,1 ,4 )+'-' +SUBSTRING (T3 .DATE_SENT ,5 ,2 )+'-' +SUBSTRING (T3 .DATE_SENT ,7 ,2 ),SQL_DATE ),CONVERT ('1900-01-01' ,SQL_DATE ))DATE_SENT ,T2 .RFQ_NUMBER ,T4 .UNIT_PRICE FROM ((Router_Line T1 LEFT OUTER JOIN VEND_QTE_HEADER T2 ON T1 .ROUTER = T2 .FROM_ROUTER AND T1.DESC_RT_LINE = T2.PART_DESC) LEFT OUTER JOIN VENDOR_RFQ_TRANS T3 ON T2 .PART = T3 .PART_NUMBER AND T2.VENDOR = T3.VENDOR) LEFT OUTER JOIN VEND_QTE_LINES T4 ON T3 .PART_NUMBER = T4 .PART AND T3 .LINE = T4 .RFQ_LINE AND T2.SEQ = T4.SEQ WHERE T1 .ROUTER = '{0}' AND T1 .ROUTER_TYPE = 'L' AND T1 .LMO IN ('M', 'O') AND T1 .PART_WC_OUTSIDE NOT IN ('TMTL') AND NOT(T1 .PART_WC_OUTSIDE LIKE 'SCRAP%') AND NOT(T1 .PART_WC_OUTSIDE LIKE 'TRAY%') ORDER BY T1 .ROUTER, T1 .LINE_ROUTER ,T3 .NUM, T3 .LINE;",V.Global.sRouter,V.Local.sSQL)
+	
+	'Is DataTable DT_Vend_Qte open?
+	F.Intrinsic.Control.If(V.DataTable.DT_VEND_QTE.Exists,=,True)
+		'Close data connection
+		F.Data.DataTable.Close("DT_VEND_QTE")
+	F.Intrinsic.Control.EndIf
+	
+	'Create DataTable from SQL to store data
+	F.Data.DataTable.CreateFromSQL("DT_VEND_QTE","con",V.Local.sSQL,True)
+	
+	F.Intrinsic.Control.CallSub(Close_Connection)
+	
+	F.Data.DataView.Create("DT_VEND_QTE","DV_VEND_QTE")
+	
+	Gui.FrmQuote.GsGCVQuote.AddGridViewFromDataView("GV_VEND_QTE","DT_VEND_QTE","DV_VEND_QTE")
+	
+	'GridView Formatting
+	F.Intrinsic.Control.CallSub(VQuote_Format)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Load_VQuote.End
+
+Program.Sub.VQuote_Format.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	'Create DataView from DataTable
+	'F.Data.DataView.Create("DT_VEND_QTE","DV_VEND_QTE")
+	Gui.FrmQuote.GsGCVQuote.MainView("GV_VEND_QTE")
+	
+	Gui.FrmQuote.GsGCVQuote.SuspendLayout()
+
+	'**** Format Grid before columns ****
+	Gui.FrmQuote.GsGCVQuote.SetGridviewProperty("GV_VEND_QTE","EnableAppearanceOddRow","True")
+	Gui.FrmQuote.GsGCVQuote.SetGridviewProperty("GV_VEND_QTE","MultiSelectMode","0")
+	'Gui.FrmQuote.GsGCVQuote.SetGridviewProperty("GV_VEND_QTE","OptionsDetailShowDetailTabs","True")
+	Gui.FrmQuote.GsGCVQuote.SetGridviewProperty("GV_VEND_QTE","OptionsViewColumnAutoWidth",True)
+	Gui.FrmQuote.GsGCVQuote.BestFitColumns("GV_VEND_QTE")
+	
+	Gui.FrmQuote.GsGCVQuote.AllowMouseWheel(True) 
+	
+	'ROUTER column
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","ROUTER","Visible","False")
+	
+	'LINE_ROUTER column
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE_ROUTER","Caption","Seq")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE_ROUTER","HeaderFontBold","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE_ROUTER","ReadOnly","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE_ROUTER","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE_ROUTER","ToolTip","Router Sequence")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE_ROUTER","AllowSort","True")
+	
+	'LMO column
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LMO","Caption","LMO")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LMO","HeaderFontBold","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LMO","ReadOnly","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LMO","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LMO","ToolTip","Labor, Material, Outside Sequence")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LMO","AllowSort","True")
+	
+	'PART_WC_OUTSIDE column
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","PART_WC_OUTSIDE","Caption","Part / WC / Outside")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","PART_WC_OUTSIDE","HeaderFontBold","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","PART_WC_OUTSIDE","CellForeColor","16711680")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","PART_WC_OUTSIDE","ReadOnly","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","PART_WC_OUTSIDE","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","PART_WC_OUTSIDE","ToolTip","Labor, Material, Outside Sequence")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","PART_WC_OUTSIDE","AllowSort","True")
+	
+	'DESC_RT_LINE column
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DESC_RT_LINE","Caption","Description")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DESC_RT_LINE","HeaderFontBold","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DESC_RT_LINE","ReadOnly","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DESC_RT_LINE","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DESC_RT_LINE","ToolTip","Labor, Material, Outside Sequence")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DESC_RT_LINE","AllowSort","True")
+	
+	
+	'**** We want to get rid of this and replace it with a child section within this GSGC
+	'RECEIVED
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","RECEIVED","Caption","Rcvd")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","RECEIVED","HeaderFontBold","True")
+	'Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","RECEIVED","CellForeColor","16711680")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","RECEIVED","ReadOnly","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","RECEIVED","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","RECEIVED","ToolTip","Quote Received")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","RECEIVED","AllowSort","True")
+	
+	'NUM
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","NUM","Caption","Quote")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","NUM","HeaderFontBold","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","NUM","CellForeColor","16711680")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","NUM","ReadOnly","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","NUM","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","NUM","ToolTip","Quote Number")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","NUM","AllowSort","True")
+
+	'LINE
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE","Caption","Line")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE","HeaderFontBold","True")
+	'Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE","CellForeColor","16711680")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE","ReadOnly","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE","ToolTip","Quote Line")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","LINE","AllowSort","True")
+
+	'VENDOR	
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR","Caption","Vend#")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR","HeaderFontBold","True")
+	'Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR","CellForeColor","16711680")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR","ReadOnly","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR","ToolTip","Vendor Number")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR","AllowSort","True")	
+	
+	'VENDOR_NAME
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR_NAME","Caption","Vendor")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR_NAME","HeaderFontBold","True")
+	'Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR_NAME","CellForeColor","16711680")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR_NAME","ReadOnly","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR_NAME","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR_NAME","ToolTip","Vendor Name")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","VENDOR_NAME","AllowSort","True")
+	
+	'UNIT
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT","Caption","UM")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT","HeaderFontBold","True")
+	'Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT","CellForeColor","16711680")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT","ReadOnly","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT","ToolTip","Unit of Measure")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT","AllowSort","True")	
+	
+	'QUANTITY
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","QUANTITY","Caption","Qty")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","QUANTITY","HeaderFontBold","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","QUANTITY","HeaderHAlignment","far")
+	'Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","QUANTITY","CellForeColor","16711680")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","QUANTITY","ReadOnly","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","QUANTITY","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","QUANTITY","ToolTip","Quantity")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","QUANTITY","AllowSort","True")	
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","QUANTITY","EditMaskType","numeric")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","QUANTITY","EditMask","#,###,###,##0.00")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","QUANTITY","EditMaskAsDisplayFormat","True")
+		
+	'DATE_SENT
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DATE_SENT","Caption","Sent")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DATE_SENT","HeaderFontBold","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DATE_SENT","HeaderHAlignment","far")
+	'Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DATE_SENT","CellForeColor","16711680")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DATE_SENT","ReadOnly","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DATE_SENT","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DATE_SENT","ToolTip","Date Sent")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DATE_SENT","AllowSort","True")	
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DATE_SENT","EditMaskType","datetime")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DATE_SENT","EditMask","M/d/yyyy")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DATE_SENT","EditMaskAsDisplayFormat","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","DATE_SENT","CellHAlignment","far")
+	
+	'RFQ_NUMBER column
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","RFQ_NUMBER","VISIBLE","False")
+		
+	'UNIT_PRICE
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT_PRICE","Caption","Price")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT_PRICE","HeaderFontBold","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT_PRICE","HeaderHAlignment","far")
+	'Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT_PRICE","CellForeColor","16711680")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT_PRICE","ReadOnly","True")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT_PRICE","AllowEdit","False")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT_PRICE","ToolTip","Date Sent")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT_PRICE","AllowSort","True")	
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT_PRICE","EditMaskType","numeric")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT_PRICE","EditMask","$ #,###,###,##0.00")
+	Gui.FrmQuote.GsGCVQuote.SetColumnProperty("GV_VEND_QTE","UNIT_PRICE","EditMaskAsDisplayFormat","True")
+
+Gui.FrmQuote.GsGCVQuote.ResumeLayout()
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.VQuote_Format.End
+
+Program.Sub.GsGCVQuote_RowCellClick.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sLMO.Declare
+	
+	'**** If Vendor Quotes GSGC used ***
+	F.Intrinsic.Control.If(V.Args.ControlName.UCase,=,"GSGCVQuote")
+		'**** If Part Selected ****
+		F.Intrinsic.Control.If(V.Args.Column,=,"PART_WC_OUTSIDE")
+			'Grab LMO
+			'Gui.Main_Form.GSGC_V_Quotes.GetCellValue("GV_VEND_QTE",2,V.Args.RowIndex,V.Global.sLMO)
+			Gui.FrmQuote.GsGCVQuote.GetCellValueByColumnName("GV_VEND_QTE","Column",V.Args.RowIndex,V.Local.sLMO)
+			V.Global.sPart.Set(V.Args.CellValue)
+			F.Intrinsic.Control.If(V.Args.Button,=,"Left")	
+	'			F.Intrinsic.Control.If(V.Args.Clicks,>,"1")
+	'				F.Intrinsic.Control.ExitSub
+	'			F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.CallSub(Launch_V_Quotes)
+			F.Intrinsic.Control.ElseIf(V.Args.Button,=,"Right")
+	'			
+			F.Intrinsic.Control.EndIf
+		
+				'**** If Vendor Quotes Selected ***	
+		F.Intrinsic.Control.ElseIf(V.Args.Column,=,"NUM")
+		
+			V.Global.sVQuote.Set(V.Args.CellValue)
+			F.Intrinsic.Control.If(V.Args.Button,=,"Left")
+				F.Intrinsic.Control.CallSub(Launch_VQuote)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		
+	F.Intrinsic.Control.EndIf	
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.GsGCVQuote_RowCellClick.End
+
+Program.Sub.Launch_VQuote.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sSQL.Declare(String)
+	V.Local.sRet.Declare(String)
+	
+	F.Intrinsic.Control.If(V.Global.sVQuote,<>,"")
+		F.Intrinsic.String.Build("INSERT INTO emc_pass_data (TRMNL, DATA) VALUES ('{0}','{1}');",V.Caller.Terminal,V.Global.sVQuote,V.Local.sSQL)
+		'Save VendorRFQ number to temp table so that it can be called up in another GAB scrip when the Open (Vendor) RFQ screen populates.
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+		'Attach script to Hook ID ...
+		'Open CustRFQ-Open screen. 	'291:0
+		F.Global.General.LaunchMenuTask(291,0,V.Local.sRet)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.ExitSub	
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Launch_VQuote.End
+
+Program.Sub.Serialize.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare	
+	V.Local.sSerialize.Declare
+	
+	'gvRFQ
+	Gui.FrmQuote.GsGCAll.Serialize("gvRFQ",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvRFQ",4310,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)	
+	
+	'gvLines
+	Gui.FrmQuote.GsGCAll.Serialize("gvLines",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvLines",4310,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	
+	'gvQuote
+	Gui.FrmQuote.GsGCAll.Serialize("gvQuote",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"gvQuote",4310,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	'gvOpen
+'	Gui.FrmQuote.GsGCOpen.Serialize("gvOpen",V.Local.sSerialize)
+'	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVOPEN",4310,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Serialize.End
+
+Program.Sub.Deserialize.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	V.Local.sSerialize.Declare
+	
+	'Delete old registry records
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvQuote",4254,0,5,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		F.ODBC.Connection!common.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+		F.ODBC.Connection!common.Execute("Delete From Gs_Registry Where Reg_ID = 4254 And Seq < 1000;")
+		F.ODBC.Connection!common.Close
+	F.Intrinsic.Control.EndIf
+
+'	'gvRFQ
+'	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvRFQ",4254,1000,6,"",V.Local.sSerialize)
+'	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+'		gui.FrmQuote.GsGCRFQ.Deserialize(V.Local.sSerialize)
+'	F.Intrinsic.Control.EndIf
+
+'	'gvLines
+'	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvLines",4254,1000,6,"",V.Local.sSerialize)
+'	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+'		gui.FrmQuote.GsGCRFQ.Deserialize(V.Local.sSerialize)
+'	F.Intrinsic.Control.EndIf
+	
+	'gvQuote
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"gvQuote",4254,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+		gui.FrmQuote.GsGCRFQ.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+'	'gvOpen
+'	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"GVOPEN",4254,1000,6,"",V.Local.sSerialize)
+'	F.Intrinsic.Control.If(V.Local.sSerialize.Trim,<>,"")
+'		gui.FrmQuote.GsGCQuote.Deserialize(V.Local.sSerialize)
+'	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.Deserialize.End
+
+Program.Sub.GsGCAll_RowCellClick.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	V.Local.sRFQ.Declare
+	V.Local.sRouter.Declare
+	V.Local.sQte.Declare
+	V.Local.sQteLine.Declare
+	V.Local.sParams.Declare
+	V.Local.bExists.Declare
+	V.Local.sFile.Declare
+	V.Local.sTitle.Declare
+	V.Local.sSQL.Declare
+	V.Local.sRet.Declare
+	
+	'If RFQ Grid
+	F.Intrinsic.Control.If(V.Args.ControlName.UCase,=,"GSGCRFQ")
+	
+'		F.Intrinsic.String.Build("{0}\GAB_5947_CustRFQ_Entry.gas",V.Caller.GASDir,V.Local.sFile)
+'		F.Intrinsic.File.PathExists(V.Local.sFile,V.Local.bExists)
+		
+'		gui.FrmQuote.GsGCRFQ.GetCellValueByColumnName("gvRFQ","RFQ",V.Args.RowIndex,V.Local.sRFQ)
+	
+'		F.Intrinsic.Control.SelectCase(v.Args.Column)
+			'If RFQ number
+'			F.Intrinsic.Control.Case("RFQ")
+			F.Intrinsic.Control.If(V.Args.Column.UCase,=,"RFQ")
+				
+				gui.FrmQuote.GsGCRFQ.GetCellValueByColumnName("gvRFQ","RFQ",v.Args.RowIndex,v.Local.sRFQ)
+'				F.Intrinsic.Control.If(V.Local.bExists,=,True)
+					'Launch Customer Cust RFQ entry screen.			
+					
+	'			F.Intrinsic.Control.Else
+					'Launch Estimating / Routing & Quote Management > File > Customer RFQ > Open
+					
+					F.Intrinsic.Control.CallSub("Open_Connection")
+					
+					'Check for existying
+					F.Intrinsic.String.Build("Delete From GAB_PASS_DATA Where TRMNL = '{0}' and COMPANY_CODE = '{1}';",V.Caller.Terminal,V.Caller.CompanyCode,V.Local.sSQL)
+					F.ODBC.Connection!con.Execute(V.Local.sSQL)
+					
+					'Store RFQ number in temp table to pass to screen
+					F.Intrinsic.String.Build("INSERT INTO GAB_PASS_DATA (TRMNL, DATA, USER_ID, COMPANY_CODE) VALUES ('{0}','{1}','{2}','{3}');",V.Caller.Terminal,V.Local.sRFQ,V.Caller.User,V.Caller.CompanyCode,V.Local.sSQL)
+					F.ODBC.Connection!con.Execute(V.Local.sSQL)
+					
+					F.Intrinsic.Control.CallSub("Close_Connection")
+					'Open Customer RFQ screen
+					F.Global.General.LaunchMenuTask(503,1,V.Local.sRet)
+'				F.Intrinsic.Control.EndIf
+				
+			'If Router field
+			F.Intrinsic.Control.ElseIf(V.Args.Column.UCase,=,"ROUTER")
+'			gui.FrmQuote.GsGCRFQ.GetCellValueByColumnName("gvLines","ROUTER",V.Args.RowIndex,V.Local.sRouter)
+			V.Local.sRouter.Set(V.Args.CellValue)
+				V.Global.sRouter.Set(V.Local.sRouter)
+				F.Intrinsic.Control.If(V.Args.Button.UCase,=,"RIGHT")
+					F.Intrinsic.Control.CallSub(Load_Router)
+					F.Intrinsic.Control.CallSub(Load_VQuote)
+			'		F.Intrinsic.Control.CallSub(Load_Cost)
+					
+				F.Intrinsic.Control.ElseIf(V.Args.Button.UCase,=,"LEFT")
+					F.Intrinsic.Control.If(V.Args.Clicks,=,1)
+					'Launch Router screen
+						F.Intrinsic.Control.If(V.Local.sRouter,<>,"")
+							F.Intrinsic.Control.CallSub(Load_Router)
+							F.Intrinsic.Control.CallSub(Load_VQuote)
+			'				F.Intrinsic.Control.CallSub(Load_Cost)
+						F.Intrinsic.Control.EndIf
+					F.Intrinsic.Control.Else(V.Args.Clicks,=,2)
+						'F.Intrinsic.String.Concat("L!*!",V.Local.sRouter,V.Local.sParams)
+						F.Intrinsic.String.Build("L!*!{0}",V.Local.sRouter,V.Local.sParams)
+						F.Global.General.CallWrapperAsync(400000,V.Local.sParams)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+				V.Global.sRouter.Set("")
+				
+			'If Notes field	
+'			F.Intrinsic.Control.Case("NOTES")
+			F.Intrinsic.Control.ElseIf(V.Args.Column.UCase,=,"NOTES")
+			
+				gui.FrmQuote.GsGCRFQ.GetCellValueByColumnName("gvRFQ","RFQ",v.Args.RowIndex,v.Local.sRFQ)
+				F.Intrinsic.String.Build("{0}",V.Local.sRFQ,V.Local.sTitle)
+				Gui.Notes_Form..Caption(V.Local.sTitle)
+				
+				F.Intrinsic.String.Build("Select NOTES From GAB_5947_CUSTRFQ Where RFQ = '{0}' and LINE_RFQ = '000';",v.Local.sRFQ,v.Local.sSQL)
+				'Open connection
+				F.Intrinsic.Control.CallSub("Open_Connection")
+				
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+				Gui.Notes_Form.txt_Notes.Text(V.Local.sRet)
+
+				'Close connection
+				F.Intrinsic.Control.CallSub("Close_Connection")
+				
+				Gui.Notes_Form..Show(True)
+			'If Quote number
+'			F.Intrinsic.Control.Case("QUOTE")
+			F.Intrinsic.Control.ElseIf(V.Args.Column.UCase,=,"QUOTE")
+
+				gui.FrmQuote.GsGCRFQ.GetCellValueByColumnName("gvRFQ","QUOTE",v.Args.RowIndex,v.Local.sQte)
+				V.Local.sQteLine.Set("")
+				F.Intrinsic.Control.If(V.Screen.FrmQuote!optView.Value)
+					gui.FrmQuote.tabQuote.Enabled(False)
+					F.Intrinsic.String.ConcatCallWrapperArgs(V.Local.sQte,"V","*!*ZDR*!*",V.Local.sParams)
+					F.Global.General.CallWrapperSync(251000,V.Local.sParams)
+					gui.FrmQuote.tabQuote.Enabled(True)
+				F.Intrinsic.Control.ElseIf(V.Screen.FrmQuote!optEdit.Value)
+					gui.FrmQuote.tabQuote.Enabled(False)
+					F.Intrinsic.String.ConcatCallWrapperArgs(V.Local.sQte,"O","*!*ZDR*!*",V.Local.sParams)
+					F.Global.General.CallWrapperSync(251000,V.Local.sParams)
+					gui.FrmQuote.tabQuote.Enabled(True)
+				F.Intrinsic.Control.ElseIf(V.Screen.FrmQuote!optWLC.Value)
+					gui.FrmQuote.tabQuote.Enabled(False)
+					F.Intrinsic.String.ConcatCallWrapperArgs(V.Local.sQte,V.Local.sQteLine,"G","",V.Local.sParams)
+					F.Global.General.CallWrappersync(3801,V.Local.sParams)
+					gui.FrmQuote.tabQuote.Enabled(True)
+				F.Intrinsic.Control.EndIf
+	
+'			F.Intrinsic.Control.EndSelect
+			F.Intrinsic.Control.EndIf
+	'If Quote Grid
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"GSGCQuote")	
+		
+			
+	F.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.GsGCAll_RowCellClick.End
+
+Program.Sub.GsGCAll_CellValueChanged.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	V.Local.sTemp.Declare
+	V.Local.sText.Declare
+	V.Local.sRFQ.Declare
+	V.Local.sSQL.Declare
+	V.Local.sRet.Declare
+	v.Local.sStatus.Declare
+	
+'	Function.Intrinsic.Debug.InvokeDebugger
+'	Function.Intrinsic.Debug.Stop
+	
+	gui.FrmQuote.GsGCRFQ.GetCellValueByColumnName("gvRFQ","RFQ",v.Args.RowIndex,V.Local.sRFQ)
+	gui.FrmQuote.GsGCRFQ.GetCellValueByColumnName("gvRFQ","STATUS",v.Args.RowIndex,V.Local.sStatus)
+
+	F.Intrinsic.Control.If(V.Args.column.UCase,=,"SORT_CODE")
+		V.Local.sRet.Set("")
+		F.Intrinsic.String.Build("UPDATE GAB_5947_CUSTRFQ SET SORT_CODE = '{0}' WHERE RFQ = '{1}' and RFQ_SEQUENCE = '000';",V.Local.sRFQ,V.Local.sSQL)
+		F.Intrinsic.Control.CallSub("Open_Connection")
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+		F.Intrinsic.Control.CallSub("Close_Connection")
+	F.Intrinsic.Control.ElseIf(v.Args.Column.UCase,=,"STATUS")
+		V.Local.sRet.Set("")
+'		V.Local.sRFQ.Set(V.DataTable.dtAll(V.Args.RowIndex).RFQ!FieldVal)
+'		V.Local.sStatus.Set(V.DataTable.dtAll(V.Args.RowIndux).Status!FieldVal)
+		'Check for table record
+		F.Intrinsic.String.Build("Select RFQ From GAB_5947_CUSTRFQ Where  RFQ = '{0}' AND LINE_RFQ = '000';",V.Local.sRFQ,V.Local.sSQL)
+		F.Intrinsic.Control.CallSub("Open_Connection")
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		F.Intrinsic.Control.CallSub("Close_Connection")
+		F.Intrinsic.Control.If(V.Local.sRet.IsNullOrWhiteSpace)
+		'If no record exists, create it
+			F.Intrinsic.String.Build("Insert Into GAB_5947_CUSTRFQ (RFQ, LINE_RFQ, STATUS) Values('{0}','000','{1}');",V.Local.sRFQ,V.Local.sStatus,V.Local.sSQL)
+		'If record exists, updat
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("UPDATE GAB_5947_CUSTRFQ SET STATUS = '{0}' WHERE RFQ = '{1}' AND LINE_RFQ = '000';",v.Args.Value,V.Local.sRFQ,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.CallSub("Open_Connection")
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+		F.Intrinsic.Control.CallSub("Close_Connection")
+		F.Intrinsic.Control.CallSub(GCAll_StatusColor)
+	F.Intrinsic.Control.EndIf
+	
+	
+'		gui.FrmQuote.GsGCRFQ.GetCellValueByColumnName("gvAll","Quote_NO",v.Args.rowIndex,v.Local.sTemp)
+'		F.Intrinsic.String.Replace(V.Args.Value,"'","''",V.Local.sText)
+'		f.Intrinsic.String.Build("UPDATE QUOTE_HEADER SET User_5 = '{0}' Where RECORD_TYPE = 'A' and QUOTE_NO = '{1}'",v.Local.sText,v.Local.sTemp,v.Local.sTemp)
+'		F.ODBC.Connection!con.Execute(v.Local.sTemp)
+'	f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.GsGCAll_CellValueChanged.End
+
+Program.Sub.GsGCOpen_RowCellClick.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sQte.Declare
+	V.Local.sQteLine.Declare
+	V.Local.sParams.Declare
+
+	F.Intrinsic.Control.SelectCase(v.Args.Column)
+		F.Intrinsic.Control.Case("QUOTE_NO")
+			gui.FrmQuote.GsGCQuote.GetCellValueByColumnName("gvOpen","QUOTE_NO",v.Args.RowIndex,v.Local.sQte)
+			V.Local.sQteLine.Set("")
+			F.Intrinsic.Control.If(V.Screen.FrmQuote!optView.Value)
+				gui.FrmQuote.tabQuote.Enabled(False)
+				F.Intrinsic.String.ConcatCallWrapperArgs(V.Local.sQte,"V","*!*ZDR*!*",V.Local.sParams)
+				F.Global.General.CallWrapperSync(251000,V.Local.sParams)
+				gui.FrmQuote.tabQuote.Enabled(True)
+			F.Intrinsic.Control.ElseIf(V.Screen.FrmQuote!optEdit.Value)
+				gui.FrmQuote.tabQuote.Enabled(False)
+				F.Intrinsic.String.ConcatCallWrapperArgs(V.Local.sQte,"O","*!*ZDR*!*",V.Local.sParams)
+				F.Global.General.CallWrapperSync(251000,V.Local.sParams)
+				gui.FrmQuote.tabQuote.Enabled(True)
+			F.Intrinsic.Control.ElseIf(V.Screen.FrmQuote!optWLC.Value)
+				gui.FrmQuote.tabQuote.Enabled(False)
+				F.Intrinsic.String.ConcatCallWrapperArgs(V.Local.sQte,V.Local.sQteLine,"G","",V.Local.sParams)
+				F.Global.General.CallWrappersync(3801,V.Local.sParams)
+				gui.FrmQuote.tabQuote.Enabled(True)
+			F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.EndSelect
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.GsGCOpen_RowCellClick.End
+
+Program.Sub.txtDays_GotFocus.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Global.sDays.Set(V.Screen.FrmQuote!txtDays.Text)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.txtDays_GotFocus.End
+
+Program.Sub.SetContextMenus.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	v.Local.bEditQuotePermission.Declare(boolean)
+	'Check for Quote security Permissions
+	Function.Global.Security.CheckUserAccessIPM(482,1,v.Local.bEditQuotePermission)
+	
+	'RFQ tab
+	Gui.FrmQuote..ContextMenuCreate("ctxAll")
+	gui.FrmQuote.GsGCRFQ.ContextMenuAttach("ctxAll")
+
+	Gui.FrmQuote..ContextMenuAddItem("ctxAll","Refresh",0,"Refresh")
+	Gui.FrmQuote..ContextMenuSetItemEventHandler("ctxAll","Refresh","MenuClickRefresh")
+
+	Gui.FrmQuote..ContextMenuAddItem("ctxAll","Export",0,"Export")	
+	Gui.FrmQuote..ContextMenuSetItemEventHandler("ctxAll","Export","MenuClickExport")
+
+	Gui.FrmQuote..ContextMenuAddItem("ctxAll","NewRFQ",0,"New RFQ")
+	Gui.FrmQuote..ContextMenuSetItemEventHandler("ctxAll","NewRFQ","MenuClickNewRFQ")	
+		
+	f.Intrinsic.Control.If(v.Local.bEditQuotePermission)
+		Gui.FrmQuote..ContextMenuAddItem("ctxAll","New",0,"New Quote")
+		Gui.FrmQuote..ContextMenuSetItemEventHandler("ctxAll","New","MenuClickNewQuote")
+	f.Intrinsic.Control.EndIf
+	
+	Gui.FrmQuote..ContextMenuAddItem("ctxAll","ResetColumns",0,"Reset Columns")
+	Gui.FrmQuote..ContextMenuSetItemEventHandler("ctxAll","ResetColumns","MenuClickResetColumns")
+	
+	'Quote tab 
+	Gui.FrmQuote..ContextMenuCreate("ctxOpen")
+	gui.FrmQuote.GsGCQuote.ContextMenuAttach("ctxOpen")
+	
+	Gui.FrmQuote..ContextMenuAddItem("ctxOpen","Refresh",0,"Refresh")
+	Gui.FrmQuote..ContextMenuSetItemEventHandler("ctxOpen","Refresh","MenuClickRefresh")
+	
+	Gui.FrmQuote..ContextMenuAddItem("ctxOpen","Export",0,"Export")	
+	Gui.FrmQuote..ContextMenuSetItemEventHandler("ctxOpen","Export","MenuClickExport")
+	
+	Gui.FrmQuote..ContextMenuAddItem("ctxOpen","NewRFQ",0,"New RFQ")
+	Gui.FrmQuote..ContextMenuSetItemEventHandler("ctxOpen","NewRFQ","MenuClickNewRFQ")
+	
+	f.Intrinsic.Control.If(v.Local.bEditQuotePermission)	
+		Gui.FrmQuote..ContextMenuAddItem("ctxOpen","New",0,"New Quote")
+		Gui.FrmQuote..ContextMenuSetItemEventHandler("ctxOpen","New","MenuClickNewQuote")
+	f.Intrinsic.Control.EndIf
+	
+	Gui.FrmQuote..ContextMenuAddItem("ctxOpen","ResetColumns",0,"Reset Columns")
+	Gui.FrmQuote..ContextMenuSetItemEventHandler("ctxOpen","ResetColumns","MenuClickResetColumns")
+
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.SetContextMenus.End
+
+Program.Sub.MenuClickRefresh.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.CallSub(cmdRefresh_Click)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickRefresh.End
+
+Program.Sub.MenuClickExport.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sFileExport.Declare
+	V.Local.bExcel.Declare
+	V.Local.bFileLocked.Declare
+	V.Local.sMsg.Declare
+	V.Local.sControl.Declare
+		
+	F.Intrinsic.Control.SelectCase(V.Args.MenuName)
+		F.Intrinsic.Control.Case("CTXALL")
+			V.Local.sControl.Set("GsGCRFQ")
+		F.Intrinsic.Control.Case("CTXOPEN")
+			V.Local.sControl.Set("GsGCQuote")
+	F.Intrinsic.Control.EndSelect
+	
+	'Check for Excel
+	F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+	
+	F.Intrinsic.Control.If(V.Local.bExcel)
+		F.Intrinsic.String.Build("{0}GAB_5947_{1}_Export.xlsx",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+		F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+		F.Intrinsic.Control.If(V.Local.bFileLocked)
+			F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+		F.Intrinsic.Control.Else
+			Gui.FrmQuote.[V.Local.sControl].Export(V.Local.sFileExport,"xlsx")
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("{0}GAB_4310_{1}_Export.csv",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+		F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+		F.Intrinsic.Control.If(V.Local.bFileLocked)
+			F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+		F.Intrinsic.Control.Else
+			Gui.FrmQuote.[V.Local.sControl].Export(V.Local.sFileExport,"csv")
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickExport.End
+
+Program.Sub.MenuClickResetColumns.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.SelectCase(V.Args.MenuName)
+		F.Intrinsic.Control.Case("CTXALL")
+			F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVALL",4310,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,"")
+		F.Intrinsic.Control.Case("CTXOPEN")
+			F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVOPEN",4310,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,"")
+	F.Intrinsic.Control.EndSelect
+	
+	V.Global.bLoadData.Set(False)
+	F.Intrinsic.Control.CallSub(cmdRefresh_Click)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickResetColumns.End
+
+Program.Sub.MenuClickNewRFQ.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	V.Local.iRowCnt.Declare
+	V.Local.iRowCnt2.Declare
+	V.Local.sRet.Declare
+	V.Local.sProgram.Declare
+	V.Local.bRet.Declare
+	V.Local.iPID.Declare
+	
+	'Gui.frmNewQte..Visible(False)
+
+	F.Intrinsic.String.Build("{0}GAB_5947_CustRFQ_Entry.g2u",V.Caller.GasDir,V.Local.sProgram)
+	F.Intrinsic.File.Exists(V.Local.sProgram,V.Local.bRet)
+	
+	F.Intrinsic.Control.If(V.Local.bRet,=,True)
+		'Open Custom Custom RFQ Entry screen
+		F.Global.General.CallAsyncGAS(V.Local.sProgram,V.Local.iPID)
+	F.Intrinsic.Control.Else
+		'Open core CustRFQ-New screen. 
+		F.Global.General.LaunchMenuTask(503,2,V.Local.sRet)
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickNewRFQ.End
+
+Program.Sub.MenuClickNewQuote.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.iRowCnt.Declare
+	V.Local.iRowCnt2.Declare
+	
+	'Gui.frmNewQte..Visible(False)
+	'Open Connection
+'	F.Intrinsic.Control.CallSub("Open_Connection")
+	
+'	F.ODBC.Connection!con.ExecuteAndReturn("SELECT COUNT(*) FROM V_QUOTE_HEADER;",V.Local.iRowCnt)
+'	Gui.FrmQuote..Enabled(False)
+	F.Global.General.CallWrapperSync(251000,"*!*ZDR*!*!*!N!*!*!*ZDR*!*")
+'	F.ODBC.Connection!con.ExecuteAndReturn("SELECT COUNT(*) FROM V_QUOTE_HEADER;",V.Local.iRowCnt2)
+	'Close Connection
+'	F.Intrinsic.Control.CallSub("Close_Connection")
+	F.Intrinsic.Control.If(V.Local.iRowCnt,<>,V.Local.iRowCnt2)
+		F.Intrinsic.Control.CallSub("cmdrefresh_click")
+		Gui.FrmQuote..Enabled(True)
+	F.Intrinsic.Control.Else
+		Gui.FrmQuote..Enabled(True)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickNewQuote.End
+
+Program.Sub.cmdRefresh_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	V.Local.iTimer.Declare
+	V.Local.sTitle.Declare
+	
+'	F.Intrinsic.Control.SelectCase(V.Args.MenuName)
+'		F.Intrinsic.Control.Case("CTXALL")
+'			V.Local.sControl.Set("GsGCAll")
+'		F.Intrinsic.Control.Case("CTXOPEN")
+'			V.Local.sControl.Set("GsGCOpen")
+'	F.Intrinsic.Control.EndSelect
+	
+'	Function.Intrinsic.Debug.InvokeDebugger
+'	Function.Intrinsic.Debug.Stop
+	
+	F.Intrinsic.Debug.TimerStart("Timer")
+	
+	'F.Intrinsic.Control.CallSub(Open_Connection)
+	
+	F.Intrinsic.Control.If(V.Global.bLoadData)
+		F.Intrinsic.Control.CallSub(Serialize)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.BlockEvents
+	Gui.FrmQuote..Enabled(False)
+	F.Intrinsic.Control.CallSub(LoadDTRFQ)
+	F.Intrinsic.Control.CallSub(LoadDTQuote)
+	
+	Gui.FrmQuote..Enabled(True)
+	F.Intrinsic.Control.UnBlockEvents
+	F.Intrinsic.Control.CallSub(Deserialize)
+	
+	'F.Intrinsic.Control.CallSub(Close_Connection)
+	
+	Gui.FrmQuote.pbStatus.Value(100)
+	Gui.FrmQuote.lblStatus.Visible(False)
+	Gui.FrmQuote.pbStatus.Visible(False)
+	
+	F.Intrinsic.Debug.TimerElapsed("Timer",V.Local.iTimer)
+	F.Intrinsic.String.Build("Quoting Interface - {0} seconds",V.Local.iTimer,V.Local.sTitle)
+	gUI.FrmQuote..Caption(v.Local.sTitle)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdRefresh_Click.End
+
+Program.Sub.cmdSaveNotes.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	V.Local.sRFQ.Declare
+	V.Local.sSQL.Declare(String)
+	V.Local.sRet.Declare(String)
+	V.Local.sPrevNotes.Declare(String)
+	V.Local.sCurrNotes.Declare(String)
+	
+	V.Local.sRFQ.Set(V.Screen.Notes_Form!Caption.Text)
+	F.Intrinsic.String.Left(V.Local.sRFQ,7,V.Local.sRFQ)
+	
+	V.Local.sCurrNotes.Set(V.Screen.Notes_Form!txt_Notes.Text)
+	F.Intrinsic.String.Trim(V.Local.sCurrNotes,V.Local.sCurrNotes)
+	
+	F.Intrinsic.Control.CallSub(Open_Connection)
+	
+	F.Intrinsic.String.Build("Select COUNT(NOTES) From GAB_5947_CUSTRFQ Where RFQ = '{0}' and LINE_RFQ = '000';",V.Local.sRFQ,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	
+	'If no record exists
+	F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+		F.Intrinsic.String.Build("Insert Into GAB_5947_CUSTRFQ (RFQ, LINE_RFQ, NOTES) Values ('{0}', '000', '{1}');",V.Local.sRFQ,V.Local.sCurrNotes,V.Local.sSQL)
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	F.Intrinsic.Control.Else
+		'If record exists
+		F.Intrinsic.String.Build("Update GAB_5947_CUSTRFQ Set NOTES = '{0}' Where RFQ = '{1}' and LINE_RFQ = '000';",V.Local.sCurrNotes,V.Local.sRFQ,V.Local.sSQL)
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.CallSub(Close_Connection)
+	
+	F.Intrinsic.UI.Msgbox("Notes Saved","Saved")
+	F.Intrinsic.Control.CallSub(Unload_Notes)
+	F.Intrinsic.Control.CallSub(cmdRefresh_Click)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdSaveNotes.End
+
+Program.Sub.Unload_Notes.Start
+'Close Notes window
+Gui.Notes_Form..Visible(False)
+'Clear notes text box
+Gui.Notes_Form.txt_Notes.Text!Set("")
+
+F.Intrinsic.Control.ExitSub
+Program.Sub.Unload_Notes.End
+
+Program.Sub.FrmQuote_UnLoad.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	'F.Intrinsic.Control.If(V.Global.bLoadData)
+		'F.Intrinsic.Control.CallSub(Serialize)
+	'F.Intrinsic.Control.EndIf
+	
+	'F.ODBC.Connection!con.Close
+	Gui.FrmQuote..Visible(False)
+	F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.FrmQuote_UnLoad.End
+
+Program.Sub.GCAll_StatusColor.Start
+	V.Local.iColumn.Declare
+	V.Local.iCnt.Declare
+	gui.FrmQuote.GsGCRFQ.GetColumnIndexByName("gvRFQ","STATUS",V.Local.iColumn)
+		
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtRFQ.RowCount--,1)
+		F.Intrinsic.Control.SelectCase(V.DataTable.dtRFQ(V.Local.iCnt).STATUS!FieldValTrim)
+			F.Intrinsic.Control.Case("Engr Queue")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","Orange")
+				
+			F.Intrinsic.Control.Case("Engr In Process")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","Orange")
+				
+			F.Intrinsic.Control.Case("Engr Check")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","Orange")
+	
+			F.Intrinsic.Control.Case("Purch Queue")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","Pink")
+				
+			F.Intrinsic.Control.Case("Purch In Process")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","Pink")
+				
+			F.Intrinsic.Control.Case("Sales Queue")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","LightGreen")
+				
+			F.Intrinsic.Control.Case("Sales Review")
+				gui.FrmQuote.GsGCRFQ.SetCellAppearance("gvRFQ",V.Local.iColumn,V.Local.iCnt,"BackColor","LightGreen")
+				
+		F.Intrinsic.Control.EndSelect
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+Program.Sub.GCAll_StatusColor.End
+
+Program.Sub.Click_Tab_Quote.Start
+Program.Sub.Click_Tab_Quote.End
+
+Program.Sub.Open_Connection.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	F.ODBC.Connection!con.OpenConnection(v.Ambient.PDSN,v.Ambient.PUser,v.Ambient.PPass)
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Open_Connection.End
+
+Program.Sub.Close_Connection.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	F.ODBC.Connection!con.Close
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Close_Connection.End
+
+Program.Sub.Comments.Start
+${$5$}$2.0.0.0$}$2
+${$6$}$anogueradeanda$}$20230117130457113$}$Brc4ySiax1SYsBxo6PAUD1l1uxdiUizTmPmbMh+robjPyY3sEw/Ob/RGAdR7X81FfkXJwQ754BaIwLHCKJ27TkN+Jk82h0gd
+Program.Sub.Comments.End
