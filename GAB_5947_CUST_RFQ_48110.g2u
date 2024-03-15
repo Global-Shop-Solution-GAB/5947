@@ -1,0 +1,47 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'GAB works with Customer RFQ interface to pull passed RFQ Number via clip board to load Cust RFQ number into screen.
+'F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sSQL.Declare(String)
+	V.Local.sRet.Declare(String)
+	'Open database connection
+	F.ODBC.Connection!con.OpenConnection(v.Ambient.PDSN,v.Ambient.PUser,v.Ambient.PPass)
+
+	F.Intrinsic.String.Build("Select DATA From GAB_PASS_DATA Where TRMNL = '{0}';",V.Caller.Terminal,V.Local.sSQL)
+	'Read CustRFQ number from temp table record
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"")
+	
+		'Set CustRFQ number on screen and load CustRFQ
+		V.Passed.000057.Set(V.Local.sRet)
+	
+		F.Intrinsic.String.Build("Delete From GAB_PASS_DATA Where TRMNL = '{0}';",V.Caller.Terminal,V.Local.sSQL)
+		'Delete temp table record with CustRFQ number
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+		
+	F.Intrinsic.Control.EndIf
+	
+	'Close database connection
+	F.ODBC.Connection!con.Close
+	
+	F.Intrinsic.Control.End 
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.Comments.Start
+${$0$}$emc_pass_CustRFQ_number$}$ANDREWD$}$6/14/2016
+Program.Sub.Comments.End
+
