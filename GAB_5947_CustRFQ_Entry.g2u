@@ -1,0 +1,3236 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.Form1..create(BaseForm)
+Gui.Form1..caption("Customer RFQ")
+Gui.Form1..size(10050,9120)
+Gui.Form1..minx(0)
+Gui.Form1..miny(0)
+Gui.Form1..position(0,0)
+Gui.Form1..event(UnLoad,Unload)
+Gui.Form1..forecolor(0)
+Gui.Form1..BackColor(-2147483633)
+Gui.Form1..mousepointer(0)
+Gui.Form1..sizeable(False)
+Gui.Form1..AlwaysOnTop(False)
+Gui.Form1..FontName("Tahoma")
+Gui.Form1..FontSize(8.25)
+Gui.Form1..ControlBox(True)
+Gui.Form1..MaxButton(True)
+Gui.Form1..MinButton(True)
+Gui.Form1..Moveable(True)
+Gui.Form1..ShowInTaskBar(True)
+Gui.Form1..TitleBar(True)
+Gui.Form1.frame1.create(frame)
+Gui.Form1.frame1.size(9600,1590)
+Gui.Form1.frame1.position(105,810)
+Gui.Form1.frame1.Enabled(True)
+Gui.Form1.frame1.Visible(True)
+Gui.Form1.frame1.Zorder(0)
+Gui.Form1.frame1.Caption("")
+Gui.Form1.frame1.FontName("Tahoma")
+Gui.Form1.frame1.FontSize(8)
+Gui.Form1.txt_CustName.create(textbox,"",True,2640,300,0,775,430,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_CustName.parent("frame1")
+Gui.Form1.txt_CustName.maxLength(40)
+Gui.Form1.txt_CustName.defaultvalue("")
+Gui.Form1.txt_CustName.controlgroup(1)
+Gui.Form1.txt_CustName.tabstop(True)
+Gui.Form1.txt_CustName.tabindex(4)
+Gui.Form1.cmdLookUp.create(button)
+Gui.Form1.cmdLookUp.caption("^")
+Gui.Form1.cmdLookUp.size(350,350)
+Gui.Form1.cmdLookUp.position(3430,400)
+Gui.Form1.cmdLookUp.parent("frame1")
+Gui.Form1.cmdLookUp.event(Click,cmd_CustLookup)
+Gui.Form1.cmdLookUp.defaultvalue("")
+Gui.Form1.cmdLookUp.tabstop(True)
+Gui.Form1.cmdLookUp.tabindex(5)
+Gui.Form1.cmdLookUp.Enabled(True)
+Gui.Form1.cmdLookUp.Visible(True)
+Gui.Form1.cmdLookUp.Zorder(0)
+Gui.Form1.cmdLookUp.FontName("Tahoma")
+Gui.Form1.cmdLookUp.FontSize(8)
+Gui.Form1.ddlist_Salesperson.create(dropdownlist)
+Gui.Form1.ddlist_Salesperson.size(2205,330)
+Gui.Form1.ddlist_Salesperson.position(7230,1125)
+Gui.Form1.ddlist_Salesperson.parent("frame1")
+Gui.Form1.ddlist_Salesperson.defaultvalue("")
+Gui.Form1.ddlist_Salesperson.controlgroup(1)
+Gui.Form1.ddlist_Salesperson.Enabled(True)
+Gui.Form1.ddlist_Salesperson.Visible(True)
+Gui.Form1.ddlist_Salesperson.Zorder(0)
+Gui.Form1.ddlist_Salesperson.FontName("Tahoma")
+Gui.Form1.ddlist_Salesperson.FontSize(8)
+Gui.Form1.cbo_buyer.Create(ComboBox)
+Gui.Form1.cbo_buyer.Size(2190,390)
+Gui.Form1.cbo_buyer.Position(4710,435)
+Gui.Form1.cbo_buyer.Parent("frame1")
+Gui.Form1.cbo_buyer.Enabled(True)
+Gui.Form1.cbo_buyer.Visible(True)
+Gui.Form1.cbo_buyer.Zorder(0)
+Gui.Form1.cbo_buyer.FontName("Tahoma")
+Gui.Form1.cbo_buyer.FontSize(8)
+Gui.Form1.cbo_buyer.Event(Change,LoadEmail)
+Gui.Form1.lbl_Buyer.create(label,"Buyer",True,555,255,1,5610,195,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Buyer.parent("frame1")
+Gui.Form1.lbl_Buyer.defaultvalue("")
+Gui.Form1.lbl_Buyer.BorderStyle(0)
+Gui.Form1.lbl_link.create(label,"Attach",False,540,255,1,150,885,False,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_link.parent("frame1")
+Gui.Form1.lbl_link.defaultvalue("")
+Gui.Form1.lbl_link.BorderStyle(0)
+Gui.Form1.lbl_Salesperson.create(label,"Salesperson",True,1065,255,1,7710,885,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Salesperson.parent("frame1")
+Gui.Form1.lbl_Salesperson.defaultvalue("")
+Gui.Form1.lbl_Salesperson.BorderStyle(0)
+Gui.Form1.lbl24.create(label,"New Prosp.",True,1080,255,1,50,200,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl24.parent("frame1")
+Gui.Form1.lbl24.defaultvalue("")
+Gui.Form1.lbl24.BorderStyle(0)
+Gui.Form1.cmd_AddProspect.create(button)
+Gui.Form1.cmd_AddProspect.caption("+")
+Gui.Form1.cmd_AddProspect.size(375,375)
+Gui.Form1.cmd_AddProspect.position(200,400)
+Gui.Form1.cmd_AddProspect.parent("frame1")
+Gui.Form1.cmd_AddProspect.event(Click,cmd_addprospect)
+Gui.Form1.cmd_AddProspect.defaultvalue("")
+Gui.Form1.cmd_AddProspect.Enabled(True)
+Gui.Form1.cmd_AddProspect.Visible(True)
+Gui.Form1.cmd_AddProspect.Zorder(0)
+Gui.Form1.cmd_AddProspect.FontName("Tahoma")
+Gui.Form1.cmd_AddProspect.FontSize(8)
+Gui.Form1.cmd_AttDoc.create(button)
+Gui.Form1.cmd_AttDoc.caption("DCS-OFF")
+Gui.Form1.cmd_AttDoc.size(375,375)
+Gui.Form1.cmd_AttDoc.position(195,1095)
+Gui.Form1.cmd_AttDoc.parent("frame1")
+Gui.Form1.cmd_AttDoc.event(Click,cmd_doccontrol)
+Gui.Form1.cmd_AttDoc.defaultvalue("")
+Gui.Form1.cmd_AttDoc.Enabled(False)
+Gui.Form1.cmd_AttDoc.Visible(False)
+Gui.Form1.cmd_AttDoc.Zorder(0)
+Gui.Form1.cmd_AttDoc.FontName("Tahoma")
+Gui.Form1.cmd_AttDoc.FontSize(8)
+Gui.Form1.lbl_Sort.create(label,"Sort",True,780,255,1,5520,885,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Sort.parent("frame1")
+Gui.Form1.lbl_Sort.defaultvalue("")
+Gui.Form1.lbl_Sort.BorderStyle(0)
+Gui.Form1.lbl_RFQdesc.create(label,"RFQ Description",True,1260,255,1,1990,890,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_RFQdesc.parent("frame1")
+Gui.Form1.lbl_RFQdesc.defaultvalue("")
+Gui.Form1.lbl_RFQdesc.BorderStyle(0)
+Gui.Form1.lbl_Email.create(label,"Email",True,540,255,1,8000,200,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Email.parent("frame1")
+Gui.Form1.lbl_Email.defaultvalue("")
+Gui.Form1.lbl_Email.BorderStyle(0)
+Gui.Form1.lbl_No.create(label,"Cust. No.",True,690,255,1,3900,200,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_No.parent("frame1")
+Gui.Form1.lbl_No.defaultvalue("")
+Gui.Form1.lbl_No.BorderStyle(0)
+Gui.Form1.lbl_Name.create(label,"Customer Name",True,1275,255,1,1550,200,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Name.parent("frame1")
+Gui.Form1.lbl_Name.defaultvalue("")
+Gui.Form1.lbl_Name.BorderStyle(0)
+Gui.Form1.txt_email.create(textbox,"",True,2475,300,0,6930,435,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_email.parent("frame1")
+Gui.Form1.txt_email.maxLength(100)
+Gui.Form1.txt_email.defaultvalue("")
+Gui.Form1.txt_email.controlgroup(1)
+Gui.Form1.txt_email.tabstop(True)
+Gui.Form1.txt_email.tabindex(8)
+Gui.Form1.txt_Sort.create(textbox,"",True,2610,300,0,4590,1125,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Sort.parent("frame1")
+Gui.Form1.txt_Sort.maxLength(20)
+Gui.Form1.txt_Sort.defaultvalue("")
+Gui.Form1.txt_Sort.controlgroup(1)
+Gui.Form1.txt_Sort.tabstop(True)
+Gui.Form1.txt_Sort.tabindex(11)
+Gui.Form1.txt_RFQdesc.create(textbox,"",True,3780,300,0,780,1125,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_RFQdesc.parent("frame1")
+Gui.Form1.txt_RFQdesc.maxLength(40)
+Gui.Form1.txt_RFQdesc.defaultvalue("")
+Gui.Form1.txt_RFQdesc.controlgroup(1)
+Gui.Form1.txt_RFQdesc.tabstop(True)
+Gui.Form1.txt_RFQdesc.tabindex(10)
+Gui.Form1.txt_CustNo.create(textbox,"",True,870,300,0,3810,435,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_CustNo.parent("frame1")
+Gui.Form1.txt_CustNo.maxLength(6)
+Gui.Form1.txt_CustNo.event(LostFocus,LoadCust)
+Gui.Form1.txt_CustNo.defaultvalue("")
+Gui.Form1.txt_CustNo.controlgroup(1)
+Gui.Form1.txt_CustNo.tabstop(True)
+Gui.Form1.txt_CustNo.tabindex(6)
+Gui.Form1.txt_CustNo.Event(Change,LoadContacts)
+Gui.Form1.frame2.create(frame)
+Gui.Form1.frame2.caption("Lines")
+Gui.Form1.frame2.size(9600,5385)
+Gui.Form1.frame2.position(100,2515)
+Gui.Form1.frame2.Enabled(True)
+Gui.Form1.frame2.Visible(True)
+Gui.Form1.frame2.Zorder(0)
+Gui.Form1.frame2.FontName("Tahoma")
+Gui.Form1.frame2.FontSize(8)
+Gui.Form1.lbl_Line9.create(label,"009",True,375,255,1,60,4455,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Line9.parent("frame2")
+Gui.Form1.lbl_Line9.tooltip("Double-click to copy line 008")
+Gui.Form1.lbl_Line9.event(DblClick,CopyLine)
+Gui.Form1.lbl_Line9.ForeColor(16711680)
+Gui.Form1.lbl_Line9.defaultvalue("")
+Gui.Form1.lbl_Line9.BorderStyle(0)
+Gui.Form1.txt_Loc10.create(textbox,"",True,405,300,0,4405,4940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Loc10.parent("frame2")
+Gui.Form1.txt_Loc10.maxLength(2)
+Gui.Form1.txt_Loc10.defaultvalue("")
+Gui.Form1.txt_Loc10.controlgroup(2)
+Gui.Form1.txt_Loc9.create(textbox,"",True,405,300,0,4405,4440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Loc9.parent("frame2")
+Gui.Form1.txt_Loc9.maxLength(2)
+Gui.Form1.txt_Loc9.defaultvalue("")
+Gui.Form1.txt_Loc9.controlgroup(2)
+Gui.Form1.txt_Loc8.create(textbox,"",True,405,300,0,4405,3940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Loc8.parent("frame2")
+Gui.Form1.txt_Loc8.maxLength(2)
+Gui.Form1.txt_Loc8.defaultvalue("")
+Gui.Form1.txt_Loc8.controlgroup(2)
+Gui.Form1.txt_Loc7.create(textbox,"",True,405,300,0,4405,3440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Loc7.parent("frame2")
+Gui.Form1.txt_Loc7.maxLength(2)
+Gui.Form1.txt_Loc7.defaultvalue("")
+Gui.Form1.txt_Loc7.controlgroup(2)
+Gui.Form1.txt_Loc6.create(textbox,"",True,405,300,0,4405,2940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Loc6.parent("frame2")
+Gui.Form1.txt_Loc6.maxLength(2)
+Gui.Form1.txt_Loc6.defaultvalue("")
+Gui.Form1.txt_Loc6.controlgroup(2)
+Gui.Form1.txt_Loc5.create(textbox,"",True,405,300,0,4405,2440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Loc5.parent("frame2")
+Gui.Form1.txt_Loc5.maxLength(2)
+Gui.Form1.txt_Loc5.defaultvalue("")
+Gui.Form1.txt_Loc5.controlgroup(2)
+Gui.Form1.txt_Loc4.create(textbox,"",True,405,300,0,4405,1940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Loc4.parent("frame2")
+Gui.Form1.txt_Loc4.maxLength(2)
+Gui.Form1.txt_Loc4.defaultvalue("")
+Gui.Form1.txt_Loc4.controlgroup(2)
+Gui.Form1.txt_Loc3.create(textbox,"",True,405,300,0,4405,1440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Loc3.parent("frame2")
+Gui.Form1.txt_Loc3.maxLength(2)
+Gui.Form1.txt_Loc3.defaultvalue("")
+Gui.Form1.txt_Loc3.controlgroup(2)
+Gui.Form1.txt_Loc2.create(textbox,"",True,405,300,0,4405,940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Loc2.parent("frame2")
+Gui.Form1.txt_Loc2.maxLength(2)
+Gui.Form1.txt_Loc2.defaultvalue("")
+Gui.Form1.txt_Loc2.controlgroup(2)
+Gui.Form1.lbl23.create(label,"Loc",True,285,255,1,4470,195,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl23.parent("frame2")
+Gui.Form1.lbl23.defaultvalue("")
+Gui.Form1.lbl23.BorderStyle(0)
+Gui.Form1.txt_Loc1.create(textbox,"",True,405,300,0,4410,435,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Loc1.parent("frame2")
+Gui.Form1.txt_Loc1.maxLength(2)
+Gui.Form1.txt_Loc1.defaultvalue("")
+Gui.Form1.txt_Loc1.controlgroup(2)
+Gui.Form1.lbl_Line10.create(label,"010",True,375,255,1,60,4955,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Line10.parent("frame2")
+Gui.Form1.lbl_Line10.tooltip("Double-click to copy line 009")
+Gui.Form1.lbl_Line10.event(DblClick,CopyLine)
+Gui.Form1.lbl_Line10.ForeColor(16711680)
+Gui.Form1.lbl_Line10.defaultvalue("")
+Gui.Form1.lbl_Line10.BorderStyle(0)
+Gui.Form1.lbl_Line8.create(label,"008",True,375,255,1,60,3955,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Line8.parent("frame2")
+Gui.Form1.lbl_Line8.tooltip("Double-click to copy line 007")
+Gui.Form1.lbl_Line8.event(DblClick,CopyLine)
+Gui.Form1.lbl_Line8.ForeColor(16711680)
+Gui.Form1.lbl_Line8.defaultvalue("")
+Gui.Form1.lbl_Line8.BorderStyle(0)
+Gui.Form1.lbl_Line7.create(label,"007",True,375,255,1,60,3455,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Line7.parent("frame2")
+Gui.Form1.lbl_Line7.event(DblClick,CopyLine)
+Gui.Form1.lbl_Line7.tooltip("Double-click to copy line 006")
+Gui.Form1.lbl_Line7.ForeColor(16711680)
+Gui.Form1.lbl_Line7.defaultvalue("")
+Gui.Form1.lbl_Line7.BorderStyle(0)
+Gui.Form1.lbl_Line6.create(label,"006",True,375,255,1,60,2955,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Line6.parent("frame2")
+Gui.Form1.lbl_Line6.tooltip("Double-click to copy line 005")
+Gui.Form1.lbl_Line6.event(DblClick,CopyLine)
+Gui.Form1.lbl_Line6.ForeColor(16711680)
+Gui.Form1.lbl_Line6.defaultvalue("")
+Gui.Form1.lbl_Line6.BorderStyle(0)
+Gui.Form1.lbl_Line5.create(label,"005",True,375,270,1,60,2455,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Line5.parent("frame2")
+Gui.Form1.lbl_Line5.tooltip("Double-click to copy line 004")
+Gui.Form1.lbl_Line5.event(DblClick,CopyLine)
+Gui.Form1.lbl_Line5.ForeColor(16711680)
+Gui.Form1.lbl_Line5.defaultvalue("")
+Gui.Form1.lbl_Line5.BorderStyle(0)
+Gui.Form1.lbl_Line4.create(label,"004",True,375,255,1,60,1955,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Line4.parent("frame2")
+Gui.Form1.lbl_Line4.tooltip("Double-click to copy line 003")
+Gui.Form1.lbl_Line4.event(DblClick,CopyLine)
+Gui.Form1.lbl_Line4.ForeColor(16711680)
+Gui.Form1.lbl_Line4.defaultvalue("")
+Gui.Form1.lbl_Line4.BorderStyle(0)
+Gui.Form1.lbl_Line3.create(label,"003",True,375,255,1,60,1440,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Line3.parent("frame2")
+Gui.Form1.lbl_Line3.tooltip("Double-click to copy line 002")
+Gui.Form1.lbl_Line3.event(DblClick,CopyLine)
+Gui.Form1.lbl_Line3.ForeColor(16711680)
+Gui.Form1.lbl_Line3.defaultvalue("")
+Gui.Form1.lbl_Line3.BorderStyle(0)
+Gui.Form1.lbl_Line2.create(label,"002",True,375,255,1,60,1020,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Line2.parent("frame2")
+Gui.Form1.lbl_Line2.tooltip("Double-click to copy line 001")
+Gui.Form1.lbl_Line2.event(DblClick,CopyLine)
+Gui.Form1.lbl_Line2.ForeColor(16711680)
+Gui.Form1.lbl_Line2.defaultvalue("")
+Gui.Form1.lbl_Line2.BorderStyle(0)
+Gui.Form1.lbl_Line1.create(label,"001",True,375,255,1,60,510,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Line1.parent("frame2")
+Gui.Form1.lbl_Line1.ForeColor(16711680)
+Gui.Form1.lbl_Line1.defaultvalue("")
+Gui.Form1.lbl_Line1.BorderStyle(0)
+Gui.Form1.txt_Desc10.create(textbox,"",True,2685,300,0,5310,4940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Desc10.parent("frame2")
+Gui.Form1.txt_Desc10.maxLength(30)
+Gui.Form1.txt_Desc10.defaultvalue("")
+Gui.Form1.txt_Desc10.controlgroup(2)
+Gui.Form1.txt_Rev10.create(textbox,"",True,585,300,0,3720,4940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Rev10.parent("frame2")
+Gui.Form1.txt_Rev10.maxLength(3)
+Gui.Form1.txt_Rev10.event(LostFocus,Rev_Check)
+Gui.Form1.txt_Rev10.defaultvalue("")
+Gui.Form1.txt_Rev10.controlgroup(2)
+Gui.Form1.txt_Part10.create(textbox,"",True,2160,300,0,1490,4940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Part10.parent("frame2")
+Gui.Form1.txt_Part10.maxLength(17)
+Gui.Form1.txt_Part10.event(LostFocus,Part_Check)
+Gui.Form1.txt_Part10.defaultvalue("")
+Gui.Form1.txt_Part10.controlgroup(2)
+Gui.Form1.txt_Qty10.create(textbox,"",True,915,300,0,465,4940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Qty10.parent("frame2")
+Gui.Form1.txt_Qty10.numericonly(1)
+Gui.Form1.txt_Qty10.maxLength(15)
+Gui.Form1.txt_Qty10.defaultvalue("")
+Gui.Form1.txt_Qty10.controlgroup(2)
+Gui.Form1.txt_Desc9.create(textbox,"",True,2685,300,0,5310,4440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Desc9.parent("frame2")
+Gui.Form1.txt_Desc9.maxLength(30)
+Gui.Form1.txt_Desc9.defaultvalue("")
+Gui.Form1.txt_Desc9.controlgroup(2)
+Gui.Form1.cmd_PartBwr1.create(button)
+Gui.Form1.cmd_PartBwr1.caption("^")
+Gui.Form1.cmd_PartBwr1.size(345,345)
+Gui.Form1.cmd_PartBwr1.position(4875,405)
+Gui.Form1.cmd_PartBwr1.parent("frame2")
+Gui.Form1.cmd_PartBwr1.defaultvalue("")
+Gui.Form1.cmd_PartBwr1.Event(Click,cmd_InvBrowser)
+Gui.Form1.cmd_PartBwr1.Enabled(True)
+Gui.Form1.cmd_PartBwr1.Visible(True)
+Gui.Form1.cmd_PartBwr1.Zorder(0)
+Gui.Form1.cmd_PartBwr1.FontName("Tahoma")
+Gui.Form1.cmd_PartBwr1.FontSize(8)
+Gui.Form1.cmd_PartBwr2.create(button)
+Gui.Form1.cmd_PartBwr2.caption("^")
+Gui.Form1.cmd_PartBwr2.size(345,345)
+Gui.Form1.cmd_PartBwr2.position(4875,915)
+Gui.Form1.cmd_PartBwr2.parent("frame2")
+Gui.Form1.cmd_PartBwr2.defaultvalue("")
+Gui.Form1.cmd_PartBwr2.Event(Click,cmd_InvBrowser)
+Gui.Form1.cmd_PartBwr2.Enabled(True)
+Gui.Form1.cmd_PartBwr2.Visible(True)
+Gui.Form1.cmd_PartBwr2.Zorder(0)
+Gui.Form1.cmd_PartBwr2.FontName("Tahoma")
+Gui.Form1.cmd_PartBwr2.FontSize(8)
+Gui.Form1.cmd_PartBwr3.create(button)
+Gui.Form1.cmd_PartBwr3.caption("^")
+Gui.Form1.cmd_PartBwr3.size(345,345)
+Gui.Form1.cmd_PartBwr3.position(4875,1410)
+Gui.Form1.cmd_PartBwr3.parent("frame2")
+Gui.Form1.cmd_PartBwr3.defaultvalue("")
+Gui.Form1.cmd_PartBwr3.Event(Click,cmd_InvBrowser)
+Gui.Form1.cmd_PartBwr3.Enabled(True)
+Gui.Form1.cmd_PartBwr3.Visible(True)
+Gui.Form1.cmd_PartBwr3.Zorder(0)
+Gui.Form1.cmd_PartBwr3.FontName("Tahoma")
+Gui.Form1.cmd_PartBwr3.FontSize(8)
+Gui.Form1.cmd_PartBwr4.create(button)
+Gui.Form1.cmd_PartBwr4.caption("^")
+Gui.Form1.cmd_PartBwr4.size(345,345)
+Gui.Form1.cmd_PartBwr4.position(4875,1905)
+Gui.Form1.cmd_PartBwr4.parent("frame2")
+Gui.Form1.cmd_PartBwr4.defaultvalue("")
+Gui.Form1.cmd_PartBwr4.Event(Click,cmd_InvBrowser)
+Gui.Form1.cmd_PartBwr4.Enabled(True)
+Gui.Form1.cmd_PartBwr4.Visible(True)
+Gui.Form1.cmd_PartBwr4.Zorder(0)
+Gui.Form1.cmd_PartBwr4.FontName("Tahoma")
+Gui.Form1.cmd_PartBwr4.FontSize(8)
+Gui.Form1.datepicker10.create(datepicker)
+Gui.Form1.datepicker10.size(1365,330)
+Gui.Form1.datepicker10.position(8083,4940)
+Gui.Form1.datepicker10.parent("frame2")
+Gui.Form1.datepicker10.Enabled(True)
+Gui.Form1.datepicker10.Visible(True)
+Gui.Form1.datepicker10.Zorder(0)
+Gui.Form1.datepicker10.CheckBox(False)
+Gui.Form1.datepicker10.FontName("Tahoma")
+Gui.Form1.datepicker10.FontSize(8)
+Gui.Form1.datepicker9.create(datepicker)
+Gui.Form1.datepicker9.size(1365,330)
+Gui.Form1.datepicker9.position(8083,4440)
+Gui.Form1.datepicker9.parent("frame2")
+Gui.Form1.datepicker9.Enabled(True)
+Gui.Form1.datepicker9.Visible(True)
+Gui.Form1.datepicker9.Zorder(0)
+Gui.Form1.datepicker9.CheckBox(False)
+Gui.Form1.datepicker9.FontName("Tahoma")
+Gui.Form1.datepicker9.FontSize(8)
+Gui.Form1.datepicker8.create(datepicker)
+Gui.Form1.datepicker8.size(1365,330)
+Gui.Form1.datepicker8.position(8083,3940)
+Gui.Form1.datepicker8.parent("frame2")
+Gui.Form1.datepicker8.Enabled(True)
+Gui.Form1.datepicker8.Visible(True)
+Gui.Form1.datepicker8.Zorder(0)
+Gui.Form1.datepicker8.CheckBox(False)
+Gui.Form1.datepicker8.FontName("Tahoma")
+Gui.Form1.datepicker8.FontSize(8)
+Gui.Form1.datepicker7.create(datepicker)
+Gui.Form1.datepicker7.size(1365,330)
+Gui.Form1.datepicker7.position(8083,3440)
+Gui.Form1.datepicker7.parent("frame2")
+Gui.Form1.datepicker7.Enabled(True)
+Gui.Form1.datepicker7.Visible(True)
+Gui.Form1.datepicker7.Zorder(0)
+Gui.Form1.datepicker7.CheckBox(False)
+Gui.Form1.datepicker7.FontName("Tahoma")
+Gui.Form1.datepicker7.FontSize(8)
+Gui.Form1.datepicker6.create(datepicker)
+Gui.Form1.datepicker6.size(1365,330)
+Gui.Form1.datepicker6.position(8083,2940)
+Gui.Form1.datepicker6.parent("frame2")
+Gui.Form1.datepicker6.Enabled(True)
+Gui.Form1.datepicker6.Visible(True)
+Gui.Form1.datepicker6.Zorder(0)
+Gui.Form1.datepicker6.CheckBox(False)
+Gui.Form1.datepicker6.FontName("Tahoma")
+Gui.Form1.datepicker6.FontSize(8)
+Gui.Form1.datepicker5.create(datepicker)
+Gui.Form1.datepicker5.size(1365,330)
+Gui.Form1.datepicker5.position(8083,2440)
+Gui.Form1.datepicker5.parent("frame2")
+Gui.Form1.datepicker5.Enabled(True)
+Gui.Form1.datepicker5.Visible(True)
+Gui.Form1.datepicker5.Zorder(0)
+Gui.Form1.datepicker5.CheckBox(False)
+Gui.Form1.datepicker5.FontName("Tahoma")
+Gui.Form1.datepicker5.FontSize(8)
+Gui.Form1.datepicker4.create(datepicker)
+Gui.Form1.datepicker4.size(1365,330)
+Gui.Form1.datepicker4.position(8083,1940)
+Gui.Form1.datepicker4.parent("frame2")
+Gui.Form1.datepicker4.Enabled(True)
+Gui.Form1.datepicker4.Visible(True)
+Gui.Form1.datepicker4.Zorder(0)
+Gui.Form1.datepicker4.CheckBox(False)
+Gui.Form1.datepicker4.FontName("Tahoma")
+Gui.Form1.datepicker4.FontSize(8)
+Gui.Form1.datepicker3.create(datepicker)
+Gui.Form1.datepicker3.size(1365,330)
+Gui.Form1.datepicker3.position(8083,1440)
+Gui.Form1.datepicker3.parent("frame2")
+Gui.Form1.datepicker3.Enabled(True)
+Gui.Form1.datepicker3.Visible(True)
+Gui.Form1.datepicker3.Zorder(0)
+Gui.Form1.datepicker3.CheckBox(False)
+Gui.Form1.datepicker3.FontName("Tahoma")
+Gui.Form1.datepicker3.FontSize(8)
+Gui.Form1.datepicker2.create(datepicker)
+Gui.Form1.datepicker2.size(1365,330)
+Gui.Form1.datepicker2.position(8083,940)
+Gui.Form1.datepicker2.parent("frame2")
+Gui.Form1.datepicker2.Enabled(True)
+Gui.Form1.datepicker2.Visible(True)
+Gui.Form1.datepicker2.Zorder(0)
+Gui.Form1.datepicker2.CheckBox(False)
+Gui.Form1.datepicker2.FontName("Tahoma")
+Gui.Form1.datepicker2.FontSize(8)
+Gui.Form1.datepicker1.create(datepicker)
+Gui.Form1.datepicker1.size(1365,330)
+Gui.Form1.datepicker1.position(8083,440)
+Gui.Form1.datepicker1.parent("frame2")
+Gui.Form1.datepicker1.Enabled(True)
+Gui.Form1.datepicker1.Visible(True)
+Gui.Form1.datepicker1.Zorder(0)
+Gui.Form1.datepicker1.CheckBox(False)
+Gui.Form1.datepicker1.FontName("Tahoma")
+Gui.Form1.datepicker1.FontSize(8)
+Gui.Form1.cmd_PartBwr10.create(button)
+Gui.Form1.cmd_PartBwr10.caption("^")
+Gui.Form1.cmd_PartBwr10.size(345,345)
+Gui.Form1.cmd_PartBwr10.position(4875,4905)
+Gui.Form1.cmd_PartBwr10.parent("frame2")
+Gui.Form1.cmd_PartBwr10.defaultvalue("")
+Gui.Form1.cmd_PartBwr10.Event(Click,cmd_InvBrowser)
+Gui.Form1.cmd_PartBwr10.Enabled(True)
+Gui.Form1.cmd_PartBwr10.Visible(True)
+Gui.Form1.cmd_PartBwr10.Zorder(0)
+Gui.Form1.cmd_PartBwr10.FontName("Tahoma")
+Gui.Form1.cmd_PartBwr10.FontSize(8)
+Gui.Form1.cmd_PartBwr9.create(button)
+Gui.Form1.cmd_PartBwr9.caption("^")
+Gui.Form1.cmd_PartBwr9.size(345,345)
+Gui.Form1.cmd_PartBwr9.position(4875,4410)
+Gui.Form1.cmd_PartBwr9.parent("frame2")
+Gui.Form1.cmd_PartBwr9.defaultvalue("")
+Gui.Form1.cmd_PartBwr9.Event(Click,cmd_InvBrowser)
+Gui.Form1.cmd_PartBwr9.Enabled(True)
+Gui.Form1.cmd_PartBwr9.Visible(True)
+Gui.Form1.cmd_PartBwr9.Zorder(0)
+Gui.Form1.cmd_PartBwr9.FontName("Tahoma")
+Gui.Form1.cmd_PartBwr9.FontSize(8)
+Gui.Form1.cmd_PartBwr8.create(button)
+Gui.Form1.cmd_PartBwr8.caption("^")
+Gui.Form1.cmd_PartBwr8.size(345,345)
+Gui.Form1.cmd_PartBwr8.position(4875,3915)
+Gui.Form1.cmd_PartBwr8.parent("frame2")
+Gui.Form1.cmd_PartBwr8.defaultvalue("")
+Gui.Form1.cmd_PartBwr8.Event(Click,cmd_InvBrowser)
+Gui.Form1.cmd_PartBwr8.Enabled(True)
+Gui.Form1.cmd_PartBwr8.Visible(True)
+Gui.Form1.cmd_PartBwr8.Zorder(0)
+Gui.Form1.cmd_PartBwr8.FontName("Tahoma")
+Gui.Form1.cmd_PartBwr8.FontSize(8)
+Gui.Form1.cmd_PartBwr7.create(button)
+Gui.Form1.cmd_PartBwr7.caption("^")
+Gui.Form1.cmd_PartBwr7.size(345,345)
+Gui.Form1.cmd_PartBwr7.position(4875,3405)
+Gui.Form1.cmd_PartBwr7.parent("frame2")
+Gui.Form1.cmd_PartBwr7.defaultvalue("")
+Gui.Form1.cmd_PartBwr7.Event(Click,cmd_InvBrowser)
+Gui.Form1.cmd_PartBwr7.Enabled(True)
+Gui.Form1.cmd_PartBwr7.Visible(True)
+Gui.Form1.cmd_PartBwr7.Zorder(0)
+Gui.Form1.cmd_PartBwr7.FontName("Tahoma")
+Gui.Form1.cmd_PartBwr7.FontSize(8)
+Gui.Form1.cmd_PartBwr6.create(button)
+Gui.Form1.cmd_PartBwr6.caption("^")
+Gui.Form1.cmd_PartBwr6.size(345,345)
+Gui.Form1.cmd_PartBwr6.position(4875,2910)
+Gui.Form1.cmd_PartBwr6.parent("frame2")
+Gui.Form1.cmd_PartBwr6.defaultvalue("")
+Gui.Form1.cmd_PartBwr6.Event(Click,cmd_InvBrowser)
+Gui.Form1.cmd_PartBwr6.Enabled(True)
+Gui.Form1.cmd_PartBwr6.Visible(True)
+Gui.Form1.cmd_PartBwr6.Zorder(0)
+Gui.Form1.cmd_PartBwr6.FontName("Tahoma")
+Gui.Form1.cmd_PartBwr6.FontSize(8)
+Gui.Form1.cmd_PartBwr5.create(button)
+Gui.Form1.cmd_PartBwr5.caption("^")
+Gui.Form1.cmd_PartBwr5.size(345,345)
+Gui.Form1.cmd_PartBwr5.position(4875,2415)
+Gui.Form1.cmd_PartBwr5.parent("frame2")
+Gui.Form1.cmd_PartBwr5.defaultvalue("")
+Gui.Form1.cmd_PartBwr5.Event(Click,cmd_InvBrowser)
+Gui.Form1.cmd_PartBwr5.Enabled(True)
+Gui.Form1.cmd_PartBwr5.Visible(True)
+Gui.Form1.cmd_PartBwr5.Zorder(0)
+Gui.Form1.cmd_PartBwr5.FontName("Tahoma")
+Gui.Form1.cmd_PartBwr5.FontSize(8)
+Gui.Form1.txt_Rev9.create(textbox,"",True,585,300,0,3720,4440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Rev9.parent("frame2")
+Gui.Form1.txt_Rev9.maxLength(3)
+Gui.Form1.txt_Rev9.event(LostFocus,Rev_Check)
+Gui.Form1.txt_Rev9.defaultvalue("")
+Gui.Form1.txt_Rev9.controlgroup(2)
+Gui.Form1.txt_Part9.create(textbox,"",True,2160,300,0,1490,4440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Part9.parent("frame2")
+Gui.Form1.txt_Part9.maxLength(17)
+Gui.Form1.txt_Part9.event(LostFocus,Part_Check)
+Gui.Form1.txt_Part9.defaultvalue("")
+Gui.Form1.txt_Part9.controlgroup(2)
+Gui.Form1.txt_Qty9.create(textbox,"",True,915,300,0,465,4440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Qty9.parent("frame2")
+Gui.Form1.txt_Qty9.numericonly(1)
+Gui.Form1.txt_Qty9.maxLength(15)
+Gui.Form1.txt_Qty9.defaultvalue("")
+Gui.Form1.txt_Qty9.controlgroup(2)
+Gui.Form1.lbl_Qty.create(label,"Qty",True,270,255,1,815,200,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Qty.parent("frame2")
+Gui.Form1.lbl_Qty.defaultvalue("")
+Gui.Form1.lbl_Qty.BorderStyle(0)
+Gui.Form1.txt_Rev2.create(textbox,"",True,585,300,0,3720,940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Rev2.parent("frame2")
+Gui.Form1.txt_Rev2.maxLength(3)
+Gui.Form1.txt_Rev2.event(LostFocus,Rev_Check)
+Gui.Form1.txt_Rev2.defaultvalue("")
+Gui.Form1.txt_Rev2.controlgroup(2)
+Gui.Form1.txt_Part2.create(textbox,"",True,2160,300,0,1490,940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Part2.parent("frame2")
+Gui.Form1.txt_Part2.maxLength(19)
+Gui.Form1.txt_Part2.event(LostFocus,Part_Check)
+Gui.Form1.txt_Part2.defaultvalue("")
+Gui.Form1.txt_Part2.controlgroup(2)
+Gui.Form1.txt_Qty2.create(textbox,"",True,915,300,0,465,940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Qty2.parent("frame2")
+Gui.Form1.txt_Qty2.numericonly(1)
+Gui.Form1.txt_Qty2.maxLength(15)
+Gui.Form1.txt_Qty2.defaultvalue("")
+Gui.Form1.txt_Qty2.controlgroup(2)
+Gui.Form1.txt_Desc1.create(textbox,"",True,2685,330,0,5310,440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Desc1.parent("frame2")
+Gui.Form1.txt_Desc1.maxLength(30)
+Gui.Form1.txt_Desc1.defaultvalue("")
+Gui.Form1.txt_Desc1.controlgroup(2)
+Gui.Form1.txt_Rev1.create(textbox,"",True,585,300,0,3720,435,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Rev1.parent("frame2")
+Gui.Form1.txt_Rev1.maxLength(3)
+Gui.Form1.txt_Rev1.event(LostFocus,Rev_Check)
+Gui.Form1.txt_Rev1.defaultvalue("")
+Gui.Form1.txt_Rev1.controlgroup(2)
+Gui.Form1.txt_Part1.create(textbox,"",True,2160,300,0,1485,435,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Part1.parent("frame2")
+Gui.Form1.txt_Part1.maxLength(17)
+Gui.Form1.txt_Part1.event(LostFocus,Part_Check)
+Gui.Form1.txt_Part1.defaultvalue("")
+Gui.Form1.txt_Part1.controlgroup(2)
+Gui.Form1.txt_Qty1.create(textbox,"",True,915,300,0,465,435,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Qty1.parent("frame2")
+Gui.Form1.txt_Qty1.numericonly(1)
+Gui.Form1.txt_Qty1.maxLength(15)
+Gui.Form1.txt_Qty1.defaultvalue("")
+Gui.Form1.txt_Qty1.controlgroup(2)
+Gui.Form1.txt_Qty1.Event(LostFocus,LossFocus_Line1)
+Gui.Form1.txt_Desc2.create(textbox,"",True,2685,300,0,5310,940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Desc2.parent("frame2")
+Gui.Form1.txt_Desc2.maxLength(30)
+Gui.Form1.txt_Desc2.defaultvalue("")
+Gui.Form1.txt_Desc2.controlgroup(2)
+Gui.Form1.lbl_Part.create(label,"Part",True,420,255,1,2420,200,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Part.parent("frame2")
+Gui.Form1.lbl_Part.defaultvalue("")
+Gui.Form1.lbl_Part.BorderStyle(0)
+Gui.Form1.txt_Desc8.create(textbox,"",True,2685,300,0,5310,3940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Desc8.parent("frame2")
+Gui.Form1.txt_Desc8.maxLength(30)
+Gui.Form1.txt_Desc8.defaultvalue("")
+Gui.Form1.txt_Desc8.controlgroup(2)
+Gui.Form1.lbl_Rev.create(label,"Rev",True,435,255,1,3795,195,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Rev.parent("frame2")
+Gui.Form1.lbl_Rev.defaultvalue("")
+Gui.Form1.lbl_Rev.BorderStyle(0)
+Gui.Form1.txt_Rev8.create(textbox,"",True,585,300,0,3720,3940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Rev8.parent("frame2")
+Gui.Form1.txt_Rev8.maxLength(3)
+Gui.Form1.txt_Rev8.event(LostFocus,Rev_Check)
+Gui.Form1.txt_Rev8.defaultvalue("")
+Gui.Form1.txt_Rev8.controlgroup(2)
+Gui.Form1.txt_Part8.create(textbox,"",True,2160,300,0,1490,3940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Part8.parent("frame2")
+Gui.Form1.txt_Part8.maxLength(17)
+Gui.Form1.txt_Part8.event(LostFocus,Part_Check)
+Gui.Form1.txt_Part8.defaultvalue("")
+Gui.Form1.txt_Part8.controlgroup(2)
+Gui.Form1.txt_Qty8.create(textbox,"",True,915,300,0,465,3940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Qty8.parent("frame2")
+Gui.Form1.txt_Qty8.numericonly(1)
+Gui.Form1.txt_Qty8.maxLength(15)
+Gui.Form1.txt_Qty8.defaultvalue("")
+Gui.Form1.txt_Qty8.controlgroup(2)
+Gui.Form1.txt_Desc7.create(textbox,"",True,2685,300,0,5310,3440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Desc7.parent("frame2")
+Gui.Form1.txt_Desc7.maxLength(30)
+Gui.Form1.txt_Desc7.defaultvalue("")
+Gui.Form1.txt_Desc7.controlgroup(2)
+Gui.Form1.txt_Rev7.create(textbox,"",True,585,300,0,3720,3440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Rev7.parent("frame2")
+Gui.Form1.txt_Rev7.maxLength(3)
+Gui.Form1.txt_Rev7.event(LostFocus,Rev_Check)
+Gui.Form1.txt_Rev7.defaultvalue("")
+Gui.Form1.txt_Rev7.controlgroup(2)
+Gui.Form1.txt_Part7.create(textbox,"",True,2160,300,0,1490,3440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Part7.parent("frame2")
+Gui.Form1.txt_Part7.maxLength(17)
+Gui.Form1.txt_Part7.event(LostFocus,Part_Check)
+Gui.Form1.txt_Part7.defaultvalue("")
+Gui.Form1.txt_Part7.controlgroup(2)
+Gui.Form1.txt_Qty7.create(textbox,"",True,915,300,0,465,3440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Qty7.parent("frame2")
+Gui.Form1.txt_Qty7.numericonly(1)
+Gui.Form1.txt_Qty7.maxLength(15)
+Gui.Form1.txt_Qty7.defaultvalue("")
+Gui.Form1.txt_Qty7.controlgroup(2)
+Gui.Form1.txt_Desc6.create(textbox,"",True,2685,300,0,5310,2940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Desc6.parent("frame2")
+Gui.Form1.txt_Desc6.maxLength(30)
+Gui.Form1.txt_Desc6.defaultvalue("")
+Gui.Form1.txt_Desc6.controlgroup(2)
+Gui.Form1.txt_Rev6.create(textbox,"",True,585,300,0,3720,2940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Rev6.parent("frame2")
+Gui.Form1.txt_Rev6.maxLength(3)
+Gui.Form1.txt_Rev6.event(LostFocus,Rev_Check)
+Gui.Form1.txt_Rev6.defaultvalue("")
+Gui.Form1.txt_Rev6.controlgroup(2)
+Gui.Form1.txt_Part6.create(textbox,"",True,2160,300,0,1490,2940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Part6.parent("frame2")
+Gui.Form1.txt_Part6.maxLength(17)
+Gui.Form1.txt_Part6.event(LostFocus,Part_Check)
+Gui.Form1.txt_Part6.defaultvalue("")
+Gui.Form1.txt_Part6.controlgroup(2)
+Gui.Form1.txt_Qty6.create(textbox,"",True,915,300,0,465,2940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Qty6.parent("frame2")
+Gui.Form1.txt_Qty6.numericonly(1)
+Gui.Form1.txt_Qty6.maxLength(15)
+Gui.Form1.txt_Qty6.defaultvalue("")
+Gui.Form1.txt_Qty6.controlgroup(2)
+Gui.Form1.txt_Desc5.create(textbox,"",True,2685,300,0,5310,2440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Desc5.parent("frame2")
+Gui.Form1.txt_Desc5.maxLength(30)
+Gui.Form1.txt_Desc5.defaultvalue("")
+Gui.Form1.txt_Desc5.controlgroup(2)
+Gui.Form1.txt_Rev5.create(textbox,"",True,585,300,0,3720,2440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Rev5.parent("frame2")
+Gui.Form1.txt_Rev5.maxLength(3)
+Gui.Form1.txt_Rev5.event(LostFocus,Rev_Check)
+Gui.Form1.txt_Rev5.defaultvalue("")
+Gui.Form1.txt_Rev5.controlgroup(2)
+Gui.Form1.txt_Part5.create(textbox,"",True,2160,300,0,1490,2440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Part5.parent("frame2")
+Gui.Form1.txt_Part5.maxLength(17)
+Gui.Form1.txt_Part5.event(LostFocus,Part_Check)
+Gui.Form1.txt_Part5.defaultvalue("")
+Gui.Form1.txt_Part5.controlgroup(2)
+Gui.Form1.txt_Qty5.create(textbox,"",True,915,300,0,465,2440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Qty5.parent("frame2")
+Gui.Form1.txt_Qty5.numericonly(1)
+Gui.Form1.txt_Qty5.maxLength(15)
+Gui.Form1.txt_Qty5.defaultvalue("")
+Gui.Form1.txt_Qty5.controlgroup(2)
+Gui.Form1.txt_Desc4.create(textbox,"",True,2685,300,0,5310,1940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Desc4.parent("frame2")
+Gui.Form1.txt_Desc4.maxLength(30)
+Gui.Form1.txt_Desc4.defaultvalue("")
+Gui.Form1.txt_Desc4.controlgroup(2)
+Gui.Form1.txt_Rev4.create(textbox,"",True,585,300,0,3720,1940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Rev4.parent("frame2")
+Gui.Form1.txt_Rev4.maxLength(3)
+Gui.Form1.txt_Rev4.event(LostFocus,Rev_Check)
+Gui.Form1.txt_Rev4.defaultvalue("")
+Gui.Form1.txt_Rev4.controlgroup(2)
+Gui.Form1.txt_Part4.create(textbox,"",True,2160,300,0,1490,1940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Part4.parent("frame2")
+Gui.Form1.txt_Part4.maxLength(17)
+Gui.Form1.txt_Part4.event(LostFocus,Part_Check)
+Gui.Form1.txt_Part4.defaultvalue("")
+Gui.Form1.txt_Part4.controlgroup(2)
+Gui.Form1.txt_Qty4.create(textbox,"",True,915,300,0,465,1940,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Qty4.parent("frame2")
+Gui.Form1.txt_Qty4.numericonly(1)
+Gui.Form1.txt_Qty4.maxLength(15)
+Gui.Form1.txt_Qty4.defaultvalue("")
+Gui.Form1.txt_Qty4.controlgroup(2)
+Gui.Form1.txt_Desc3.create(textbox,"",True,2685,300,0,5310,1440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Desc3.parent("frame2")
+Gui.Form1.txt_Desc3.maxLength(30)
+Gui.Form1.txt_Desc3.defaultvalue("")
+Gui.Form1.txt_Desc3.controlgroup(2)
+Gui.Form1.txt_Rev3.create(textbox,"",True,585,300,0,3720,1440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Rev3.parent("frame2")
+Gui.Form1.txt_Rev3.maxLength(3)
+Gui.Form1.txt_Rev3.event(LostFocus,Rev_Check)
+Gui.Form1.txt_Rev3.defaultvalue("")
+Gui.Form1.txt_Rev3.controlgroup(2)
+Gui.Form1.txt_Part3.create(textbox,"",True,2160,300,0,1490,1440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Part3.parent("frame2")
+Gui.Form1.txt_Part3.maxLength(17)
+Gui.Form1.txt_Part3.event(LostFocus,Part_Check)
+Gui.Form1.txt_Part3.defaultvalue("")
+Gui.Form1.txt_Part3.controlgroup(2)
+Gui.Form1.txt_Qty3.create(textbox,"",True,915,300,0,465,1440,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_Qty3.parent("frame2")
+Gui.Form1.txt_Qty3.numericonly(1)
+Gui.Form1.txt_Qty3.maxLength(15)
+Gui.Form1.txt_Qty3.defaultvalue("")
+Gui.Form1.txt_Qty3.controlgroup(2)
+Gui.Form1.lbl_Date.create(label,"Req. Date",True,795,255,1,8200,200,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Date.parent("frame2")
+Gui.Form1.lbl_Date.defaultvalue("")
+Gui.Form1.lbl_Date.BorderStyle(0)
+Gui.Form1.lbl_Desc.create(label,"Description",True,930,255,1,6135,200,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl_Desc.parent("frame2")
+Gui.Form1.lbl_Desc.defaultvalue("")
+Gui.Form1.lbl_Desc.BorderStyle(0)
+Gui.Form1.frame3.create(frame)
+Gui.Form1.frame3.caption("RFQ Lookup")
+Gui.Form1.frame3.size(9600,675)
+Gui.Form1.frame3.position(105,90)
+Gui.Form1.frame3.Enabled(True)
+Gui.Form1.frame3.Visible(True)
+Gui.Form1.frame3.Zorder(0)
+Gui.Form1.frame3.FontName("Tahoma")
+Gui.Form1.frame3.FontSize(8)
+Gui.Form1.chk_NewCust.create(checkbox)
+Gui.Form1.chk_NewCust.caption("New Customer")
+Gui.Form1.chk_NewCust.size(1395,420)
+Gui.Form1.chk_NewCust.position(7995,255)
+Gui.Form1.chk_NewCust.parent("frame3")
+Gui.Form1.chk_NewCust.controlgroup(1)
+Gui.Form1.chk_NewCust.Visible(False)
+Gui.Form1.chk_NewCust.Enabled(True)
+Gui.Form1.chk_NewCust.Zorder(0)
+Gui.Form1.chk_NewCust.FontName("Tahoma")
+Gui.Form1.chk_NewCust.FontSize(8)
+Gui.Form1.chk_NewPart.create(checkbox)
+Gui.Form1.chk_NewPart.caption("New Part")
+Gui.Form1.chk_NewPart.size(1050,420)
+Gui.Form1.chk_NewPart.position(6705,255)
+Gui.Form1.chk_NewPart.parent("frame3")
+Gui.Form1.chk_NewPart.controlgroup(1)
+Gui.Form1.chk_NewPart.Visible(False)
+Gui.Form1.chk_NewPart.Enabled(True)
+Gui.Form1.chk_NewPart.Zorder(0)
+Gui.Form1.chk_NewPart.FontName("Tahoma")
+Gui.Form1.chk_NewPart.FontSize(8)
+Gui.Form1.cmd_NewRFQ.create(button)
+Gui.Form1.cmd_NewRFQ.caption("New RFQ")
+Gui.Form1.cmd_NewRFQ.size(1080,375)
+Gui.Form1.cmd_NewRFQ.position(2400,200)
+Gui.Form1.cmd_NewRFQ.parent("frame3")
+Gui.Form1.cmd_NewRFQ.event(Click,cmd_newrfq)
+Gui.Form1.cmd_NewRFQ.defaultvalue("")
+Gui.Form1.cmd_NewRFQ.Enabled(True)
+Gui.Form1.cmd_NewRFQ.Visible(True)
+Gui.Form1.cmd_NewRFQ.Zorder(0)
+Gui.Form1.cmd_NewRFQ.FontName("Tahoma")
+Gui.Form1.cmd_NewRFQ.FontSize(8)
+Gui.Form1.cmd_RFQ_Search.create(button)
+Gui.Form1.cmd_RFQ_Search.caption("^")
+Gui.Form1.cmd_RFQ_Search.size(375,375)
+Gui.Form1.cmd_RFQ_Search.position(1775,200)
+Gui.Form1.cmd_RFQ_Search.parent("frame3")
+Gui.Form1.cmd_RFQ_Search.event(Click,cmd_rfq_search_click)
+Gui.Form1.cmd_RFQ_Search.defaultvalue("")
+Gui.Form1.cmd_RFQ_Search.Enabled(True)
+Gui.Form1.cmd_RFQ_Search.Visible(True)
+Gui.Form1.cmd_RFQ_Search.Zorder(0)
+Gui.Form1.cmd_RFQ_Search.FontName("Tahoma")
+Gui.Form1.cmd_RFQ_Search.FontSize(8)
+Gui.Form1.txt_RFQ_Number.create(textbox,"",True,990,300,0,645,240,True,0,"Arial",8,-2147483643,1)
+Gui.Form1.txt_RFQ_Number.parent("frame3")
+Gui.Form1.txt_RFQ_Number.numericonly(2)
+Gui.Form1.txt_RFQ_Number.maxLength(7)
+Gui.Form1.txt_RFQ_Number.event(LostFocus,LoadRFQ)
+Gui.Form1.txt_RFQ_Number.defaultvalue("")
+Gui.Form1.txt_RFQ_Number.controlgroup(1)
+Gui.Form1.txt_RFQ_Number.Mask("0000000")
+Gui.Form1.cmdSubmit.create(button)
+Gui.Form1.cmdSubmit.caption("Submit")
+Gui.Form1.cmdSubmit.size(1800,375)
+Gui.Form1.cmdSubmit.position(7700,8000)
+Gui.Form1.cmdSubmit.event(Click,cmd_Saveclick)
+Gui.Form1.cmdSubmit.defaultvalue("")
+Gui.Form1.cmdSubmit.Enabled(True)
+Gui.Form1.cmdSubmit.Visible(True)
+Gui.Form1.cmdSubmit.Zorder(0)
+Gui.Form1.cmdSubmit.FontName("Tahoma")
+Gui.Form1.cmdSubmit.FontSize(8)
+Gui.Form1.cmdClear.create(button)
+Gui.Form1.cmdClear.caption("Clear")
+Gui.Form1.cmdClear.size(1050,375)
+Gui.Form1.cmdClear.position(6300,8000)
+Gui.Form1.cmdClear.event(Click,cmd_ClearClick)
+Gui.Form1.cmdClear.defaultvalue("")
+Gui.Form1.cmdClear.Enabled(True)
+Gui.Form1.cmdClear.Visible(True)
+Gui.Form1.cmdClear.Zorder(0)
+Gui.Form1.cmdClear.FontName("Tahoma")
+Gui.Form1.cmdClear.FontSize(8)
+Gui.Form1.lbl21.create(label,"^ Double- Click to copy previous Line",True,3360,450,1,300,7920,True,0,"Arial",8,-2147483633,0,0)
+Gui.Form1.lbl21.ForeColor(255)
+Gui.Form1.lbl21.defaultvalue("")
+Gui.Form1.lbl21.BorderStyle(0)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Variable.Global.iRFQ.Declare(Long,0000000)
+Program.Sub.Definition.DefaultArgs("CovertURL","URL")
+Function.Intrinsic.Debug.SetScriptVersion("1.0.2032","True")
+Program.Sub.Definition.DefaultArgs("load_contacts","Key*!*Type")
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Custom entry screen for CustomerRFQs.
+'This screen allows you to easily copy lines.
+
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	V.Local.sDSN.Declare(String)
+	V.Local.sIcon.Declare(String)
+	V.Local.sSQL.Declare(String)
+	V.Local.sTitle.Declare(String)
+	
+'	Function.Intrinsic.Debug.InvokeDebugger
+'	Function.Intrinsic.Debug.Stop
+	
+	Function.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+	
+	'F.Intrinsic.Control.CallSub(Get_rfqnumber)
+	'	V.Global.iRFQ.Set("1000001")
+	F.Intrinsic.Control.CallSub(Cmd_clearclick)
+	
+	F.Intrinsic.Control.CallSub(Pop_salespeople)
+	
+	F.Global.General.SetPassedDataElement("RFQ",V.Global.iRFQ)
+	
+	F.Intrinsic.String.Build("{0}GSS2.ico",V.Caller.GASDir,V.Local.sIcon)
+	
+	V.Local.sTitle.Set("Customer RFQ Entry")
+	
+	F.Intrinsic.Control.CallSub(Screen_disable)
+	
+	Gui.Form1..Show(True)
+	Gui.Form1..Caption(V.Local.sTitle)
+	Gui.Form1..Icon(V.Local.sIcon)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.cmd_ClearClick.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	'Clear Header
+	Gui.Form1..ClearGroup(1)
+	
+	'Clear Lines
+	Gui.Form1..ClearGroup(2)
+	
+	V.Global.iRFQ.Set("0")
+	
+	Gui.Form1.datepicker1.Value(V.Ambient.Date)
+	Gui.Form1.datepicker2.Value(V.Ambient.Date)
+	Gui.Form1.datepicker3.Value(V.Ambient.Date)
+	Gui.Form1.datepicker4.Value(V.Ambient.Date)
+	Gui.Form1.datepicker5.Value(V.Ambient.Date)
+	Gui.Form1.datepicker6.Value(V.Ambient.Date)
+	Gui.Form1.datepicker7.Value(V.Ambient.Date)
+	Gui.Form1.datepicker8.Value(V.Ambient.Date)
+	Gui.Form1.datepicker9.Value(V.Ambient.Date)
+	Gui.Form1.datepicker10.Value(V.Ambient.Date)
+	
+	F.Intrinsic.Control.CallSub(Screen_disable)
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.cmd_ClearClick.End
+
+Program.Sub.cmd_Saveclick.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sTitle.Declare(String)
+	V.Local.sCustNo.Declare(String)
+	F.Intrinsic.String.Trim(V.Screen.Form1!txt_CustNo.Text,V.Local.sCustNo)
+	'Check for Cust. No in txt box
+	F.Intrinsic.Control.If(V.Local.sCustNo,=,"")
+		F.Intrinsic.UI.Msgbox("Customer Number Required","Missing Data")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	
+	'Check for Part Number in txt box
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_Part1.Text,<>,"")
+	
+	F.Intrinsic.Control.CallSub(Save_Header_alt)
+	F.Intrinsic.Control.CallSub(Save_Line_alt)
+	
+	'F.Intrinsic.UI.PlaySound("\\server\APPS\Global\PLUGINS\GAB\GAS\sound_coin.wav")
+	F.Intrinsic.Control.CallSub(Cmd_clearclick)
+	'F.Intrinsic.Control.CallSub(Unload)
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry	
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.cmd_Saveclick.End
+
+Program.Sub.cmd_CustLookup.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+V.Local.sCol.Declare(String)
+V.Local.sColW.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sSQL.Declare(String)
+
+'F.Intrinsic.Control.CallSub(Cmd_clearclick)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+
+F.Intrinsic.String.Split("Customer Name*!*Cust. No","*!*",V.Local.sCol)
+F.Intrinsic.String.Split("3000*!*750","*!*",V.Local.sColW)
+
+	F.Intrinsic.UI.Browser("Select a Customer/Prospect","con","Select Name, Prospect from CUST_PROSP_LIST order by Name",V.local.sCol,V.Local.sColW,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,"<>","***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+
+		Gui.Form1.txt_CustName.Text(V.Local.sRet(0))
+		Gui.Form1.txt_CustNo.Text(V.Local.sRet(1))
+
+	F.Intrinsic.Control.EndIf
+
+
+V.Local.sSQL.Set("Select Name_Customer, Customer From V_Customer_Master Order by Name_Customer")
+
+F.ODBC.Connection!con.openRecordSetRO("rst",V.Local.sSql)
+
+F.ODBC.Connection!con.CloseRecordsets
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.cmd_CustLookup.End
+
+Program.Sub.Unload.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+Function.Global.General.ResetPassedDataElements
+F.ODBC.Connection!con.CloseRecordsets
+F.ODBC.Connection!con.Close
+
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry	
+Program.Sub.Unload.End
+
+Program.Sub.SaveHeader.Start
+'	F.Intrinsic.Debug.InvokeDebugger
+'	F.Intrinsic.Debug.Stop
+
+V.Local.sSQL.Declare(String)
+V.Local.dDate.Declare(Date)
+V.Local.sYear.Declare(String)
+V.Local.sMonth.Declare(String)
+V.Local.sDay.Declare(String)
+V.Local.sDate.Declare(String)
+V.Local.sSalesman.Declare(String)
+V.Local.sCustName.Declare(String)
+V.Local.sCustNo.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sRev.Declare(String)
+V.Local.sQty.Declare(String)
+V.Local.sNewPart.Declare(String)
+V.Local.sNewCust.Declare(String)
+
+V.Local.dDate.Set(V.Ambient.Date)
+
+F.Intrinsic.String.DateString(V.Local.dDate,V.Local.sDate)
+F.Intrinsic.String.Left(V.Local.sDate,4,V.Local.sYear)
+F.Intrinsic.String.Mid(V.Local.sDate,5,2,V.Local.sMonth)
+F.Intrinsic.String.Right(V.Local.sDate,2,V.Local.sDay)
+'F.Intrinsic.String.Concat("",V.Local.sYear,V.Local.sMonth,V.Local.sDay,"",V.Local.sDate)
+F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sYear,V.Local.sMonth,V.Local.sDay,V.Local.sDate)
+
+V.Local.sSalesman.Set(V.Screen.Form1!ddlist_Salesperson.Text)
+'V.Local.sCustName.Set(V.Screen.Form1!txt_CustName.Text)
+F.Intrinsic.String.Replace(V.Screen.Form1!txt_CustName.Text,"'","",V.Local.sCustName)
+V.Local.sCustNo.Set(V.Screen.Form1!txt_CustNo.Text)
+V.Local.sPart.Set(V.Screen.Form1!txt_Part1.Text)
+V.Local.sRev.Set(V.Screen.Form1!txt_Rev1.Text)
+V.Local.sQty.Set(V.Screen.Form1!txt_Qty1.Text)
+
+F.Intrinsic.Control.If(V.Screen.Form1!chk_NewPart.Value,=,1)
+	V.Local.sNewPart.Set("Y")
+F.Intrinsic.Control.Else
+	V.Local.sNewPart.Set("N")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Screen.Form1!chk_NewCust.Value,=,1)
+	V.Local.sNewCust.Set("Y")
+F.Intrinsic.Control.Else
+	V.Local.sNewCust.Set("N")
+F.Intrinsic.Control.EndIf
+
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+
+'V.Local.sSQL.Set("Select * From Cust_RFQ_Header where RFQ = '",V.Local.iRFQ,"'")
+F.Intrinsic.String.Concat("Select * From Cust_RFQ_Header where RFQ = '",V.Global.iRFQ,"' and RFQ_SEQUENCE = '000' ",V.Local.sSQL)
+F.ODBC.Connection!con.OpenRecordsetRW("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.ODBC.con!rst.AddNew
+'			F.Intrinsic.Control.If(V.Local.iRfqSeq,=,"000")
+'			Cust_RFQ_Header
+				F.ODBC.con!rst.Set!RFQ(V.Global.iRFQ)
+				F.ODBC.con!rst.Set!RFQ_SEQUENCE("000")
+				F.ODBC.con!rst.Set!EMAIL(V.Screen.Form1!txt_email.Text)
+				F.ODBC.con!rst.Set!NAME(V.Screen.Form1!txt_CustName.Text)
+				F.ODBC.con!rst.Set!DESCRIPTION(V.Screen.Form1!txt_RFQdesc.Text)
+				F.ODBC.con!rst.Set!CUSTOMER(V.Screen.Form1!txt_CustNo.Text)
+				F.ODBC.con!rst.Set!SORT_CODE(V.Screen.Form1!txt_Sort.Text)
+				F.ODBC.con!rst.Set!DATE_ARO("00000000")
+'				F.ODBC.con!rst.Set!FLAG_EMAIL_SENT("00000000")
+				F.ODBC.con!rst.Set!QUOTE("0")
+				F.ODBC.con!rst.Set!DATE_RFQ(V.Local.sDate)
+'				F.ODBC.con!rst.Set!FILLER("")
+
+				F.Intrinsic.String.Build("INSERT into GAB_5947_CustRFQ (RFQ, LINE_RFQ, SALESPERSON, BUYER, CUSTOMER_NAME, RFQ_DUE_DATE, ENGINEER) VALUES('{0}', '000', '{1}', '{2}', '{3}', '{4}', '{5}');",V.Global.iRFQ,V.Screen.Form1!ddlist_Salesperson.Text,V.Screen.Form1!cbo_buyer.Value,V.Screen.Form1!txt_CustName.Text,V.Screen.Form1!datepicker1.Value,V.Screen.Form1!txt_Sort.Text,V.Local.sSQL)
+		F.ODBC.Connection!Con.Execute(V.Local.sSQL)
+
+	F.Intrinsic.Control.EndIf
+F.ODBC.con!rst.Update
+F.ODBC.con!rst.Close
+
+'Save to Custom table
+
+V.local.dDate.Set(V.Ambient.Date)
+F.Intrinsic.String.Format(V.Local.dDate,"mm-dd-yyyy",V.Local.dDate)
+
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+
+F.Intrinsic.Control.ExitSub
+
+Program.Sub.SaveHeader.End
+
+Program.Sub.SaveLine1.Start
+F.Intrinsic.Control.SetErrorHandler("SaveLine1_Err")
+F.Intrinsic.Control.ClearErrors
+'ERROR HANDLING ABOVE
+
+V.Local.sError.Declare(String)
+'	F.Intrinsic.Debug.InvokeDebugger
+'	F.Intrinsic.Debug.Stop
+
+V.Local.sSQL.Declare(String)
+'*****************************************************************************************************************
+	'RFQ 7
+	'RFQ_SEQUENCE 3
+	'ROUTER 20
+V.Local.sRouterP.Declare(String)
+V.Local.sRouterP.Set(V.Screen.Form1!txt_Part1.Text)
+F.Intrinsic.String.RPad(V.Local.sRouterP," ",20,V.Local.sRouterP)
+	'REV 3
+V.Local.sRevP.Declare(String)
+V.Local.sRevP.Set(V.Screen.Form1!txt_Rev1.Text)
+F.Intrinsic.String.RPad(V.Local.sRevP," ",3,V.Local.sRevP)
+	'LOCATION 2
+V.Local.sLocP.Declare(String)
+V.Local.sLocP.Set(V.Screen.Form1!txt_Loc1.Text)
+F.Intrinsic.String.RPad(V.Local.sLocP," ",2,V.Local.sLocP)
+'F.Intrinsic.Control.Left(V.Local.sLocP,2,V.Local.sLocP)
+	'DESCRIPTION 30
+V.Local.sDescP.Declare(String)
+V.Local.sDescP.Set(V.Screen.Form1!txt_Desc1.Text)
+F.Intrinsic.String.RPad(V.Local.sDescP," ",30,V.Local.sDescP)
+	'QUANTITY 12 w/ ".0000"
+'V.Local.iQty.Declare(Float,4)
+V.Local.sQtyP.Declare(String)
+'V.Local.sQtyP.Set(V.Screen.Form1!txt_Qty1.Text)
+F.Intrinsic.String.Replace(V.Screen.Form1!txt_Qty1.Text,",","",V.Local.sQtyP)
+'V.Local.iQty.Set(V.Screen.Form1!txt_Qty1.Text)
+'F.Intrinsic.String.StripCharacters(V.Local.sQtyP,V.Local.sQtyP)
+F.Intrinsic.String.LPad(V.Local.sQtyP,"0",8,V.Local.sQtyP)
+F.Intrinsic.String.RPad(V.Local.sQtyP,"0",12,V.Local.sQtyP)
+	'DATE_REQUESTED 6
+V.Local.sDateP.Declare(String)
+V.Local.sTemp.Declare(String)
+
+F.Intrinsic.String.DateString(V.Screen.Form1!datepicker1.Value,V.Local.sTemp)
+'	F.Intrinsic.String.Mid(V.Local.sTemp,5,2,V.Local.sDate)
+'	F.Intrinsic.String.Right(V.Local.sTemp,2,V.Local.sDateP)
+'	F.Intrinsic.String.Mid(V.Local.sTemp,3,2,V.Local.sTemp)
+	
+	F.Intrinsic.Date.Day(V.Local.sTemp,V.Local.sDate)
+	F.Intrinsic.Date.Year(V.Local.sTemp,V.Local.sDateP)
+	F.Intrinsic.String.Right(V.Local.sDateP,2,V.Local.sDateP)
+	F.Intrinsic.Date.Month(V.Local.sTemp,V.Local.sTemp)
+'F.Intrinsic.String.Concat(V.Local.sDate,V.Local.sDateP,V.Local.sTemp,V.Local.sDateP)
+F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sDateP,V.Local.sDateP,V.Local.sTemp,V.Local.sDateP,)
+	'FLAG_ROUTER_BUILT 1
+	'COMMENTS 71
+	'FILLER 114
+V.Local.sLine.Declare(String)
+'F.Intrinsic.String.Concat(V.Local.sRouterP,V.Local.sRevP,V.Local.sLocP,V.Local.sDescP,V.Local.sQtyP,V.Local.sDateP,"      ",V.Local.sLine)
+F.Intrinsic.String.Build("{0}{1}{2}{3}{4}{5}      ",V.Local.sRouterP,V.Local.sRevP,V.Local.sLocP,V.Local.sDescP,V.Local.sQtyP,V.Local.sDateP,V.Local.sLine)
+
+V.Local.sLine1.Declare(String)
+F.Intrinsic.String.Left(V.Local.sLine,74,V.Local.sLine1)
+	
+'DESCRIPTION
+V.Local.sLine2.Declare(String)
+V.Local.sLine2.Set(V.Screen.Form1!txt_RFQdesc.Text)
+F.Intrinsic.String.RPad(V.Local.sLine2," ",40,V.Local.sLine2)
+F.Intrinsic.String.Right(V.Local.sLine2,35,V.Local.sLine2)
+
+V.Local.dDate.Declare(Date)
+V.Local.sDate.Declare(String)
+V.Local.sYear.Declare(String)
+V.Local.sMonth.Declare(String)
+V.Local.sDay.Declare(String)
+
+V.Local.dDate.Set(V.Ambient.Date)
+'F.Intrinsic.String.DateString(V.Local.dDate,V.Local.sDate)
+'F.Intrinsic.String.Left(V.Local.sDate,4,V.Local.sYear)
+'F.Intrinsic.String.Mid(V.Local.sDate,5,2,V.Local.sMonth)
+'F.Intrinsic.String.Right(V.Local.sDate,2,V.Local.sDay)
+'F.Intrinsic.String.Concat("",V.Local.sYear,V.Local.sMonth,V.Local.sDay,"",V.Local.sDate)
+F.Intrinsic.Date.Year(V.Local.dDate,V.Local.sYear)
+F.Intrinsic.Date.Month(V.Local.dDate,V.Local.sMonth)
+F.Intrinsic.Date.Day(V.Local.dDate,V.Local.sDay)
+F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sYear,V.Local.sMonth,V.Local.sDate,V.Local.sDate)
+'*****************************************************************************************************************
+
+F.Intrinsic.String.Concat("Select * From Cust_RFQ_Header where RFQ = '",V.Global.iRFQ,"' and RFQ_SEQUENCE = '001'",V.Local.sSQL)
+F.ODBC.Connection!con.OpenRecordsetRW("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.ODBC.con!rst.AddNew
+			F.ODBC.con!rst.Set!RFQ(V.Global.iRFQ)
+			F.ODBC.con!rst.Set!RFQ_SEQUENCE("001")
+			F.ODBC.con!rst.Set!EMAIL(V.Local.sLine1)
+			F.ODBC.con!rst.Set!NAME("")
+			F.ODBC.con!rst.Set!DESCRIPTION(V.Local.sLine2)
+			F.ODBC.con!rst.Set!CUSTOMER(V.Screen.Form1!txt_CustNo.Text)
+			F.ODBC.con!rst.Set!SORT_CODE(V.Screen.Form1!txt_Sort.Text)
+			F.ODBC.con!rst.Set!DATE_ARO("00000000")
+			F.ODBC.con!rst.Set!FLAG_EMAIL_SENT("")
+			F.ODBC.con!rst.Set!QUOTE("0")
+			F.ODBC.con!rst.Set!DATE_RFQ(V.Local.sDate)
+			F.ODBC.con!rst.Set!FILLER("")
+	F.Intrinsic.Control.Else
+		F.ODBC.Con!rst.Update
+'			F.ODBC.con!rst.Set!RFQ(V.Global.iRFQ)
+'			F.ODBC.con!rst.Set!RFQ_SEQUENCE("001")
+			F.ODBC.con!rst.Set!EMAIL(V.Local.sLine1)
+'			F.ODBC.con!rst.Set!NAME("")
+			F.ODBC.con!rst.Set!DESCRIPTION(V.Local.sLine2)
+			F.ODBC.con!rst.Set!CUSTOMER(V.Screen.Form1!txt_CustNo.Text)
+			F.ODBC.con!rst.Set!SORT_CODE(V.Screen.Form1!txt_Sort.Text)
+'			F.ODBC.con!rst.Set!DATE_ARO("00000000")
+'			F.ODBC.con!rst.Set!FLAG_EMAIL_SENT("")
+'			F.ODBC.con!rst.Set!QUOTE("0")
+			F.ODBC.con!rst.Set!DATE_RFQ(V.Local.sDate)
+'			F.ODBC.con!rst.Set!FILLER("")
+	F.Intrinsic.Control.EndIf
+F.ODBC.con!rst.Update
+F.ODBC.con!rst.Close
+'	F.ODBC.Connection!con.CloseRecordsets
+		
+F.Intrinsic.Control.ExitSub
+
+'ERROR HANDLING BELOW
+F.Intrinsic.Control.Label("SaveLine1_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_5947_CustRFQ_Entry.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.CallSub(Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.SaveLine1.End
+
+Program.Sub.format_date.Start
+Gui.Form1.datepicker1.Mask("0#/0#/"20"##")
+Gui.Form1.datepicker2.Mask("0#/0#/"20"##")
+Gui.Form1.datepicker3.Mask("0#/0#/"20"##")
+Gui.Form1.datepicker4.Mask("0#/0#/"20"##")
+Gui.Form1.datepicker5.Mask("0#/0#/"20"##")
+Gui.Form1.datepicker6.Mask("0#/0#/"20"##")
+Gui.Form1.datepicker7.Mask("0#/0#/"20"##")
+Gui.Form1.datepicker8.Mask("0#/0#/"20"##")
+Gui.Form1.datepicker9.Mask("0#/0#/"20"##")
+Gui.Form1.datepicker10.Mask("0#/0#/"20"##")
+
+F.Intrinsic.Control.ExitSub
+
+Program.Sub.format_date.End
+
+Program.Sub.cmd_doccontrol.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+F.Intrinsic.UI.Beep
+
+V.Local.sGAB.Declare(String)
+F.Intrinsic.String.Build("{0}\GAB_5947_DCC.gas",V.Caller.GasDir,V.Local.sGAB)
+F.Global.General.CallSyncGAS(V.Local.sGAB)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry	
+Program.Sub.cmd_doccontrol.End
+
+Program.Sub.Get_RfqNumber.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+V.Local.sSQL.Declare(String)
+V.Local.iRFQ.Declare(Long)
+V.Local.sRet.Declare
+
+'	Function.Intrinsic.Debug.InvokeDebugger
+'	Function.Intrinsic.Debug.Stop
+
+'V.Local.sSQL.Set("Select MAX(RFQ) as RFQ from Cust_RFQ_Header")
+V.Local.sSQL.Set("Select F_LONG From OP_HEADER Where ID ='401317';")
+F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+'F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+		V.Global.iRFQ.Set("0000001")
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Math.Add(V.Local.sRet,1,V.Global.iRFQ)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.String.Build("Update OP_HEADER SET F_LONG = '{0}' Where ID ='401317';",V.Global.iRFQ,V.Local.sSQL)
+	F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	
+Gui.Form1.txt_RFQ_Number.Text(V.Global.iRFQ)
+
+F.Intrinsic.Control.CallSub(Screen_enable)
+
+Gui.Form1..SetFocus
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Get_RfqNumber.End
+
+Program.Sub.cmd_addprospect.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sParm.Declare(String)
+	V.Local.sParm.Set("N!*!P!*!")
+	F.Global.General.CallWrapperASync(100000,V.Local.sParm)
+	
+	Gui.Form1.txt_CustNo.Text(V.Ambient.CallWrapperReturn)
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.cmd_addprospect.End
+
+Program.Sub.LoadCust.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	V.Local.sSQL.Declare(String)
+	
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_CustNo.Text,<>,"")
+		F.Intrinsic.String.Concat("Select Name, Prospect from CUST_PROSP_LIST Where Prospect = '",V.Screen.Form1!txt_CustNo.Text,"'",V.Local.sSQL)
+		F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	
+		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+			Gui.Form1.txt_CustName.Text(V.ODBC.con!rst.FieldValTrim!Name)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Not a Customer Number")
+			Gui.Form1.txt_CustName.Text("")
+			Gui.Form1.txt_CustNo.Text("")
+			gui.Form1.cbo_buyer.Text("")
+			gui.Form1.cbo_buyer.ClearItems
+			F.ODBC.Con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.If(V.Screen.Form1!cbo_buyer.Caption,=,"")
+		F.Intrinsic.Control.CallSub(Loadcontacts)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadCust.End
+
+Program.Sub.Pop_Salespeople.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sSQL.Declare(String)
+	
+	Gui.Form1.ddlist_Salesperson.Text("")
+	Gui.Form1.ddlist_Salesperson.ClearItems
+	
+	'Run Department Query
+	V.Local.sSQL.Set("Select SALESPERSON from V_SALESPEOPLE Order by SALESPERSON")
+	F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,True)
+		F.Intrinsic.UI.Msgbox("No Salespeople found.")
+	'	F.Intrinsic.Control.CallSub(Unload)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.DoUntil(V.ODBC.con!rst.EOF,=,True)
+			Gui.Form1.ddlist_Salesperson.AddItem(V.ODBC.con!rst.FieldValTrim!SALESPERSON)
+			F.ODBC.con!rst.MoveNext
+		F.Intrinsic.Control.Loop
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Pop_Salespeople.End
+
+Program.Sub.cmd_rfq_search_click.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sSQL.Declare(String)
+	V.Local.sColumns.Declare(String)
+	V.Local.iWidths.Declare(Long)
+	V.Local.sRet.Declare(String)
+	V.Local.iAlign.Declare(Long)
+	V.Local.sFormat.Declare(String)
+	
+	V.Local.sSQL.Set("Select RFQ, NAME, DESCRIPTION, SUBSTRING(DATE_RFQ,5,2) + '/' + Right(DATE_RFQ,2) + '/' + Left(DATE_RFQ,4) as RFQ_DATE From CUST_RFQ_HEADER Where RFQ_SEQUENCE='000' Order by RFQ")
+	F.Intrinsic.String.Split("RFQ*!*Customer*!*Description*!*Date","*!*",V.Local.sColumns)
+	F.Intrinsic.String.Split("800*!*2500*!*2500*!*1000","*!*",V.Local.iWidths)
+	
+	F.Intrinsic.String.Split("0*!*0*!*0*!*6","*!*",V.Local.iAlign)
+	F.Intrinsic.String.Split("*!**!**!*","*!*",V.Local.sFormat)
+	
+	F.Intrinsic.UI.Browser("Customer RFQ Search","con",V.Local.sSQL,V.Local.sColumns,V.Local.iWidths,7800,7000,V.Local.sFormat,V.Local.iAlign,V.Local.sRet)
+	
+	F.Intrinsic.Control.If(V.Local.sRet,=,"***CANCEL***")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		Gui.Form1.txt_RFQ_Number.Text(V.Local.sRet(0))
+		F.Intrinsic.Control.CallSub(Loadrfq)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry	
+Program.Sub.cmd_rfq_search_click.End
+
+Program.Sub.LoadRFQ.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sSQL.Declare(String)
+	V.Local.iQty.Declare(Long)
+	V.Local.sPart.Declare(String)
+	V.Local.sRev.Declare(String)
+	V.Local.sDesc.Declare(String)
+	V.Local.sDate.Declare(String)
+	V.Local.sTemp.Declare(String)
+	
+'	Function.Intrinsic.Debug.InvokeDebugger
+'	Function.Intrinsic.Debug.Stop
+	
+	'Open RFQ Header and load screen
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_RFQ_Number.Text,<>,"")
+		F.Intrinsic.String.Concat("Select T1.EMAIL, T1.NAME, T1.DESCRIPTION, T1.CUSTOMER, T1.SORT_CODE, T2.SALESPERSON, T2.BUYER From CUST_RFQ_HEADER T1 LEFT OUTER JOIN GAB_5947_CustRFQ T2 ON (T1.RFQ=T2.RFQ) AND (T1.RFQ_SEQUENCE=T2.LINE_RFQ) Where T1.RFQ = '",V.Screen.Form1!txt_RFQ_Number.Text,"' AND T1.RFQ_SEQUENCE = '000'",V.Local.sSQL)
+		F.ODBC.Connection!con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	
+		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+			Gui.Form1.txt_CustName.Text(V.ODBC.Con!rst.FieldValLTrim!NAME)
+			Gui.Form1.txt_CustNo.Text(V.ODBC.Con!rst.FieldValLTrim!CUSTOMER)
+			Gui.Form1.txt_RFQdesc.Text(V.ODBC.con!rst.FieldValTrim!DESCRIPTION)
+			Gui.Form1.txt_Sort.Text(V.ODBC.con!rst.FieldValTrim!SORT_CODE)
+			Gui.Form1.txt_Email.Text(V.ODBC.con!rst.FieldValTrim!EMAIL)
+			Gui.Form1.cbo_buyer.Text(V.ODBC.con!rst.FieldValTrim!BUYER)
+			Gui.Form1.ddlist_Salesperson.Text(V.ODBC.Con!rst.FieldValRTrim!SALESPERSON)
+			V.Global.iRFQ.Set(V.Screen.Form1!txt_RFQ_Number.Text)
+			F.Intrinsic.Control.CallSub(Screen_enable)
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	
+		'**********
+		'Modified by Alejandro Noguera 12/01/2022
+		'If DATE_REQUIERED is not set on the RFQ Maintenance screen for each line the program will error out, 
+		'so it's important to add a filter that checks this.
+		'**********
+	
+		F.Intrinsic.String.Concat("Select RFQ, RFQ_SEQUENCE, ROUTER, REV, DESCRIPTION, QUANTITY, DATE_REQUESTED, COMMENTS from CUST_RFQ_LINES Where RFQ = '",V.Screen.Form1!txt_RFQ_Number.Text,"' and RFQ_SEQUENCE = '001'",V.Local.sSQL)
+		F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.Con!rst.EOF,=,False)
+			Gui.Form1.txt_Qty1.Text(V.ODBC.Con!rst.FieldValLTrim!QUANTITY)
+			Gui.Form1.txt_Part1.Text(V.ODBC.Con!rst.FieldValLTrim!ROUTER)
+			Gui.Form1.txt_Rev1.Text(V.ODBC.Con!rst.FieldValLTrim!REV)
+			Gui.Form1.txt_Desc1.Text(V.ODBC.Con!rst.FieldValLTrim!DESCRIPTION)
+			
+			'**********
+			'Checking if the DATE_REQUIERED value is '000000', if TRUE set the date picket value to 01-01-2000
+			
+			F.Intrinsic.Control.If(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,<>,"000000")
+			
+				F.Intrinsic.String.Right(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat("20",V.Local.sTemp,V.Local.sDate)
+				F.Intrinsic.String.Mid(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,3,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				F.Intrinsic.String.Left(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				Gui.Form1.datepicker1.Value(V.Local.sDate)
+			
+			F.Intrinsic.Control.Else
+			
+				Gui.Form1.datepicker1.Value("01-01-2000")
+			
+			F.Intrinsic.Control.EndIf
+			'**********
+			
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	
+		F.Intrinsic.String.Concat("Select RFQ, RFQ_SEQUENCE, ROUTER, REV, DESCRIPTION, QUANTITY, DATE_REQUESTED, COMMENTS from CUST_RFQ_LINES Where RFQ = '",V.Screen.Form1!txt_RFQ_Number.Text,"' and RFQ_SEQUENCE = '002'",V.Local.sSQL)
+		F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.Con!rst.EOF,=,False)
+			Gui.Form1.txt_Qty2.Text(V.ODBC.Con!rst.FieldValLTrim!QUANTITY)
+			Gui.Form1.txt_Part2.Text(V.ODBC.Con!rst.FieldValLTrim!ROUTER)
+			Gui.Form1.txt_Rev2.Text(V.ODBC.Con!rst.FieldValLTrim!REV)
+			Gui.Form1.txt_Desc2.Text(V.ODBC.Con!rst.FieldValLTrim!DESCRIPTION)
+			
+			'**********
+			'Checking if the DATE_REQUIERED value is '000000', if TRUE set the date picket value to 01-01-2000
+			
+			F.Intrinsic.Control.If(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,<>,"000000")
+			
+				F.Intrinsic.String.Right(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat("20",V.Local.sTemp,V.Local.sDate)
+				F.Intrinsic.String.Mid(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,3,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				F.Intrinsic.String.Left(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				Gui.Form1.datepicker2.Value(V.Local.sDate)
+			
+			F.Intrinsic.Control.Else
+			
+				Gui.Form1.datepicker2.Value("01-01-2000")
+			
+			F.Intrinsic.Control.EndIf
+			'**********
+			
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	
+		F.Intrinsic.String.Concat("Select RFQ, RFQ_SEQUENCE, ROUTER, REV, DESCRIPTION, QUANTITY, DATE_REQUESTED, COMMENTS from CUST_RFQ_LINES Where RFQ = '",V.Screen.Form1!txt_RFQ_Number.Text,"' and RFQ_SEQUENCE = '003'",V.Local.sSQL)
+		F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.Con!rst.EOF,=,False)
+			Gui.Form1.txt_Qty3.Text(V.ODBC.Con!rst.FieldValLTrim!QUANTITY)
+			Gui.Form1.txt_Part3.Text(V.ODBC.Con!rst.FieldValLTrim!ROUTER)
+			Gui.Form1.txt_Rev3.Text(V.ODBC.Con!rst.FieldValLTrim!REV)
+			Gui.Form1.txt_Desc3.Text(V.ODBC.Con!rst.FieldValLTrim!DESCRIPTION)
+			
+			'**********
+			'Checking if the DATE_REQUIERED value is '000000', if TRUE set the date picket value to 01-01-2000
+			
+			F.Intrinsic.Control.If(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,<>,"000000")
+			
+				F.Intrinsic.String.Right(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat("20",V.Local.sTemp,V.Local.sDate)
+				F.Intrinsic.String.Mid(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,3,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				F.Intrinsic.String.Left(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				Gui.Form1.datepicker3.Value(V.Local.sDate)
+			
+			F.Intrinsic.Control.Else
+			
+				Gui.Form1.datepicker3.Value("01-01-2000")
+			
+			F.Intrinsic.Control.EndIf
+			'**********
+			
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	
+		F.Intrinsic.String.Concat("Select RFQ, RFQ_SEQUENCE, ROUTER, REV, DESCRIPTION, QUANTITY, DATE_REQUESTED, COMMENTS from CUST_RFQ_LINES Where RFQ = '",V.Screen.Form1!txt_RFQ_Number.Text,"' and RFQ_SEQUENCE = '004'",V.Local.sSQL)
+		F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.Con!rst.EOF,=,False)
+			Gui.Form1.txt_Qty4.Text(V.ODBC.Con!rst.FieldValLTrim!QUANTITY)
+			Gui.Form1.txt_Part4.Text(V.ODBC.Con!rst.FieldValLTrim!ROUTER)
+			Gui.Form1.txt_Rev4.Text(V.ODBC.Con!rst.FieldValLTrim!REV)
+			Gui.Form1.txt_Desc4.Text(V.ODBC.Con!rst.FieldValLTrim!DESCRIPTION)
+			
+			'**********
+			'Checking if the DATE_REQUIERED value is '000000', if TRUE set the date picket value to 01-01-2000
+			
+			F.Intrinsic.Control.If(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,<>,"000000")
+			
+				F.Intrinsic.String.Right(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat("20",V.Local.sTemp,V.Local.sDate)
+				F.Intrinsic.String.Mid(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,3,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				F.Intrinsic.String.Left(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				Gui.Form1.datepicker4.Value(V.Local.sDate)
+			
+			F.Intrinsic.Control.Else
+			
+				Gui.Form1.datepicker4.Value("01-01-2000")
+			
+			F.Intrinsic.Control.EndIf
+			'**********
+			
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	
+		F.Intrinsic.String.Concat("Select RFQ, RFQ_SEQUENCE, ROUTER, REV, DESCRIPTION, QUANTITY, DATE_REQUESTED, COMMENTS from CUST_RFQ_LINES Where RFQ = '",V.Screen.Form1!txt_RFQ_Number.Text,"' and RFQ_SEQUENCE = '005'",V.Local.sSQL)
+		F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.Con!rst.EOF,=,False)
+			Gui.Form1.txt_Qty5.Text(V.ODBC.Con!rst.FieldValLTrim!QUANTITY)
+			Gui.Form1.txt_Part5.Text(V.ODBC.Con!rst.FieldValLTrim!ROUTER)
+			Gui.Form1.txt_Rev5.Text(V.ODBC.Con!rst.FieldValLTrim!REV)
+			Gui.Form1.txt_Desc5.Text(V.ODBC.Con!rst.FieldValLTrim!DESCRIPTION)
+			
+			'**********
+			'Checking if the DATE_REQUIERED value is '000000', if TRUE set the date picket value to 01-01-2000
+			
+			F.Intrinsic.Control.If(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,<>,"000000")
+			
+				F.Intrinsic.String.Right(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat("20",V.Local.sTemp,V.Local.sDate)
+				F.Intrinsic.String.Mid(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,3,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				F.Intrinsic.String.Left(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				Gui.Form1.datepicker5.Value(V.Local.sDate)
+			
+			F.Intrinsic.Control.Else
+			
+				Gui.Form1.datepicker5.Value("01-01-2000")
+			
+			F.Intrinsic.Control.EndIf
+			'**********
+			
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	
+		F.Intrinsic.String.Concat("Select RFQ, RFQ_SEQUENCE, ROUTER, REV, DESCRIPTION, QUANTITY, DATE_REQUESTED, COMMENTS from CUST_RFQ_LINES Where RFQ = '",V.Screen.Form1!txt_RFQ_Number.Text,"' and RFQ_SEQUENCE = '006'",V.Local.sSQL)
+		F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.Con!rst.EOF,=,False)
+			Gui.Form1.txt_Qty6.Text(V.ODBC.Con!rst.FieldValLTrim!QUANTITY)
+			Gui.Form1.txt_Part6.Text(V.ODBC.Con!rst.FieldValLTrim!ROUTER)
+			Gui.Form1.txt_Rev6.Text(V.ODBC.Con!rst.FieldValLTrim!REV)
+			Gui.Form1.txt_Desc6.Text(V.ODBC.Con!rst.FieldValLTrim!DESCRIPTION)
+			
+			'**********
+			'Checking if the DATE_REQUIERED value is '000000', if TRUE set the date picket value to 01-01-2000
+			
+			F.Intrinsic.Control.If(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,<>,"000000")
+			
+				F.Intrinsic.String.Right(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat("20",V.Local.sTemp,V.Local.sDate)
+				F.Intrinsic.String.Mid(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,3,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				F.Intrinsic.String.Left(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				Gui.Form1.datepicker6.Value(V.Local.sDate)
+			
+			F.Intrinsic.Control.Else
+			
+				Gui.Form1.datepicker6.Value("01-01-2000")
+			
+			F.Intrinsic.Control.EndIf
+			'**********
+			
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	
+		F.Intrinsic.String.Concat("Select RFQ, RFQ_SEQUENCE, ROUTER, REV, DESCRIPTION, QUANTITY, DATE_REQUESTED, COMMENTS from CUST_RFQ_LINES Where RFQ = '",V.Screen.Form1!txt_RFQ_Number.Text,"' and RFQ_SEQUENCE = '007'",V.Local.sSQL)
+		F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.Con!rst.EOF,=,False)
+			Gui.Form1.txt_Qty7.Text(V.ODBC.Con!rst.FieldValLTrim!QUANTITY)
+			Gui.Form1.txt_Part7.Text(V.ODBC.Con!rst.FieldValLTrim!ROUTER)
+			Gui.Form1.txt_Rev7.Text(V.ODBC.Con!rst.FieldValLTrim!REV)
+			Gui.Form1.txt_Desc7.Text(V.ODBC.Con!rst.FieldValLTrim!DESCRIPTION)
+			
+			'**********
+			'Checking if the DATE_REQUIERED value is '000000', if TRUE set the date picket value to 01-01-2000
+			
+			F.Intrinsic.Control.If(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,<>,"000000")
+			
+				F.Intrinsic.String.Right(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat("20",V.Local.sTemp,V.Local.sDate)
+				F.Intrinsic.String.Mid(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,3,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				F.Intrinsic.String.Left(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				Gui.Form1.datepicker7.Value(V.Local.sDate)
+			
+			F.Intrinsic.Control.Else
+			
+				Gui.Form1.datepicker7.Value("01-01-2000")
+			
+			F.Intrinsic.Control.EndIf
+			'**********
+			
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	
+		F.Intrinsic.String.Concat("Select RFQ, RFQ_SEQUENCE, ROUTER, REV, DESCRIPTION, QUANTITY, DATE_REQUESTED, COMMENTS from CUST_RFQ_LINES Where RFQ = '",V.Screen.Form1!txt_RFQ_Number.Text,"' and RFQ_SEQUENCE = '008'",V.Local.sSQL)
+		F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.Con!rst.EOF,=,False)
+			Gui.Form1.txt_Qty8.Text(V.ODBC.Con!rst.FieldValLTrim!QUANTITY)
+			Gui.Form1.txt_Part8.Text(V.ODBC.Con!rst.FieldValLTrim!ROUTER)
+			Gui.Form1.txt_Rev8.Text(V.ODBC.Con!rst.FieldValLTrim!REV)
+			Gui.Form1.txt_Desc8.Text(V.ODBC.Con!rst.FieldValLTrim!DESCRIPTION)
+			
+			'**********
+			'Checking if the DATE_REQUIERED value is '000000', if TRUE set the date picket value to 01-01-2000
+			
+			F.Intrinsic.Control.If(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,<>,"000000")
+			
+				F.Intrinsic.String.Right(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat("20",V.Local.sTemp,V.Local.sDate)
+				F.Intrinsic.String.Mid(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,3,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				F.Intrinsic.String.Left(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				Gui.Form1.datepicker8.Value(V.Local.sDate)
+			
+			F.Intrinsic.Control.Else
+			
+				Gui.Form1.datepicker8.Value("01-01-2000")
+			
+			F.Intrinsic.Control.EndIf
+			'**********
+			
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	
+		F.Intrinsic.String.Concat("Select RFQ, RFQ_SEQUENCE, ROUTER, REV, DESCRIPTION, QUANTITY, DATE_REQUESTED, COMMENTS from CUST_RFQ_LINES Where RFQ = '",V.Screen.Form1!txt_RFQ_Number.Text,"' and RFQ_SEQUENCE = '009'",V.Local.sSQL)
+		F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.Con!rst.EOF,=,False)
+			Gui.Form1.txt_Qty9.Text(V.ODBC.Con!rst.FieldValLTrim!QUANTITY)
+			Gui.Form1.txt_Part9.Text(V.ODBC.Con!rst.FieldValLTrim!ROUTER)
+			Gui.Form1.txt_Rev9.Text(V.ODBC.Con!rst.FieldValLTrim!REV)
+			Gui.Form1.txt_Desc9.Text(V.ODBC.Con!rst.FieldValLTrim!DESCRIPTION)
+			
+			'**********
+			'Checking if the DATE_REQUIERED value is '000000', if TRUE set the date picket value to 01-01-2000
+			
+			F.Intrinsic.Control.If(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,<>,"000000")
+			
+				F.Intrinsic.String.Right(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat("20",V.Local.sTemp,V.Local.sDate)
+				F.Intrinsic.String.Mid(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,3,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				F.Intrinsic.String.Left(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				Gui.Form1.datepicker9.Value(V.Local.sDate)
+			
+			F.Intrinsic.Control.Else
+			
+				Gui.Form1.datepicker9.Value("01-01-2000")
+			
+			F.Intrinsic.Control.EndIf
+			'**********
+			
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	
+		F.Intrinsic.String.Concat("Select RFQ, RFQ_SEQUENCE, ROUTER, REV, DESCRIPTION, QUANTITY, DATE_REQUESTED, COMMENTS from CUST_RFQ_LINES Where RFQ = '",V.Screen.Form1!txt_RFQ_Number.Text,"' and RFQ_SEQUENCE = '010'",V.Local.sSQL)
+		F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.Con!rst.EOF,=,False)
+			Gui.Form1.txt_Qty10.Text(V.ODBC.Con!rst.FieldValLTrim!QUANTITY)
+			Gui.Form1.txt_Part10.Text(V.ODBC.Con!rst.FieldValLTrim!ROUTER)
+			Gui.Form1.txt_Rev10.Text(V.ODBC.Con!rst.FieldValLTrim!REV)
+			Gui.Form1.txt_Desc10.Text(V.ODBC.Con!rst.FieldValLTrim!DESCRIPTION)
+			
+			'**********
+			'Checking if the DATE_REQUIERED value is '000000', if TRUE set the date picket value to 01-01-2000
+			
+			F.Intrinsic.Control.If(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,<>,"000000")
+			
+				F.Intrinsic.String.Right(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat("20",V.Local.sTemp,V.Local.sDate)
+				F.Intrinsic.String.Mid(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,3,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				F.Intrinsic.String.Left(V.ODBC.Con!rst.FieldValLTrim!DATE_REQUESTED,2,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sTemp,"-",V.Local.sDate,V.Local.sDate)
+				Gui.Form1.datepicker10.Value(V.Local.sDate)
+			
+			F.Intrinsic.Control.Else
+			
+				Gui.Form1.datepicker10.Value("01-01-2000")
+			
+			F.Intrinsic.Control.EndIf
+			'**********
+			
+		F.Intrinsic.Control.Else
+			F.ODBC.con!rst.Close
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+	
+	F.Intrinsic.Control.EndIf
+	
+'	F.Intrinsic.Control.CallSub(Load)
+	
+	Gui.Form1..SetFocus
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry	
+Program.Sub.LoadRFQ.End
+
+Program.Sub.cmd_newrfq.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sTitle.Declare(String)
+	
+	'Clear text boxes in screen
+	F.Intrinsic.Control.CallSub(Cmd_clearclick)
+	'Get new RFQ Number
+	F.Intrinsic.Control.CallSub(Get_rfqnumber)
+	'Set RFQ Number as Variable to pass to other programs
+	F.Global.General.SetPassedDataElement("RFQ",V.Global.iRFQ)
+	
+	Gui.Form1.txt_RFQ_Number.Text(V.Global.iRFQ)
+	
+	F.Intrinsic.Control.CallSub(Screen_enable)
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.cmd_newrfq.End
+
+Program.Sub.Screen_Disable.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	'disable new prospect button
+	Gui.Form1.cmd_AddProspect.Enabled(False)
+	
+	'disable header fields
+	Gui.Form1.txt_CustName.Enabled(False)
+	Gui.Form1.txt_CustNo.Enabled(False)
+	Gui.Form1.txt_email.Enabled(False)
+	Gui.Form1.txt_RFQdesc.Enabled(False)
+	Gui.Form1.txt_Sort.Enabled(False)
+	
+	Gui.Form1.txt_CustName.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_CustNo.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_email.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_RFQdesc.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Sort.BackColor(V.Color.LtGray)
+	
+	Gui.Form1.cmdLookUp.Enabled(False)
+	
+	gui.Form1.cbo_buyer.Enabled(False)
+	gui.Form1.cbo_buyer.BackColor(V.Color.LtGray)
+	gui.Form1.cbo_buyer.Text("")
+	gui.Form1.cbo_buyer.ClearItems
+	
+	Gui.Form1.ddlist_Salesperson.Enabled(False)
+	Gui.Form1.ddlist_Salesperson.BackColor(V.Color.LtGray)
+	Gui.Form1.ddlist_Salesperson.Text("")
+	
+	Gui.Form1.cmd_AttDoc.Enabled(False)
+	Gui.Form1.cmdClear.Enabled(False)
+	Gui.Form1.cmdSubmit.Enabled(False)
+	
+	Gui.Form1.chk_NewCust.Enabled(False)
+	Gui.Form1.chk_NewPart.Enabled(False)
+	
+	'disable line Qty
+	Gui.Form1.txt_Qty1.Enabled(False)
+	Gui.Form1.txt_Qty2.Enabled(False)
+	Gui.Form1.txt_Qty3.Enabled(False)
+	Gui.Form1.txt_Qty4.Enabled(False)
+	Gui.Form1.txt_Qty5.Enabled(False)
+	Gui.Form1.txt_Qty6.Enabled(False)
+	Gui.Form1.txt_Qty7.Enabled(False)
+	Gui.Form1.txt_Qty8.Enabled(False)
+	Gui.Form1.txt_Qty9.Enabled(False)
+	Gui.Form1.txt_Qty10.Enabled(False)
+	Gui.Form1.txt_Qty1.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Qty2.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Qty3.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Qty4.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Qty5.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Qty6.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Qty7.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Qty8.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Qty9.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Qty10.BackColor(V.Color.LtGray)
+	'disable line Part number
+	Gui.Form1.txt_Part1.Enabled(False)
+	Gui.Form1.txt_Part2.Enabled(False)
+	Gui.Form1.txt_Part3.Enabled(False)
+	Gui.Form1.txt_Part4.Enabled(False)
+	Gui.Form1.txt_Part5.Enabled(False)
+	Gui.Form1.txt_Part6.Enabled(False)
+	Gui.Form1.txt_Part7.Enabled(False)
+	Gui.Form1.txt_Part8.Enabled(False)
+	Gui.Form1.txt_Part9.Enabled(False)
+	Gui.Form1.txt_Part10.Enabled(False)
+	Gui.Form1.txt_Part1.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Part2.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Part3.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Part4.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Part5.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Part6.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Part7.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Part8.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Part9.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Part10.BackColor(V.Color.LtGray)
+	'disable line part Rev
+	Gui.Form1.txt_Rev1.Enabled(False)
+	Gui.Form1.txt_Rev2.Enabled(False)
+	Gui.Form1.txt_Rev3.Enabled(False)
+	Gui.Form1.txt_Rev4.Enabled(False)
+	Gui.Form1.txt_Rev5.Enabled(False)
+	Gui.Form1.txt_Rev6.Enabled(False)
+	Gui.Form1.txt_Rev7.Enabled(False)
+	Gui.Form1.txt_Rev8.Enabled(False)
+	Gui.Form1.txt_Rev9.Enabled(False)
+	Gui.Form1.txt_Rev10.Enabled(False)
+	Gui.Form1.txt_Rev1.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Rev2.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Rev3.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Rev4.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Rev5.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Rev6.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Rev7.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Rev8.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Rev9.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Rev10.BackColor(V.Color.LtGray)
+	'disable line Location
+	Gui.Form1.txt_Loc1.Enabled(False)
+	Gui.Form1.txt_Loc2.Enabled(False)
+	Gui.Form1.txt_Loc3.Enabled(False)
+	Gui.Form1.txt_Loc4.Enabled(False)
+	Gui.Form1.txt_Loc5.Enabled(False)
+	Gui.Form1.txt_Loc6.Enabled(False)
+	Gui.Form1.txt_Loc7.Enabled(False)
+	Gui.Form1.txt_Loc8.Enabled(False)
+	Gui.Form1.txt_Loc9.Enabled(False)
+	Gui.Form1.txt_Loc10.Enabled(False)
+	Gui.Form1.txt_Loc1.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Loc2.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Loc3.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Loc4.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Loc5.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Loc6.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Loc7.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Loc8.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Loc9.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Loc10.BackColor(V.Color.LtGray)
+	'disable line Part lookup buttons
+	Gui.Form1.cmd_PartBwr1.Enabled(False)
+	Gui.Form1.cmd_PartBwr2.Enabled(False)
+	Gui.Form1.cmd_PartBwr3.Enabled(False)
+	Gui.Form1.cmd_PartBwr4.Enabled(False)
+	Gui.Form1.cmd_PartBwr5.Enabled(False)
+	Gui.Form1.cmd_PartBwr6.Enabled(False)
+	Gui.Form1.cmd_PartBwr7.Enabled(False)
+	Gui.Form1.cmd_PartBwr8.Enabled(False)
+	Gui.Form1.cmd_PartBwr9.Enabled(False)
+	Gui.Form1.cmd_PartBwr10.Enabled(False)
+	'disable line descriptions
+	Gui.Form1.txt_Desc1.Enabled(False)
+	Gui.Form1.txt_Desc2.Enabled(False)
+	Gui.Form1.txt_Desc3.Enabled(False)
+	Gui.Form1.txt_Desc4.Enabled(False)
+	Gui.Form1.txt_Desc5.Enabled(False)
+	Gui.Form1.txt_Desc6.Enabled(False)
+	Gui.Form1.txt_Desc7.Enabled(False)
+	Gui.Form1.txt_Desc8.Enabled(False)
+	Gui.Form1.txt_Desc9.Enabled(False)
+	Gui.Form1.txt_Desc10.Enabled(False)
+	Gui.Form1.txt_Desc1.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Desc2.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Desc3.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Desc4.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Desc5.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Desc6.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Desc7.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Desc8.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Desc9.BackColor(V.Color.LtGray)
+	Gui.Form1.txt_Desc10.BackColor(V.Color.LtGray)
+	'disable line Date Pickers
+	Gui.Form1.datepicker1.Enabled(False)
+	Gui.Form1.datepicker2.Enabled(False)
+	Gui.Form1.datepicker3.Enabled(False)
+	Gui.Form1.datepicker4.Enabled(False)
+	Gui.Form1.datepicker5.Enabled(False)
+	Gui.Form1.datepicker6.Enabled(False)
+	Gui.Form1.datepicker7.Enabled(False)
+	Gui.Form1.datepicker8.Enabled(False)
+	Gui.Form1.datepicker9.Enabled(False)
+	Gui.Form1.datepicker10.Enabled(False)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry	
+Program.Sub.Screen_Disable.End
+
+Program.Sub.Screen_Enable.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	'disable new prospect button
+	Gui.Form1.cmd_AddProspect.Enabled(True)
+	
+	'disable header fields
+	Gui.Form1.txt_CustName.Enabled(True)
+	Gui.Form1.txt_CustNo.Enabled(True)
+	Gui.Form1.txt_email.Enabled(True)
+	Gui.Form1.txt_RFQdesc.Enabled(True)
+	Gui.Form1.txt_Sort.Enabled(True)
+	
+	Gui.Form1.txt_CustName.BackColor(V.Color.White)
+	Gui.Form1.txt_CustNo.BackColor(V.Color.White)
+	Gui.Form1.txt_email.BackColor(V.Color.White)
+	Gui.Form1.txt_RFQdesc.BackColor(V.Color.White)
+	Gui.Form1.txt_Sort.BackColor(V.Color.White)
+	
+	Gui.Form1.cmdLookUp.Enabled(True)
+	
+	gui.Form1.cbo_buyer.Enabled(True)
+	gui.Form1.cbo_buyer.BackColor(V.Color.White)
+	
+	Gui.Form1.ddlist_Salesperson.Enabled(True)
+	Gui.Form1.ddlist_Salesperson.BackColor(V.Color.White)
+	
+	Gui.Form1.cmd_AttDoc.Enabled(True)
+	Gui.Form1.cmdClear.Enabled(True)
+	Gui.Form1.cmdSubmit.Enabled(True)
+	
+	Gui.Form1.chk_NewCust.Enabled(True)
+	Gui.Form1.chk_NewPart.Enabled(True)
+	
+	'disable line Qty
+	Gui.Form1.txt_Qty1.Enabled(True)
+	Gui.Form1.txt_Qty2.Enabled(True)
+	Gui.Form1.txt_Qty3.Enabled(True)
+	Gui.Form1.txt_Qty4.Enabled(True)
+	Gui.Form1.txt_Qty5.Enabled(True)
+	Gui.Form1.txt_Qty6.Enabled(True)
+	Gui.Form1.txt_Qty7.Enabled(True)
+	Gui.Form1.txt_Qty8.Enabled(True)
+	Gui.Form1.txt_Qty9.Enabled(True)
+	Gui.Form1.txt_Qty10.Enabled(True)
+	Gui.Form1.txt_Qty1.BackColor(V.Color.White)
+	Gui.Form1.txt_Qty2.BackColor(V.Color.White)
+	Gui.Form1.txt_Qty3.BackColor(V.Color.White)
+	Gui.Form1.txt_Qty4.BackColor(V.Color.White)
+	Gui.Form1.txt_Qty5.BackColor(V.Color.White)
+	Gui.Form1.txt_Qty6.BackColor(V.Color.White)
+	Gui.Form1.txt_Qty7.BackColor(V.Color.White)
+	Gui.Form1.txt_Qty8.BackColor(V.Color.White)
+	Gui.Form1.txt_Qty9.BackColor(V.Color.White)
+	Gui.Form1.txt_Qty10.BackColor(V.Color.White)
+	'disable line Part number
+	Gui.Form1.txt_Part1.Enabled(True)
+	Gui.Form1.txt_Part2.Enabled(True)
+	Gui.Form1.txt_Part3.Enabled(True)
+	Gui.Form1.txt_Part4.Enabled(True)
+	Gui.Form1.txt_Part5.Enabled(True)
+	Gui.Form1.txt_Part6.Enabled(True)
+	Gui.Form1.txt_Part7.Enabled(True)
+	Gui.Form1.txt_Part8.Enabled(True)
+	Gui.Form1.txt_Part9.Enabled(True)
+	Gui.Form1.txt_Part10.Enabled(True)
+	Gui.Form1.txt_Part1.BackColor(V.Color.White)
+	Gui.Form1.txt_Part2.BackColor(V.Color.White)
+	Gui.Form1.txt_Part3.BackColor(V.Color.White)
+	Gui.Form1.txt_Part4.BackColor(V.Color.White)
+	Gui.Form1.txt_Part5.BackColor(V.Color.White)
+	Gui.Form1.txt_Part6.BackColor(V.Color.White)
+	Gui.Form1.txt_Part7.BackColor(V.Color.White)
+	Gui.Form1.txt_Part8.BackColor(V.Color.White)
+	Gui.Form1.txt_Part9.BackColor(V.Color.White)
+	Gui.Form1.txt_Part10.BackColor(V.Color.White)
+	'disable line part Rev
+	Gui.Form1.txt_Rev1.Enabled(True)
+	Gui.Form1.txt_Rev2.Enabled(True)
+	Gui.Form1.txt_Rev3.Enabled(True)
+	Gui.Form1.txt_Rev4.Enabled(True)
+	Gui.Form1.txt_Rev5.Enabled(True)
+	Gui.Form1.txt_Rev6.Enabled(True)
+	Gui.Form1.txt_Rev7.Enabled(True)
+	Gui.Form1.txt_Rev8.Enabled(True)
+	Gui.Form1.txt_Rev9.Enabled(True)
+	Gui.Form1.txt_Rev10.Enabled(True)
+	Gui.Form1.txt_Rev1.BackColor(V.Color.White)
+	Gui.Form1.txt_Rev2.BackColor(V.Color.White)
+	Gui.Form1.txt_Rev3.BackColor(V.Color.White)
+	Gui.Form1.txt_Rev4.BackColor(V.Color.White)
+	Gui.Form1.txt_Rev5.BackColor(V.Color.White)
+	Gui.Form1.txt_Rev6.BackColor(V.Color.White)
+	Gui.Form1.txt_Rev7.BackColor(V.Color.White)
+	Gui.Form1.txt_Rev8.BackColor(V.Color.White)
+	Gui.Form1.txt_Rev9.BackColor(V.Color.White)
+	Gui.Form1.txt_Rev10.BackColor(V.Color.White)
+	'disable line Location
+	Gui.Form1.txt_Loc1.Enabled(True)
+	Gui.Form1.txt_Loc2.Enabled(True)
+	Gui.Form1.txt_Loc3.Enabled(True)
+	Gui.Form1.txt_Loc4.Enabled(True)
+	Gui.Form1.txt_Loc5.Enabled(True)
+	Gui.Form1.txt_Loc6.Enabled(True)
+	Gui.Form1.txt_Loc7.Enabled(True)
+	Gui.Form1.txt_Loc8.Enabled(True)
+	Gui.Form1.txt_Loc9.Enabled(True)
+	Gui.Form1.txt_Loc10.Enabled(True)
+	Gui.Form1.txt_Loc1.BackColor(V.Color.White)
+	Gui.Form1.txt_Loc2.BackColor(V.Color.White)
+	Gui.Form1.txt_Loc3.BackColor(V.Color.White)
+	Gui.Form1.txt_Loc4.BackColor(V.Color.White)
+	Gui.Form1.txt_Loc5.BackColor(V.Color.White)
+	Gui.Form1.txt_Loc6.BackColor(V.Color.White)
+	Gui.Form1.txt_Loc7.BackColor(V.Color.White)
+	Gui.Form1.txt_Loc8.BackColor(V.Color.White)
+	Gui.Form1.txt_Loc9.BackColor(V.Color.White)
+	Gui.Form1.txt_Loc10.BackColor(V.Color.White)
+	'disable line Part lookup buttons
+	Gui.Form1.cmd_PartBwr1.Enabled(True)
+	Gui.Form1.cmd_PartBwr2.Enabled(True)
+	Gui.Form1.cmd_PartBwr3.Enabled(True)
+	Gui.Form1.cmd_PartBwr4.Enabled(True)
+	Gui.Form1.cmd_PartBwr5.Enabled(True)
+	Gui.Form1.cmd_PartBwr6.Enabled(True)
+	Gui.Form1.cmd_PartBwr7.Enabled(True)
+	Gui.Form1.cmd_PartBwr8.Enabled(True)
+	Gui.Form1.cmd_PartBwr9.Enabled(True)
+	Gui.Form1.cmd_PartBwr10.Enabled(True)
+	'disable line descriptions
+	Gui.Form1.txt_Desc1.Enabled(True)
+	Gui.Form1.txt_Desc2.Enabled(True)
+	Gui.Form1.txt_Desc3.Enabled(True)
+	Gui.Form1.txt_Desc4.Enabled(True)
+	Gui.Form1.txt_Desc5.Enabled(True)
+	Gui.Form1.txt_Desc6.Enabled(True)
+	Gui.Form1.txt_Desc7.Enabled(True)
+	Gui.Form1.txt_Desc8.Enabled(True)
+	Gui.Form1.txt_Desc9.Enabled(True)
+	Gui.Form1.txt_Desc10.Enabled(True)
+	Gui.Form1.txt_Desc1.BackColor(V.Color.White)
+	Gui.Form1.txt_Desc2.BackColor(V.Color.White)
+	Gui.Form1.txt_Desc3.BackColor(V.Color.White)
+	Gui.Form1.txt_Desc4.BackColor(V.Color.White)
+	Gui.Form1.txt_Desc5.BackColor(V.Color.White)
+	Gui.Form1.txt_Desc6.BackColor(V.Color.White)
+	Gui.Form1.txt_Desc7.BackColor(V.Color.White)
+	Gui.Form1.txt_Desc8.BackColor(V.Color.White)
+	Gui.Form1.txt_Desc9.BackColor(V.Color.White)
+	Gui.Form1.txt_Desc10.BackColor(V.Color.White)
+	'disable line Date Pickers
+	Gui.Form1.datepicker1.Enabled(True)
+	Gui.Form1.datepicker2.Enabled(True)
+	Gui.Form1.datepicker3.Enabled(True)
+	Gui.Form1.datepicker4.Enabled(True)
+	Gui.Form1.datepicker5.Enabled(True)
+	Gui.Form1.datepicker6.Enabled(True)
+	Gui.Form1.datepicker7.Enabled(True)
+	Gui.Form1.datepicker8.Enabled(True)
+	Gui.Form1.datepicker9.Enabled(True)
+	Gui.Form1.datepicker10.Enabled(True)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Screen_Enable.End
+
+Program.Sub.Rev_Check.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sRev.Declare
+
+'	F.Intrinsic.UI.Msgbox(V.Args.ControlName)
+	F.Intrinsic.Control.If(V.Args.ControlName.UCase,=,"TXT_REV1")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Rev1.Text.UCase,V.Local.sRev)
+		Gui.Form1.txt_Rev1.Text(V.Local.sRev)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_REV2")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Rev2.Text.UCase,V.Local.sRev)
+		Gui.Form1.txt_Rev2.Text(V.Local.sRev)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_REV3")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Rev3.Text.UCase,V.Local.sRev)
+		Gui.Form1.txt_Rev3.Text(V.Local.sRev)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_REV4")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Rev4.Text.UCase,V.Local.sRev)
+		Gui.Form1.txt_Rev4.Text(V.Local.sRev)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_REV5")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Rev5.Text.UCase,V.Local.sRev)
+		Gui.Form1.txt_Rev5.Text(V.Local.sRev)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_REV6")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Rev6.Text.UCase,V.Local.sRev)
+		Gui.Form1.txt_Rev6.Text(V.Local.sRev)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_REV7")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Rev7.Text.UCase,V.Local.sRev)
+		Gui.Form1.txt_Rev7.Text(V.Local.sRev)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_REV8")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Rev8.Text.UCase,V.Local.sRev)
+		Gui.Form1.txt_Rev8.Text(V.Local.sRev)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_REV9")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Rev9.Text.UCase,V.Local.sRev)
+		Gui.Form1.txt_Rev9.Text(V.Local.sRev)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_REV10")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Rev10.Text.UCase,V.Local.sRev)
+		Gui.Form1.txt_Rev10.Text(V.Local.sRev)
+	f.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Rev_Check.End
+
+Program.Sub.Part_Check.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sPart.Declare
+
+'	F.Intrinsic.UI.Msgbox(V.Args.ControlName)
+	F.Intrinsic.Control.If(V.Args.ControlName.UCase,=,"TXT_PART1")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Part1.Text.UCase,V.Local.sPart)
+		Gui.Form1.txt_Part1.Text(V.Local.sPart)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_PART2")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Part2.Text.UCase,V.Local.sPart)
+		Gui.Form1.txt_Part2.Text(V.Local.sPart)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_PART3")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Part3.Text.UCase,V.Local.sPart)
+		Gui.Form1.txt_Part3.Text(V.Local.sPart)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_PART4")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Part4.Text.UCase,V.Local.sPart)
+		Gui.Form1.txt_Part4.Text(V.Local.sPart)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_PART5")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Part5.Text.UCase,V.Local.sPart)
+		Gui.Form1.txt_Part5.Text(V.Local.sPart)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_PART6")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Part6.Text.UCase,V.Local.sPart)
+		Gui.Form1.txt_Part6.Text(V.Local.sPart)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_PART7")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Part7.Text.UCase,V.Local.sPart)
+		Gui.Form1.txt_Part7.Text(V.Local.sPart)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_PART8")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Part8.Text.UCase,V.Local.sPart)
+		Gui.Form1.txt_Part8.Text(V.Local.sPart)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_PART9")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Part9.Text.UCase,V.Local.sPart)
+		Gui.Form1.txt_Part9.Text(V.Local.sPart)
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"TXT_PART10")
+		F.Intrinsic.String.Trim(V.Screen.Form1!txt_Part10.Text.UCase,V.Local.sPart)
+		Gui.Form1.txt_Part10.Text(V.Local.sPart)
+	f.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Part_Check.End
+
+Program.Sub.LoadContacts.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sSQL.Declare(String)
+	V.Local.sRet.Declare(String)
+	
+	'Clear any existing list items
+	gui.Form1.cbo_buyer.Text("")
+	gui.Form1.cbo_buyer.ClearItems
+	
+	'Load Drop Down List
+	F.Intrinsic.String.Concat("Select NAME From V_CONTACT Where CUST = '",V.Screen.Form1!txt_CustNo.Text,"' and TYPE <> 'V' and ACTIVE = '1';",V.Local.sSQL)
+	F.ODBC.Connection!Con.OpenLocalRecordsetRO("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.Con!rst.EOF,=,True)
+	'	F.Intrinsic.UI.Msgbox("No SLS contacts")
+		F.ODBC.Con!rst.Close
+		F.Intrinsic.Control.ExitSub
+	
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.DoUntil(V.ODBC.Con!rst.EOF,=,True)
+			gui.Form1.cbo_buyer.AddItem(V.ODBC.Con!rst.FieldValLTrim!NAME)
+			F.ODBC.Con!rst.MoveNext
+		F.Intrinsic.Control.Loop
+	F.Intrinsic.Control.EndIf
+	F.ODBC.Con!rst.Close
+	
+	F.Intrinsic.String.Concat("Select TOP 1 NAME, EMAIL1 From V_CONTACT Where CUST = '",V.Screen.Form1!txt_CustNo.Text,"' and TYPE <> 'V' and ACTIVE = '1';",V.Local.sSQL)
+	F.ODBC.Connection!Con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		gui.Form1.cbo_buyer.Text(V.Local.sRet(0))
+		Gui.Form1.txt_email.Text(V.Local.sRet(1))
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadContacts.End
+
+Program.Sub.LoadEmail.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sName.Declare(String)
+V.Local.sName.Set(V.Screen.Form1!cbo_buyer.Caption)
+
+Gui.Form1.txt_email.Text("")
+
+F.Intrinsic.Control.If(V.Screen.Form1!cbo_buyer.Caption,<>,"")
+	
+	F.Intrinsic.String.Concat("Select TOP 1 EMAIL1 From V_CONTACT Where CUST = '",V.Screen.Form1!txt_CustNo.Text,"' and TYPE <> 'V' and ACTIVE = '1' and NAME = '",V.Local.sName.PSQLFriendly,"'",V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	Gui.Form1.txt_email.Text(V.Local.sRet)
+	
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.LoadEmail.End
+
+Program.Sub.LossFocus_Line1.Start
+'V.Local.sQty1.Declare
+'V.Local.fQty.Declare(Float)
+
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+
+
+'V.Local.fQty.Set(V.Screen.Form1!txt_Qty1.Text)
+'F.Intrinsic.String.Format(V.Local.fQty,"#.####",V.Local.SQty)
+'Gui.Form1.txt_Qty1.Text(V.Local.SQty)
+
+
+'	'QUANTITY 12 w/ ".0000"
+'	'V.Local.iQty.Declare(Float,4)
+'	V.Local.sQtyP.Declare(String)
+'	'V.Local.sQtyP.Set(V.Screen.Form1!txt_Qty1.Text)
+'	F.Intrinsic.String.Replace(V.Screen.Form1!txt_Qty1.Text,",","",V.Local.sQtyP)
+'	'V.Local.iQty.Set(V.Screen.Form1!txt_Qty1.Text)
+'	'F.Intrinsic.String.StripCharacters(V.Local.sQtyP,V.Local.sQtyP)
+'	F.Intrinsic.String.LPad(V.Local.sQtyP,"0",8,V.Local.sQtyP)
+'	F.Intrinsic.String.RPad(V.Local.sQtyP,"0",12,V.Local.sQtyP)
+
+Program.Sub.LossFocus_Line1.End
+
+Program.Sub.Save_Header_alt.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	V.Local.sRFQ_Seq.Declare
+	V.Local.sEMAIL.Declare
+	V.Local.sNAME.Declare
+	V.Local.sDESCRIPTION.Declare 
+	V.Local.sCUSTOMER.Declare
+	V.Local.sSORT_CODE.Declare
+	V.Local.sDATE_ARO.Declare
+	V.Local.sFLAG_EMAIL_SENT.Declare
+	V.Local.sQUOTE.Declare
+	V.Local.sDATE_RFQ.Declare
+	V.Local.sFILLER.Declare
+	V.Local.sSQL.Declare
+	v.Local.sRet.Declare
+	V.Local.dDate.Declare
+	V.Local.sDate.Declare
+	V.Local.sYear.Declare
+	V.Local.sMonth.Declare
+	V.Local.sDay.Declare
+	V.Local.sRFQ.Declare
+	V.Local.sSalesPerson.Declare
+	V.Local.sBuyer.Declare
+	
+	V.Local.sRFQ_Seq.Set("000")
+	V.Local.sEMAIL.Set(V.Screen.Form1!txt_email.Text)
+	V.Local.sNAME.Set(V.Screen.Form1!txt_CustName.Text)
+	V.Local.sDESCRIPTION.Set(V.Screen.Form1!txt_RFQdesc.Text) 
+	V.Local.sCUSTOMER.Set(V.Screen.Form1!txt_CustNo.Text)
+	V.Local.sSORT_CODE.Set(V.Screen.Form1!txt_Sort.Text)
+	V.Local.sDATE_ARO.Set("00000000")
+	V.Local.sFLAG_EMAIL_SENT.Set("")
+	V.Local.sQUOTE.Set("0")
+	V.Local.sDATE_RFQ.Set()
+	V.Local.dDate.Set(V.Ambient.Date)
+	F.Intrinsic.String.DateString(V.Local.dDate,V.Local.sDate)
+	F.Intrinsic.String.Left(V.Local.sDate,4,V.Local.sYear)
+	F.Intrinsic.String.Mid(V.Local.sDate,5,2,V.Local.sMonth)
+	F.Intrinsic.String.Right(V.Local.sDate,2,V.Local.sDay)
+	F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sYear,V.Local.sMonth,V.Local.sDay,V.Local.sDATE_RFQ)
+	V.Local.sFILLER.Set("")
+	V.Local.sSalesPerson.Set(V.Screen.Form1!ddlist_Salesperson.Text)
+	V.Local.sBuyer.Set(V.Screen.Form1!cbo_buyer.Value)
+	
+	F.Intrinsic.String.Build("0000000{0}",V.Global.iRFQ,V.Local.sRFQ)
+	F.Intrinsic.String.Right(V.Local.sRFQ,7,V.Local.sRFQ)
+'	F.Intrinsic.String.Format(V.Global.iRFQ,"000000#",V.Global.iRFQ)
+	
+
+'*** Check if core record already exists ***'
+
+	'**********
+	'Modified by Alejandro Noguera 12/01/2022
+	'Changed the first parameter from V.Global.iRFQ to V.Local.sRFQ
+	F.Intrinsic.String.Build("Select COUNT(RFQ) From Cust_RFQ_HEADER Where RFQ = '{0}' And RFQ_SEQUENCE = '{1}';",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSQL)
+	'**********
+	
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	
+	F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+		'Add new record
+		F.Intrinsic.String.Build("INSERT INTO CUST_RFQ_HEADER (RFQ, RFQ_SEQUENCE, EMAIL, NAME, DESCRIPTION, CUSTOMER, SORT_CODE, DATE_ARO, FLAG_EMAIL_SENT, QUOTE, DATE_RFQ, FILLER) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}');",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sEMAIL.PSQLFriendly,V.Local.sNAME.PSQLFriendly,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sCUSTOMER.PSQLFriendly,V.Local.sSORT_CODE.PSQLFriendly,V.Local.sDATE_ARO,V.Local.sFLAG_EMAIL_SENT,V.Local.sQUOTE,V.Local.sDATE_RFQ,V.Local.sFILLER,V.Local.sSQL)
+		
+	F.Intrinsic.Control.ElseIf(V.Local.sRet,>,"0")
+		'Update existing record	
+		F.Intrinsic.String.Build("UPDATE CUST_RFQ_HEADER SET EMAIL = '{2}', NAME = '{3}', DESCRIPTION = '{4}', CUSTOMER = '{5}', SORT_CODE = '{6}' WHERE RFQ = '{0}' AND RFQ_SEQUENCE = '{1}';", V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sEMAIL.PSQLFriendly,V.Local.sNAME.PSQLFriendly,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sCUSTOMER.PSQLFriendly,V.Local.sSORT_CODE.PSQLFriendly,V.Local.sSQL)
+		
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!Con.Execute(V.Local.sSQL)
+	
+	
+'*** Check if custom record already exists ***'
+	F.Intrinsic.String.Build("Select COUNT(RFQ) From GAB_5947_CustRFQ Where RFQ = '{0}' And LINE_RFQ = '{1}';",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+	
+	F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+		'Add new record
+		
+		F.Intrinsic.String.Build("INSERT into GAB_5947_CustRFQ (RFQ, LINE_RFQ, SALESPERSON, BUYER, RFQ_DUE_DATE, RFQ_DATE, RFQ_TIME) VALUES('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}');",V.Local.sRFQ,v.Local.sRFQ_Seq,V.Local.sSalesPerson.PSQLFriendly,V.Local.sBuyer.PSQLFriendly,V.Screen.Form1!datepicker1.Value,V.Ambient.Date,V.Ambient.Time,V.Local.sSQL)
+		
+	F.Intrinsic.Control.ElseIf(V.Local.sRet,>,"0")
+	
+		'Update existing record			
+		F.Intrinsic.String.Build("UPDATE GAB_5947_CustRFQ SET SALESPERSON = '{2}', BUYER = '{3}', RFQ_DUE_DATE = '{4}' WHERE RFQ = '{0}' AND LINE_RFQ = '{1}';",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSalesPerson.PSQLFriendly,V.Local.sBuyer.PSQLFriendly,V.Screen.Form1!datepicker1.Value,V.Local.sSQL)
+	
+	F.Intrinsic.Control.EndIf	
+	
+		F.ODBC.Connection!Con.Execute(V.Local.sSQL)
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry	
+Program.Sub.Save_Header_alt.End
+
+Program.Sub.Save_Line_alt.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+	
+	V.Local.sRFQ_Seq.Declare
+	V.Local.sROUTER.Declare
+	V.Local.sREV.Declare
+	V.Local.sLOCATION.Declare 
+	V.Local.sDESCRIPTION.Declare
+	V.Local.sQUANTITY.Declare
+	V.Local.sDATE_REQUESTED.Declare
+	V.Local.sFLAG_ROUTER_BUILT.Declare
+	V.Local.sCOMMENTS.Declare
+	V.Local.sFILLER.Declare
+	V.Local.dTemp.Declare
+	V.Local.sMonth.Declare
+	V.Local.sDay.Declare
+	V.Local.sYear.Declare
+	V.Local.sSQL.Declare
+	V.Local.sRet.Declare
+	V.Local.sRFQ.Declare
+	
+	'Check line 1
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_Qty1.Text,<>,"")
+	F.Intrinsic.Control.AndIf(V.Screen.Form1!txt_Part1.Text,<>,"")		
+		V.Local.sRFQ_Seq.Set("001")
+		V.Local.sRouter.Set(V.Screen.Form1!txt_Part1.Text.UCase)
+		V.Local.sREV.Set(V.Screen.Form1!txt_Rev1.Text.UCase)
+		V.Local.sLOCATION.Set(V.Screen.Form1!txt_Loc1.Text) 
+		V.Local.sDESCRIPTION.Set(V.Screen.Form1!txt_Desc1.Text)
+		F.Intrinsic.String.Replace(V.Screen.Form1!txt_Qty1.Text,",","",V.Local.sQUANTITY)
+		'F.Intrinsic.String.DateString(V.Screen.Form1!datepicker1.Value,V.Local.sTemp)
+		V.Local.dTemp.Set(V.Screen.Form1!datepicker1.Value)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,5,2,V.Local.sMonth)
+		'F.Intrinsic.String.Right(V.Local.sTemp,2,V.Local.sDay)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,3,2,V.Local.sYear)
+		F.Intrinsic.Date.Month(V.Local.dTemp,V.Local.sMonth)
+		F.Intrinsic.Date.Day(V.Local.dTemp,V.Local.sDay)
+		F.Intrinsic.Date.Year(V.Local.dTemp,V.Local.sYear)
+		
+		'*********
+		'Added by Alejandro Noguera 12/01/2022
+		'Since DATE REQUESTED in CUST_RFQ_LINES is a 6 character lenght field, we need to trim the year
+		F.Intrinsic.String.Mid(V.Local.sYear,3,2,V.Local.sYear)
+		
+		F.Intrinsic.Control.If(V.Local.sMonth.Length,=,1)
+			F.Intrinsic.String.LPad(V.Local.sMonth,"0",2,V.Local.sMonth)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.sDay.Length,=,1)
+			F.IntrinsiC.String.LPad(V.Local.sDay,"0",2,V.Local.sDay)
+		F.Intrinsic.Control.EndIf
+		'**********
+		
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sMonth,V.Local.sDay,V.Local.sYear,V.Local.sDATE_REQUESTED)
+		V.Local.sFLAG_ROUTER_BUILT.Set("")
+		V.Local.sCOMMENTS.Set("")
+		V.Local.sFILLER.Set("")
+		
+		F.Intrinsic.String.Build("0000000{0}",V.Global.iRFQ,V.Local.sRFQ)
+		F.Intrinsic.String.Right(V.Local.sRFQ,7,V.Local.sRFQ)		
+	
+		'Check if record already exists
+		F.Intrinsic.String.Build("Select COUNT(RFQ) From Cust_RFQ_LINES Where RFQ = '{0}' And RFQ_SEQUENCE = '{1}';",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		
+		F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+			'Add new record
+			F.Intrinsic.String.Build("INSERT INTO CUST_RFQ_LINES (RFQ, RFQ_SEQUENCE, ROUTER, REV, LOCATION, DESCRIPTION, QUANTITY, DATE_REQUESTED, FLAG_ROUTER_BUILT, COMMENTS, FILLER) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}');",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sFLAG_ROUTER_BUILT,V.Local.sCOMMENTS,V.Local.sFILLER,V.Local.sSQL)
+		F.Intrinsic.Control.ElseIf(V.Local.sRet,>,"0")
+			'Update existing record
+			F.Intrinsic.String.Build("UPDATE CUST_RFQ_LINES SET ROUTER = '{2}', REV = '{3}', LOCATION = '{4}', DESCRIPTION = '{5}', QUANTITY = '{6}', DATE_REQUESTED = '{7}' WHERE RFQ = '{0}' AND RFQ_SEQUENCE = '{1}';", V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	
+	F.Intrinsic.Control.EndIf
+	'Check line 2
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_Qty2.Text,<>,"")
+	F.Intrinsic.Control.AndIf(V.Screen.Form1!txt_Part2.Text,<>,"")
+		
+		V.Local.sRFQ_Seq.Set("002")
+		V.Local.sRouter.Set(V.Screen.Form1!txt_Part2.Text.UCase)
+		V.Local.sREV.Set(V.Screen.Form1!txt_Rev2.Text.UCase)
+		V.Local.sLOCATION.Set(V.Screen.Form1!txt_Loc2.Text) 
+		V.Local.sDESCRIPTION.Set(V.Screen.Form1!txt_Desc2.Text)
+		F.Intrinsic.String.Replace(V.Screen.Form1!txt_Qty2.Text,",","",V.Local.sQUANTITY)
+		'F.Intrinsic.String.DateString(V.Screen.Form1!datepicker1.Value,V.Local.sTemp)
+		V.Local.dTemp.Set(V.Screen.Form1!datepicker2.Value)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,5,2,V.Local.sMonth)
+		'F.Intrinsic.String.Right(V.Local.sTemp,2,V.Local.sDay)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,3,2,V.Local.sYear)
+		F.Intrinsic.Date.Month(V.Local.dTemp,V.Local.sMonth)
+		F.Intrinsic.Date.Day(V.Local.dTemp,V.Local.sDay)
+		F.Intrinsic.Date.Year(V.Local.dTemp,V.Local.sYear)
+		
+		'*********
+		'Added by Alejandro Noguera 12/01/2022
+		'Since DATE REQUESTED in CUST_RFQ_LINES is a 6 character lenght field, we need to trim the year
+		F.Intrinsic.String.Mid(V.Local.sYear,3,2,V.Local.sYear)
+		
+		F.Intrinsic.Control.If(V.Local.sMonth.Length,=,1)
+			F.Intrinsic.String.LPad(V.Local.sMonth,"0",2,V.Local.sMonth)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.sDay.Length,=,1)
+			F.IntrinsiC.String.LPad(V.Local.sDay,"0",2,V.Local.sDay)
+		F.Intrinsic.Control.EndIf
+		'**********
+		
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sMonth,V.Local.sDay,V.Local.sYear,V.Local.sDATE_REQUESTED)
+		V.Local.sFLAG_ROUTER_BUILT.Set("")
+		V.Local.sCOMMENTS.Set("")
+		V.Local.sFILLER.Set("")
+		
+		'Check if record already exists
+		F.Intrinsic.String.Build("Select COUNT(RFQ) From Cust_RFQ_LINES Where RFQ = '{0}' And RFQ_SEQUENCE = '{1}';",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		
+		F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+			'Add new record
+			F.Intrinsic.String.Build("INSERT INTO CUST_RFQ_LINES (RFQ, RFQ_SEQUENCE, ROUTER, REV, LOCATION, DESCRIPTION, QUANTITY, DATE_REQUESTED, FLAG_ROUTER_BUILT, COMMENTS, FILLER) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}');",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sFLAG_ROUTER_BUILT,V.Local.sCOMMENTS,V.Local.sFILLER,V.Local.sSQL)
+		F.Intrinsic.Control.ElseIf(V.Local.sRet,>,"0")
+			'Update existing record
+			F.Intrinsic.String.Build("UPDATE CUST_RFQ_LINES SET ROUTER = '{2}', REV = '{3}', LOCATION = '{4}', DESCRIPTION = '{5}', QUANTITY = '{6}', DATE_REQUESTED = '{7}' WHERE RFQ = '{0}' AND RFQ_SEQUENCE = '{1}';", V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+		
+	F.Intrinsic.Control.EndIf
+	'Check line 3
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_Qty3.Text,<>,"")
+	F.Intrinsic.Control.AndIf(V.Screen.Form1!txt_Part3.Text,<>,"")
+			
+		V.Local.sRFQ_Seq.Set("003")
+		V.Local.sRouter.Set(V.Screen.Form1!txt_Part3.Text.UCase)
+		V.Local.sREV.Set(V.Screen.Form1!txt_Rev3.Text.UCase)
+		V.Local.sLOCATION.Set(V.Screen.Form1!txt_Loc3.Text) 
+		V.Local.sDESCRIPTION.Set(V.Screen.Form1!txt_Desc3.Text)
+		F.Intrinsic.String.Replace(V.Screen.Form1!txt_Qty3.Text,",","",V.Local.sQUANTITY)
+		'F.Intrinsic.String.DateString(V.Screen.Form1!datepicker1.Value,V.Local.sTemp)
+		V.Local.dTemp.Set(V.Screen.Form1!datepicker3.Value)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,5,2,V.Local.sMonth)
+		'F.Intrinsic.String.Right(V.Local.sTemp,2,V.Local.sDay)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,3,2,V.Local.sYear)
+		F.Intrinsic.Date.Month(V.Local.dTemp,V.Local.sMonth)
+		F.Intrinsic.Date.Day(V.Local.dTemp,V.Local.sDay)
+		F.Intrinsic.Date.Year(V.Local.dTemp,V.Local.sYear)
+		
+		'*********
+		'Added by Alejandro Noguera 12/01/2022
+		'Since DATE REQUESTED in CUST_RFQ_LINES is a 6 character lenght field, we need to trim the year
+		F.Intrinsic.String.Mid(V.Local.sYear,3,2,V.Local.sYear)
+		
+		F.Intrinsic.Control.If(V.Local.sMonth.Length,=,1)
+			F.Intrinsic.String.LPad(V.Local.sMonth,"0",2,V.Local.sMonth)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.sDay.Length,=,1)
+			F.IntrinsiC.String.LPad(V.Local.sDay,"0",2,V.Local.sDay)
+		F.Intrinsic.Control.EndIf
+		'**********
+		
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sMonth,V.Local.sDay,V.Local.sYear,V.Local.sDATE_REQUESTED)
+		V.Local.sFLAG_ROUTER_BUILT.Set("")
+		V.Local.sCOMMENTS.Set("")
+		V.Local.sFILLER.Set("")
+		
+		'Check if record already exists
+		F.Intrinsic.String.Build("Select COUNT(RFQ) From Cust_RFQ_LINES Where RFQ = '{0}' And RFQ_SEQUENCE = '{1}';",v.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		
+		F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+			'Add new record
+			F.Intrinsic.String.Build("INSERT INTO CUST_RFQ_LINES (RFQ, RFQ_SEQUENCE, ROUTER, REV, LOCATION, DESCRIPTION, QUANTITY, DATE_REQUESTED, FLAG_ROUTER_BUILT, COMMENTS, FILLER) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}');",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sFLAG_ROUTER_BUILT,V.Local.sCOMMENTS,V.Local.sFILLER,V.Local.sSQL)
+		F.Intrinsic.Control.ElseIf(V.Local.sRet,>,"0")
+			'Update existing record
+			F.Intrinsic.String.Build("UPDATE CUST_RFQ_LINES SET ROUTER = '{2}', REV = '{3}', LOCATION = '{4}', DESCRIPTION = '{5}', QUANTITY = '{6}', DATE_REQUESTED = '{7}' WHERE RFQ = '{0}' AND RFQ_SEQUENCE = '{1}';", V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+					
+	F.Intrinsic.Control.EndIf
+	'Check line 4
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_Qty4.Text,<>,"")
+	F.Intrinsic.Control.AndIf(V.Screen.Form1!txt_Part4.Text,<>,"")
+					
+		V.Local.sRFQ_Seq.Set("004")
+		V.Local.sRouter.Set(V.Screen.Form1!txt_Part1.Text.UCase)
+		V.Local.sREV.Set(V.Screen.Form1!txt_Rev4.Text.UCase)
+		V.Local.sLOCATION.Set(V.Screen.Form1!txt_Loc4.Text) 
+		V.Local.sDESCRIPTION.Set(V.Screen.Form1!txt_Desc4.Text)
+		F.Intrinsic.String.Replace(V.Screen.Form1!txt_Qty4.Text,",","",V.Local.sQUANTITY)
+		'F.Intrinsic.String.DateString(V.Screen.Form1!datepicker1.Value,V.Local.sTemp)
+		V.Local.dTemp.Set(V.Screen.Form1!datepicker4.Value)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,5,2,V.Local.sMonth)
+		'F.Intrinsic.String.Right(V.Local.sTemp,2,V.Local.sDay)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,3,2,V.Local.sYear)
+		F.Intrinsic.Date.Month(V.Local.dTemp,V.Local.sMonth)
+		F.Intrinsic.Date.Day(V.Local.dTemp,V.Local.sDay)
+		F.Intrinsic.Date.Year(V.Local.dTemp,V.Local.sYear)
+		
+		'*********
+		'Added by Alejandro Noguera 12/01/2022
+		'Since DATE REQUESTED in CUST_RFQ_LINES is a 6 character lenght field, we need to trim the year
+		F.Intrinsic.String.Mid(V.Local.sYear,3,2,V.Local.sYear)
+		
+		F.Intrinsic.Control.If(V.Local.sMonth.Length,=,1)
+			F.Intrinsic.String.LPad(V.Local.sMonth,"0",2,V.Local.sMonth)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.sDay.Length,=,1)
+			F.IntrinsiC.String.LPad(V.Local.sDay,"0",2,V.Local.sDay)
+		F.Intrinsic.Control.EndIf
+		'**********
+		
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sMonth,V.Local.sDay,V.Local.sYear,V.Local.sDATE_REQUESTED)
+		V.Local.sFLAG_ROUTER_BUILT.Set("")
+		V.Local.sCOMMENTS.Set("")
+		V.Local.sFILLER.Set("")
+		
+		'Check if record already exists
+		F.Intrinsic.String.Build("Select COUNT(RFQ) From Cust_RFQ_LINES Where RFQ = '{0}' And RFQ_SEQUENCE = '{1}';",v.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		
+		F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+			'Add new record
+			F.Intrinsic.String.Build("INSERT INTO CUST_RFQ_LINES (RFQ, RFQ_SEQUENCE, ROUTER, REV, LOCATION, DESCRIPTION, QUANTITY, DATE_REQUESTED, FLAG_ROUTER_BUILT, COMMENTS, FILLER) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}');",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sFLAG_ROUTER_BUILT,V.Local.sCOMMENTS,V.Local.sFILLER,V.Local.sSQL)
+		F.Intrinsic.Control.ElseIf(V.Local.sRet,>,"0")
+			'Update existing record
+			F.Intrinsic.String.Build("UPDATE CUST_RFQ_LINES SET ROUTER = '{2}', REV = '{3}', LOCATION = '{4}', DESCRIPTION = '{5}', QUANTITY = '{6}', DATE_REQUESTED = '{7}' WHERE RFQ = '{0}' AND RFQ_SEQUENCE = '{1}';", V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+				
+	F.Intrinsic.Control.EndIf
+	'Check line	5
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_Qty5.Text,<>,"")
+	F.Intrinsic.Control.AndIf(V.Screen.Form1!txt_Part5.Text,<>,"")
+		
+		V.Local.sRFQ_Seq.Set("005")
+		V.Local.sRouter.Set(V.Screen.Form1!txt_Part5.Text.UCase)
+		V.Local.sREV.Set(V.Screen.Form1!txt_Rev5.Text.UCase)
+		V.Local.sLOCATION.Set(V.Screen.Form1!txt_Loc5.Text) 
+		V.Local.sDESCRIPTION.Set(V.Screen.Form1!txt_Desc5.Text)
+		F.Intrinsic.String.Replace(V.Screen.Form1!txt_Qty5.Text,",","",V.Local.sQUANTITY)
+		'F.Intrinsic.String.DateString(V.Screen.Form1!datepicker1.Value,V.Local.sTemp)
+		V.Local.dTemp.Set(V.Screen.Form1!datepicker5.Value)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,5,2,V.Local.sMonth)
+		'F.Intrinsic.String.Right(V.Local.sTemp,2,V.Local.sDay)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,3,2,V.Local.sYear)
+		F.Intrinsic.Date.Month(V.Local.dTemp,V.Local.sMonth)
+		F.Intrinsic.Date.Day(V.Local.dTemp,V.Local.sDay)
+		F.Intrinsic.Date.Year(V.Local.dTemp,V.Local.sYear)
+		
+		'*********
+		'Added by Alejandro Noguera 12/01/2022
+		'Since DATE REQUESTED in CUST_RFQ_LINES is a 6 character lenght field, we need to trim the year
+		F.Intrinsic.String.Mid(V.Local.sYear,3,2,V.Local.sYear)
+		
+		F.Intrinsic.Control.If(V.Local.sMonth.Length,=,1)
+			F.Intrinsic.String.LPad(V.Local.sMonth,"0",2,V.Local.sMonth)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.sDay.Length,=,1)
+			F.IntrinsiC.String.LPad(V.Local.sDay,"0",2,V.Local.sDay)
+		F.Intrinsic.Control.EndIf
+		'**********
+		
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sMonth,V.Local.sDay,V.Local.sYear,V.Local.sDATE_REQUESTED)
+		V.Local.sFLAG_ROUTER_BUILT.Set("")
+		V.Local.sCOMMENTS.Set("")
+		V.Local.sFILLER.Set("")
+		
+		'Check if record already exists
+		F.Intrinsic.String.Build("Select COUNT(RFQ) From Cust_RFQ_LINES Where RFQ = '{0}' And RFQ_SEQUENCE = '{1}';",v.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		
+		F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+			'Add new record
+			F.Intrinsic.String.Build("INSERT INTO CUST_RFQ_LINES (RFQ, RFQ_SEQUENCE, ROUTER, REV, LOCATION, DESCRIPTION, QUANTITY, DATE_REQUESTED, FLAG_ROUTER_BUILT, COMMENTS, FILLER) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}');",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sFLAG_ROUTER_BUILT,V.Local.sCOMMENTS,V.Local.sFILLER,V.Local.sSQL)
+		F.Intrinsic.Control.ElseIf(V.Local.sRet,>,"0")
+			'Update existing record
+			F.Intrinsic.String.Build("UPDATE CUST_RFQ_LINES SET ROUTER = '{2}', REV = '{3}', LOCATION = '{4}', DESCRIPTION = '{5}', QUANTITY = '{6}', DATE_REQUESTED = '{7}' WHERE RFQ = '{0}' AND RFQ_SEQUENCE = '{1}';", V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			
+	F.Intrinsic.Control.EndIf
+	'Check line	6
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_Qty6.Text,<>,"")
+	F.Intrinsic.Control.AndIf(V.Screen.Form1!txt_Part6.Text,<>,"")
+		
+		V.Local.sRFQ_Seq.Set("006")
+		V.Local.sRouter.Set(V.Screen.Form1!txt_Part6.Text.UCase)
+		V.Local.sREV.Set(V.Screen.Form1!txt_Rev6.Text.UCase)
+		V.Local.sLOCATION.Set(V.Screen.Form1!txt_Loc6.Text) 
+		V.Local.sDESCRIPTION.Set(V.Screen.Form1!txt_Desc6.Text)
+		F.Intrinsic.String.Replace(V.Screen.Form1!txt_Qty6.Text,",","",V.Local.sQUANTITY)
+		'F.Intrinsic.String.DateString(V.Screen.Form1!datepicker1.Value,V.Local.sTemp)
+		V.Local.dTemp.Set(V.Screen.Form1!datepicker6.Value)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,5,2,V.Local.sMonth)
+		'F.Intrinsic.String.Right(V.Local.sTemp,2,V.Local.sDay)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,3,2,V.Local.sYear)
+		F.Intrinsic.Date.Month(V.Local.dTemp,V.Local.sMonth)
+		F.Intrinsic.Date.Day(V.Local.dTemp,V.Local.sDay)
+		F.Intrinsic.Date.Year(V.Local.dTemp,V.Local.sYear)
+		
+		'*********
+		'Added by Alejandro Noguera 12/01/2022
+		'Since DATE REQUESTED in CUST_RFQ_LINES is a 6 character lenght field, we need to trim the year
+		F.Intrinsic.String.Mid(V.Local.sYear,3,2,V.Local.sYear)
+		
+		F.Intrinsic.Control.If(V.Local.sMonth.Length,=,1)
+			F.Intrinsic.String.LPad(V.Local.sMonth,"0",2,V.Local.sMonth)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.sDay.Length,=,1)
+			F.IntrinsiC.String.LPad(V.Local.sDay,"0",2,V.Local.sDay)
+		F.Intrinsic.Control.EndIf
+		'**********
+		
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sMonth,V.Local.sDay,V.Local.sYear,V.Local.sDATE_REQUESTED)
+		V.Local.sFLAG_ROUTER_BUILT.Set("")
+		V.Local.sCOMMENTS.Set("")
+		V.Local.sFILLER.Set("")
+		
+		'Check if record already exists
+		F.Intrinsic.String.Build("Select COUNT(RFQ) From Cust_RFQ_LINES Where RFQ = '{0}' And RFQ_SEQUENCE = '{1}';",v.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		
+		F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+			'Add new record
+			F.Intrinsic.String.Build("INSERT INTO CUST_RFQ_LINES (RFQ, RFQ_SEQUENCE, ROUTER, REV, LOCATION, DESCRIPTION, QUANTITY, DATE_REQUESTED, FLAG_ROUTER_BUILT, COMMENTS, FILLER) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}');",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sFLAG_ROUTER_BUILT,V.Local.sCOMMENTS,V.Local.sFILLER,V.Local.sSQL)
+		F.Intrinsic.Control.ElseIf(V.Local.sRet,>,"0")
+			'Update existing record
+			F.Intrinsic.String.Build("UPDATE CUST_RFQ_LINES SET ROUTER = '{2}', REV = '{3}', LOCATION = '{4}', DESCRIPTION = '{5}', QUANTITY = '{6}', DATE_REQUESTED = '{7}' WHERE RFQ = '{0}' AND RFQ_SEQUENCE = '{1}';", V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			
+	F.Intrinsic.Control.EndIf
+	'Check line	7
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_Qty7.Text,<>,"")
+	F.Intrinsic.Control.AndIf(V.Screen.Form1!txt_Part7.Text,<>,"")
+		
+		V.Local.sRFQ_Seq.Set("007")
+		V.Local.sRouter.Set(V.Screen.Form1!txt_Part7.Text.UCase)
+		V.Local.sREV.Set(V.Screen.Form1!txt_Rev7.Text.UCase)
+		V.Local.sLOCATION.Set(V.Screen.Form1!txt_Loc7.Text) 
+		V.Local.sDESCRIPTION.Set(V.Screen.Form1!txt_Desc7.Text)
+		F.Intrinsic.String.Replace(V.Screen.Form1!txt_Qty7.Text,",","",V.Local.sQUANTITY)
+		'F.Intrinsic.String.DateString(V.Screen.Form1!datepicker1.Value,V.Local.sTemp)
+		V.Local.dTemp.Set(V.Screen.Form1!datepicker7.Value)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,5,2,V.Local.sMonth)
+		'F.Intrinsic.String.Right(V.Local.sTemp,2,V.Local.sDay)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,3,2,V.Local.sYear)
+		F.Intrinsic.Date.Month(V.Local.dTemp,V.Local.sMonth)
+		F.Intrinsic.Date.Day(V.Local.dTemp,V.Local.sDay)
+		F.Intrinsic.Date.Year(V.Local.dTemp,V.Local.sYear)
+		
+		'*********
+		'Added by Alejandro Noguera 12/01/2022
+		'Since DATE REQUESTED in CUST_RFQ_LINES is a 6 character lenght field, we need to trim the year
+		F.Intrinsic.String.Mid(V.Local.sYear,3,2,V.Local.sYear)
+		
+		F.Intrinsic.Control.If(V.Local.sMonth.Length,=,1)
+			F.Intrinsic.String.LPad(V.Local.sMonth,"0",2,V.Local.sMonth)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.sDay.Length,=,1)
+			F.IntrinsiC.String.LPad(V.Local.sDay,"0",2,V.Local.sDay)
+		F.Intrinsic.Control.EndIf
+		'**********
+		
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sMonth,V.Local.sDay,V.Local.sYear,V.Local.sDATE_REQUESTED)
+		V.Local.sFLAG_ROUTER_BUILT.Set("")
+		V.Local.sCOMMENTS.Set("")
+		V.Local.sFILLER.Set("")
+		
+		'Check if record already exists
+		F.Intrinsic.String.Build("Select COUNT(RFQ) From Cust_RFQ_LINES Where RFQ = '{0}' And RFQ_SEQUENCE = '{1}';",v.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		
+		F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+			'Add new record
+			F.Intrinsic.String.Build("INSERT INTO CUST_RFQ_LINES (RFQ, RFQ_SEQUENCE, ROUTER, REV, LOCATION, DESCRIPTION, QUANTITY, DATE_REQUESTED, FLAG_ROUTER_BUILT, COMMENTS, FILLER) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}');",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sFLAG_ROUTER_BUILT,V.Local.sCOMMENTS,V.Local.sFILLER,V.Local.sSQL)
+		F.Intrinsic.Control.ElseIf(V.Local.sRet,>,"0")
+			'Update existing record
+			F.Intrinsic.String.Build("UPDATE CUST_RFQ_LINES SET ROUTER = '{2}', REV = '{3}', LOCATION = '{4}', DESCRIPTION = '{5}', QUANTITY = '{6}', DATE_REQUESTED = '{7}' WHERE RFQ = '{0}' AND RFQ_SEQUENCE = '{1}';", V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			
+	F.Intrinsic.Control.EndIf
+	'Check line	8
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_Qty8.Text,<>,"")
+	F.Intrinsic.Control.AndIf(V.Screen.Form1!txt_Part8.Text,<>,"")
+		
+		V.Local.sRFQ_Seq.Set("008")
+		V.Local.sRouter.Set(V.Screen.Form1!txt_Part8.Text.UCase)
+		V.Local.sREV.Set(V.Screen.Form1!txt_Rev8.Text.UCase)
+		V.Local.sLOCATION.Set(V.Screen.Form1!txt_Loc8.Text) 
+		V.Local.sDESCRIPTION.Set(V.Screen.Form1!txt_Desc8.Text)
+		F.Intrinsic.String.Replace(V.Screen.Form1!txt_Qty8.Text,",","",V.Local.sQUANTITY)
+		'F.Intrinsic.String.DateString(V.Screen.Form1!datepicker1.Value,V.Local.sTemp)
+		V.Local.dTemp.Set(V.Screen.Form1!datepicker8.Value)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,5,2,V.Local.sMonth)
+		'F.Intrinsic.String.Right(V.Local.sTemp,2,V.Local.sDay)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,3,2,V.Local.sYear)
+		F.Intrinsic.Date.Month(V.Local.dTemp,V.Local.sMonth)
+		F.Intrinsic.Date.Day(V.Local.dTemp,V.Local.sDay)
+		F.Intrinsic.Date.Year(V.Local.dTemp,V.Local.sYear)
+		
+		'*********
+		'Added by Alejandro Noguera 12/01/2022
+		'Since DATE REQUESTED in CUST_RFQ_LINES is a 6 character lenght field, we need to trim the year
+		F.Intrinsic.String.Mid(V.Local.sYear,3,2,V.Local.sYear)
+		
+		F.Intrinsic.Control.If(V.Local.sMonth.Length,=,1)
+			F.Intrinsic.String.LPad(V.Local.sMonth,"0",2,V.Local.sMonth)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.sDay.Length,=,1)
+			F.IntrinsiC.String.LPad(V.Local.sDay,"0",2,V.Local.sDay)
+		F.Intrinsic.Control.EndIf
+		'**********
+		
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sMonth,V.Local.sDay,V.Local.sYear,V.Local.sDATE_REQUESTED)
+		V.Local.sFLAG_ROUTER_BUILT.Set("")
+		V.Local.sCOMMENTS.Set("")
+		V.Local.sFILLER.Set("")
+		
+		'Check if record already exists
+		F.Intrinsic.String.Build("Select COUNT(RFQ) From Cust_RFQ_LINES Where RFQ = '{0}' And RFQ_SEQUENCE = '{1}';",v.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		
+		F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+			'Add new record
+			F.Intrinsic.String.Build("INSERT INTO CUST_RFQ_LINES (RFQ, RFQ_SEQUENCE, ROUTER, REV, LOCATION, DESCRIPTION, QUANTITY, DATE_REQUESTED, FLAG_ROUTER_BUILT, COMMENTS, FILLER) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}');",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sFLAG_ROUTER_BUILT,V.Local.sCOMMENTS,V.Local.sFILLER,V.Local.sSQL)
+		F.Intrinsic.Control.ElseIf(V.Local.sRet,>,"0")
+			'Update existing record
+			F.Intrinsic.String.Build("UPDATE CUST_RFQ_LINES SET ROUTER = '{2}', REV = '{3}', LOCATION = '{4}', DESCRIPTION = '{5}', QUANTITY = '{6}', DATE_REQUESTED = '{7}' WHERE RFQ = '{0}' AND RFQ_SEQUENCE = '{1}';", V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			
+	F.Intrinsic.Control.EndIf							
+	'Check line	9
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_Qty9.Text,<>,"")
+	F.Intrinsic.Control.AndIf(V.Screen.Form1!txt_Part9.Text,<>,"")
+		
+		V.Local.sRFQ_Seq.Set("009")
+		V.Local.sRouter.Set(V.Screen.Form1!txt_Part9.Text.UCase)
+		V.Local.sREV.Set(V.Screen.Form1!txt_Rev9.Text.UCase)
+		V.Local.sLOCATION.Set(V.Screen.Form1!txt_Loc9.Text) 
+		V.Local.sDESCRIPTION.Set(V.Screen.Form1!txt_Desc9.Text)
+		F.Intrinsic.String.Replace(V.Screen.Form1!txt_Qty9.Text,",","",V.Local.sQUANTITY)
+		'F.Intrinsic.String.DateString(V.Screen.Form1!datepicker1.Value,V.Local.sTemp)
+		V.Local.dTemp.Set(V.Screen.Form1!datepicker9.Value)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,5,2,V.Local.sMonth)
+		'F.Intrinsic.String.Right(V.Local.sTemp,2,V.Local.sDay)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,3,2,V.Local.sYear)
+		F.Intrinsic.Date.Month(V.Local.dTemp,V.Local.sMonth)
+		F.Intrinsic.Date.Day(V.Local.dTemp,V.Local.sDay)
+		F.Intrinsic.Date.Year(V.Local.dTemp,V.Local.sYear)
+		
+		'*********
+		'Added by Alejandro Noguera 12/01/2022
+		'Since DATE REQUESTED in CUST_RFQ_LINES is a 6 character lenght field, we need to trim the year
+		F.Intrinsic.String.Mid(V.Local.sYear,3,2,V.Local.sYear)
+		
+		F.Intrinsic.Control.If(V.Local.sMonth.Length,=,1)
+			F.Intrinsic.String.LPad(V.Local.sMonth,"0",2,V.Local.sMonth)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.sDay.Length,=,1)
+			F.IntrinsiC.String.LPad(V.Local.sDay,"0",2,V.Local.sDay)
+		F.Intrinsic.Control.EndIf
+		'**********
+		
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sMonth,V.Local.sDay,V.Local.sYear,V.Local.sDATE_REQUESTED)
+		V.Local.sFLAG_ROUTER_BUILT.Set("")
+		V.Local.sCOMMENTS.Set("")
+		V.Local.sFILLER.Set("")
+		
+		'Check if record already exists
+		F.Intrinsic.String.Build("Select COUNT(RFQ) From Cust_RFQ_LINES Where RFQ = '{0}' And RFQ_SEQUENCE = '{1}';",v.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		
+		F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+			'Add new record
+			F.Intrinsic.String.Build("INSERT INTO CUST_RFQ_LINES (RFQ, RFQ_SEQUENCE, ROUTER, REV, LOCATION, DESCRIPTION, QUANTITY, DATE_REQUESTED, FLAG_ROUTER_BUILT, COMMENTS, FILLER) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}');",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sFLAG_ROUTER_BUILT,V.Local.sCOMMENTS,V.Local.sFILLER,V.Local.sSQL)
+		F.Intrinsic.Control.ElseIf(V.Local.sRet,>,"0")
+			'Update existing record
+			F.Intrinsic.String.Build("UPDATE CUST_RFQ_LINES SET ROUTER = '{2}', REV = '{3}', LOCATION = '{4}', DESCRIPTION = '{5}', QUANTITY = '{6}', DATE_REQUESTED = '{7}' WHERE RFQ = '{0}' AND RFQ_SEQUENCE = '{1}';", V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			
+	F.Intrinsic.Control.EndIf								
+	'Check line	10
+	F.Intrinsic.Control.If(V.Screen.Form1!txt_Qty10.Text,<>,"")
+	F.Intrinsic.Control.AndIf(V.Screen.Form1!txt_Part10.Text,<>,"")	
+		
+		V.Local.sRFQ_Seq.Set("010")
+		V.Local.sRouter.Set(V.Screen.Form1!txt_Part10.Text.UCase)
+		V.Local.sREV.Set(V.Screen.Form1!txt_Rev10.Text.UCase)
+		V.Local.sLOCATION.Set(V.Screen.Form1!txt_Loc10.Text) 
+		V.Local.sDESCRIPTION.Set(V.Screen.Form1!txt_Desc10.Text)
+		F.Intrinsic.String.Replace(V.Screen.Form1!txt_Qty10.Text,",","",V.Local.sQUANTITY)
+		'F.Intrinsic.String.DateString(V.Screen.Form1!datepicker1.Value,V.Local.sTemp)
+		V.Local.dTemp.Set(V.Screen.Form1!datepicker10.Value)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,5,2,V.Local.sMonth)
+		'F.Intrinsic.String.Right(V.Local.sTemp,2,V.Local.sDay)
+		'F.Intrinsic.String.Mid(V.Local.sTemp,3,2,V.Local.sYear)
+		F.Intrinsic.Date.Month(V.Local.dTemp,V.Local.sMonth)
+		F.Intrinsic.Date.Day(V.Local.dTemp,V.Local.sDay)
+		F.Intrinsic.Date.Year(V.Local.dTemp,V.Local.sYear)
+		
+		'*********
+		'Added by Alejandro Noguera 12/01/2022
+		'Since DATE REQUESTED in CUST_RFQ_LINES is a 6 character lenght field, we need to trim the year
+		F.Intrinsic.String.Mid(V.Local.sYear,3,2,V.Local.sYear)
+		
+		F.Intrinsic.Control.If(V.Local.sMonth.Length,=,1)
+			F.Intrinsic.String.LPad(V.Local.sMonth,"0",2,V.Local.sMonth)
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.sDay.Length,=,1)
+			F.IntrinsiC.String.LPad(V.Local.sDay,"0",2,V.Local.sDay)
+		F.Intrinsic.Control.EndIf
+		'**********
+		
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sMonth,V.Local.sDay,V.Local.sYear,V.Local.sDATE_REQUESTED)
+		V.Local.sFLAG_ROUTER_BUILT.Set("")
+		V.Local.sCOMMENTS.Set("")
+		V.Local.sFILLER.Set("")
+		
+		'Check if record already exists
+		F.Intrinsic.String.Build("Select COUNT(RFQ) From Cust_RFQ_LINES Where RFQ = '{0}' And RFQ_SEQUENCE = '{1}';",v.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+		
+		F.Intrinsic.Control.If(V.Local.sRet,=,"0")
+			'Add new record
+			F.Intrinsic.String.Build("INSERT INTO CUST_RFQ_LINES (RFQ, RFQ_SEQUENCE, ROUTER, REV, LOCATION, DESCRIPTION, QUANTITY, DATE_REQUESTED, FLAG_ROUTER_BUILT, COMMENTS, FILLER) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}');",V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sFLAG_ROUTER_BUILT,V.Local.sCOMMENTS,V.Local.sFILLER,V.Local.sSQL)
+		F.Intrinsic.Control.ElseIf(V.Local.sRet,>,"0")
+			'Update existing record
+			F.Intrinsic.String.Build("UPDATE CUST_RFQ_LINES SET ROUTER = '{2}', REV = '{3}', LOCATION = '{4}', DESCRIPTION = '{5}', QUANTITY = '{6}', DATE_REQUESTED = '{7}' WHERE RFQ = '{0}' AND RFQ_SEQUENCE = '{1}';", V.Local.sRFQ,V.Local.sRFQ_Seq,V.Local.sROUTER,V.Local.sREV,V.Local.sLOCATION,V.Local.sDESCRIPTION.PSQLFriendly,V.Local.sQUANTITY,V.Local.sDATE_REQUESTED,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+			
+	F.Intrinsic.Control.EndIf									
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry	
+Program.Sub.Save_Line_alt.End
+
+Program.Sub.CopyLine.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+'	F.Intrinsic.UI.Msgbox(V.Args.ControlName)
+	F.Intrinsic.Control.If(V.Args.ControlName.UCase,=,"LBL_LINE2")
+		'Copy Line 1 to Line 2
+		Gui.Form1.txt_Part2.Text(V.Screen.Form1!txt_Part1.Text)
+		Gui.Form1.txt_Rev2.Text(V.Screen.Form1!txt_Rev1.Text)
+		Gui.Form1.txt_Desc2.Text(V.Screen.Form1!txt_Desc1.Text)
+		Gui.Form1.datepicker2.Value(V.Screen.Form1!datepicker1.Value)
+		
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"LBL_LINE3")
+		'Copy Line 2 to Line 3
+		Gui.Form1.txt_Part3.Text(V.Screen.Form1!txt_Part2.Text)
+		Gui.Form1.txt_Rev3.Text(V.Screen.Form1!txt_Rev2.Text)
+		Gui.Form1.txt_Desc3.Text(V.Screen.Form1!txt_Desc2.Text)
+		Gui.Form1.datepicker3.Value(V.Screen.Form1!datepicker2.Value)
+		
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"LBL_LINE4")
+		'Copy Line 3 to Line 4
+		Gui.Form1.txt_Part4.Text(V.Screen.Form1!txt_Part3.Text)
+		Gui.Form1.txt_Rev4.Text(V.Screen.Form1!txt_Rev3.Text)
+		Gui.Form1.txt_Desc4.Text(V.Screen.Form1!txt_Desc3.Text)
+		Gui.Form1.datepicker4.Value(V.Screen.Form1!datepicker3.Value)
+		
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"LBL_LINE5")
+		'Copy Line 4 to Line 5
+		Gui.Form1.txt_Part5.Text(V.Screen.Form1!txt_Part4.Text)
+		Gui.Form1.txt_Rev5.Text(V.Screen.Form1!txt_Rev4.Text)
+		Gui.Form1.txt_Desc5.Text(V.Screen.Form1!txt_Desc4.Text)
+		Gui.Form1.datepicker5.Value(V.Screen.Form1!datepicker4.Value)
+		
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"LBL_LINE6")
+		'Copy Line 5 to Line 6
+		Gui.Form1.txt_Part6.Text(V.Screen.Form1!txt_Part5.Text)
+		Gui.Form1.txt_Rev6.Text(V.Screen.Form1!txt_Rev5.Text)
+		Gui.Form1.txt_Desc6.Text(V.Screen.Form1!txt_Desc5.Text)
+		Gui.Form1.datepicker6.Value(V.Screen.Form1!datepicker5.Value)
+		
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"LBL_LINE7")
+		'Copy Line 6 to Line 7
+		Gui.Form1.txt_Part7.Text(V.Screen.Form1!txt_Part6.Text)
+		Gui.Form1.txt_Rev7.Text(V.Screen.Form1!txt_Rev6.Text)
+		Gui.Form1.txt_Desc7.Text(V.Screen.Form1!txt_Desc6.Text)
+		Gui.Form1.datepicker7.Value(V.Screen.Form1!datepicker6.Value)
+		
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"LBL_LINE8")
+		'Copy Line 7 to Line 8
+		Gui.Form1.txt_Part8.Text(V.Screen.Form1!txt_Part7.Text)
+		Gui.Form1.txt_Rev8.Text(V.Screen.Form1!txt_Rev7.Text)
+		Gui.Form1.txt_Desc8.Text(V.Screen.Form1!txt_Desc7.Text)
+		Gui.Form1.datepicker8.Value(V.Screen.Form1!datepicker7.Value)
+		
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"LBL_LINE9")
+		'Copy Line 8 to Line 9
+		Gui.Form1.txt_Part9.Text(V.Screen.Form1!txt_Part8.Text)
+		Gui.Form1.txt_Rev9.Text(V.Screen.Form1!txt_Rev8.Text)
+		Gui.Form1.txt_Desc9.Text(V.Screen.Form1!txt_Desc8.Text)
+		Gui.Form1.datepicker9.Value(V.Screen.Form1!datepicker8.Value)
+		
+	F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"LBL_LINE10")
+		'Copy Line 9 to Line 10
+		Gui.Form1.txt_Part10.Text(V.Screen.Form1!txt_Part9.Text)
+		Gui.Form1.txt_Rev10.Text(V.Screen.Form1!txt_Rev9.Text)
+		Gui.Form1.txt_Desc10.Text(V.Screen.Form1!txt_Desc9.Text)
+		Gui.Form1.datepicker10.Value(V.Screen.Form1!datepicker9.Value)
+		
+	F.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry	
+Program.Sub.CopyLine.End
+
+Program.Sub.cmd_InvBrowser.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+V.Local.sCol.Declare(String)
+V.Local.sColW.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.rst.Declare(String)
+
+'F.Intrinsic.Control.CallSub(Cmd_clearclick)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+
+F.Intrinsic.String.Split("Part*!*Rev*!*Loc*!*Description","*!*",V.Local.sCol)
+F.Intrinsic.String.Split("750*!*250*!*250*!*1000","*!*",V.Local.sColW)
+
+	F.Intrinsic.UI.Browser("Select a Inventory Part","con","Select LEFT(PART,17) as Part, SUBSTRING(PART,18,2) as Rev, LOCATION AS Loc, DESCRIPTION as Descripton From V_INVENTORY_MSTR Order by Part;",V.local.sCol,V.Local.sColW,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,"<>","***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+			F.Intrinsic.Control.If(V.Args.ControlName.UCase,=,"CMD_PARTBWR1")
+			Gui.Form1.txt_Part1.Text(V.Local.sRet(0))
+			Gui.Form1.txt_Rev1.Text(V.Local.sRet(1))
+			Gui.Form1.txt_Loc1.Text(V.Local.sRet(2))
+			Gui.Form1.txt_Desc1.Text(V.Local.sRet(3))
+		F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"CMD_PARTBWR2")
+			Gui.Form1.txt_Part2.Text(V.Local.sRet(0))
+			Gui.Form1.txt_Rev2.Text(V.Local.sRet(1))
+			Gui.Form1.txt_Loc2.Text(V.Local.sRet(2))
+			Gui.Form1.txt_Desc2.Text(V.Local.sRet(3))
+		F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"CMD_PARTBWR3")
+			Gui.Form1.txt_Part3.Text(V.Local.sRet(0))
+			Gui.Form1.txt_Rev3.Text(V.Local.sRet(1))
+			Gui.Form1.txt_Loc3.Text(V.Local.sRet(2))
+			Gui.Form1.txt_Desc3.Text(V.Local.sRet(3))
+		F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"CMD_PARTBWR4")
+			Gui.Form1.txt_Part4.Text(V.Local.sRet(0))
+			Gui.Form1.txt_Rev4.Text(V.Local.sRet(1))
+			Gui.Form1.txt_Loc4.Text(V.Local.sRet(2))
+			Gui.Form1.txt_Desc4.Text(V.Local.sRet(3))
+		F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"CMD_PARTBWR5")
+			Gui.Form1.txt_Part5.Text(V.Local.sRet(0))
+			Gui.Form1.txt_Rev5.Text(V.Local.sRet(1))
+			Gui.Form1.txt_Loc5.Text(V.Local.sRet(2))
+			Gui.Form1.txt_Desc5.Text(V.Local.sRet(3))
+		F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"CMD_PARTBWR6")
+			Gui.Form1.txt_Part6.Text(V.Local.sRet(0))
+			Gui.Form1.txt_Rev6.Text(V.Local.sRet(1))
+			Gui.Form1.txt_Loc6.Text(V.Local.sRet(2))
+			Gui.Form1.txt_Desc6.Text(V.Local.sRet(3))
+		F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"CMD_PARTBWR7")
+			Gui.Form1.txt_Part7.Text(V.Local.sRet(0))
+			Gui.Form1.txt_Rev7.Text(V.Local.sRet(1))
+			Gui.Form1.txt_Loc7.Text(V.Local.sRet(2))
+			Gui.Form1.txt_Desc7.Text(V.Local.sRet(3))
+		F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"CMD_PARTBWR8")
+			Gui.Form1.txt_Part8.Text(V.Local.sRet(0))
+			Gui.Form1.txt_Rev8.Text(V.Local.sRet(1))
+			Gui.Form1.txt_Loc8.Text(V.Local.sRet(2))
+			Gui.Form1.txt_Desc8.Text(V.Local.sRet(3))
+		F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"CMD_PARTBWR9")
+			Gui.Form1.txt_Part9.Text(V.Local.sRet(0))
+			Gui.Form1.txt_Rev9.Text(V.Local.sRet(1))
+			Gui.Form1.txt_Loc9.Text(V.Local.sRet(2))
+			Gui.Form1.txt_Desc9.Text(V.Local.sRet(3))
+		F.Intrinsic.Control.ElseIf(V.Args.ControlName.UCase,=,"CMD_PARTBWR10")
+			Gui.Form1.txt_Part10.Text(V.Local.sRet(0))
+			Gui.Form1.txt_Rev10.Text(V.Local.sRet(1))
+			Gui.Form1.txt_Loc10.Text(V.Local.sRet(2))
+			Gui.Form1.txt_Desc10.Text(V.Local.sRet(3))
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+
+V.Local.sSQL.Set("Select LEFT(PART,17) as PART, SUBSTRING(PART,18,2) as REV, LOCATION AS LOC, DESCRIPTION From V_INVENTORY_MSTR Order by Part;")
+
+F.ODBC.Connection!con.openRecordSetRO("rst",V.Local.sSql)
+
+F.ODBC.Connection!con.CloseRecordsets
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.cmd_InvBrowser.End
+Program.Sub.cbo_buyer_Change.Start
+Program.Sub.cbo_buyer_Change.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$12:00:00 AM$}$False
+${$5$}$2.0.0.0$}$2
+${$6$}$anogueradeanda$}$20221214100026458$}$Brc4ySiax1SYsBxo6PAUD1l1uxdiUizTmPmbMh+robjPyY3sEw/Ob3bZJQNB+i5eghQk2l4gOd7Bq+8rTuK9kBPQdqboLyNN
+Program.Sub.Comments.End
